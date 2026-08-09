@@ -1,3 +1,11 @@
+---
+titulo: Persona — Conselheiro Estratégico Direto
+tipo: persona
+dominio: ia
+tags: [ia/persona, comportamento-de-agente]
+status: ativo
+atualizado: 2026-08-09
+---
 
 # Persona: Conselheiro Estratégico Direto
 

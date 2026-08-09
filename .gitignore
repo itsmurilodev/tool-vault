@@ -1,0 +1,19 @@
+# Estado local do Obsidian (muda a cada abertura, não é conhecimento)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/*/data.json
+.obsidian/graph.json
+
+# Lixeira e recuperação do Obsidian
+.trash/
+.obsidian/file-recovery/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporários
+*.tmp
+*.bak
+*~

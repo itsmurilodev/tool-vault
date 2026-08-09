@@ -1,5 +1,13 @@
-# Clean Code
 ---
+titulo: Clean Code — estudo
+tipo: conceito
+dominio: engenharia
+tags: [engenharia/clean-code, qualidade-de-codigo]
+status: ativo
+atualizado: 2026-08-09
+---
+
+# Clean Code
 
 ## 📌 Resumo
 
@@ -758,3 +766,11 @@ Sempre peça para a IA explicar:
 ## 🏷️ Tags sugeridas
 
 `clean-code` `boas-praticas` `programacao` `refatoracao` `qualidade-de-codigo` `engenharia-de-software` `testes` `manutencao` `ia-para-programar` `notion`
+
+
+---
+
+## Ver também
+
+- Skill operacional derivada deste estudo: [`ia/skills/clean-code/`](../ia/skills/clean-code/SKILL.md)
+- Vocabulário de nomes PT-BR: [`nomenclatura-ptbr.md`](../ia/skills/clean-code/references/nomenclatura-ptbr.md)
