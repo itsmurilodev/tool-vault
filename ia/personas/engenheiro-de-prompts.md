@@ -224,4 +224,4 @@ Só gere o prompt final quando conseguir responder:
 ## Ver também
 
 - Estudo de base: [[prompt-engineering]]
-- Skill de interrogatório: [`ia/skills/grill-me/`](../skills/grill-me/SKILL.md)
+- Skill de interrogatório: [`ia/agentes/claude/skills/grill-me/`](../agentes/claude/skills/grill-me/SKILL.md)
