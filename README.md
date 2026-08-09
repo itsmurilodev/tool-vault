@@ -56,6 +56,7 @@ Cada domínio tem um `README.md` que serve de índice e backlog — é lá que s
 
 - [Padrão de nomes de repositórios GitHub](ferramentas/github/padrao-de-repositorios.md)
 - [Fluxo Issue → PR → commit padronizado](ferramentas/github/fluxo-issue-pr.md)
+- [Prospecção B2B e mídia paga](ferramentas/prospeccao-e-midia-paga.md)
 
 ---
 

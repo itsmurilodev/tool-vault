@@ -77,9 +77,13 @@ Recorte pelo perfil de trabalho (dev/produto/estúdio pequeno), não pela lista 
 | **Canva / Gamma / Adobe** | Entrega visual e apresentação para cliente |
 | **Microsoft Learn** | Documentação confiável de stack Microsoft — só se a stack for essa |
 
-### Não valem para este perfil
+### Ainda não — mas com portão definido
 
-**ZoomInfo, Apollo.io, Windsor.ai** são ferramentas de vendas B2B e mídia paga — enriquecimento de lead, agregação de Meta/Google/TikTok Ads. Fazem sentido para time comercial com verba de anúncio rodando, não para estúdio pré-receita. **PubMed** é literatura biomédica. **Mercado Libre Inmuebles** é busca de imóvel. **Spotify** não tem função de trabalho.
+**ZoomInfo, Apollo.io e Windsor.ai** são ferramentas de vendas B2B e mídia paga. Não são inadequadas por natureza: são inadequadas *antes* de existir o processo que elas aceleram (ICP escrito, outbound repetível, verba em mais de um canal). Cada uma tem um portão diferente — e Apollo tem free tier real, então o teste é barato quando a hora chegar. Detalhamento, preço verificado e as implicações de LGPD: [[prospeccao-e-midia-paga]].
+
+### Sem função aqui
+
+**PubMed** é literatura biomédica. **Mercado Libre Inmuebles** é busca de imóvel. **Spotify** não tem função de trabalho.
 
 ## Revisão periódica
 
