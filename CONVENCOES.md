@@ -10,12 +10,14 @@ Decida por **domínio** (o assunto), não por como você aprendeu.
 
 | Domínio        | O que entra                                                                 |
 | -------------- | --------------------------------------------------------------------------- |
-| `ia/`          | LLMs, agentes, prompt engineering, skills, personas, regras de comportamento |
+| `ia/`          | LLMs, prompt engineering, personas, regras — e config específica de cada agente |
 | `engenharia/`  | Código, arquitetura, padrões, testes, refatoração, qualidade                 |
 | `infra/`       | Cloud, containers, redes, Linux, CI/CD, observabilidade, banco de dados      |
 | `ferramentas/` | Git/GitHub, editor, terminal, CLIs, produtividade                            |
 
 > Um estudo de Clean Code feito conversando com uma IA é conhecimento de **engenharia**, não de IA. O domínio é o assunto da nota, não a ferramenta usada para produzi-la.
+
+**Dentro de `ia/`, há um segundo corte:** o que funciona em qualquer agente fica em `conceitos/`, `personas/` e `regras/`; o que só funciona num agente específico fica em `agentes/<nome>/`. Teste: se a nota começa com "no Claude você faz assim", ela é de `agentes/`. Se começa com "prompt bom tem objetivo explícito", é de `conceitos/`.
 
 **Quando criar um domínio novo:** só quando existirem 3+ notas que não cabem em nenhum dos atuais. Antes disso, coloque no domínio mais próximo.
 
@@ -28,7 +30,7 @@ Decida por **domínio** (o assunto), não por como você aprendeu.
 Duas naturezas diferentes, tratadas de formas diferentes:
 
 - **Conhecimento** (`conceitos/`, notas de domínio) — o que eu aprendi. Pode ser longo, ter analogia, exemplo, contexto histórico. Escrito para o meu eu do futuro.
-- **Artefato** (`ia/skills/`, `ia/personas/`, `ia/regras/`) — o que uma IA consome e executa. Deve ser enxuto, operacional e sem teoria decorativa. Escrito para uma máquina seguir.
+- **Artefato** (`ia/agentes/claude/skills/`, `ia/personas/`, `ia/regras/`) — o que uma IA consome e executa. Deve ser enxuto, operacional e sem teoria decorativa. Escrito para uma máquina seguir.
 
 Quando os dois existem para o mesmo assunto, o artefato **referencia** o conhecimento em vez de copiá-lo. Conteúdo duplicado nas duas pontas sempre diverge.
 
@@ -70,17 +72,17 @@ atualizado: 2026-08-09
 ## 5. Links
 
 - Entre notas do vault: `[[nome-do-arquivo]]` (wikilink do Obsidian).
-- Para arquivos de skill ou qualquer coisa fora do grafo de notas: link markdown relativo — `[clean-code](ia/skills/clean-code/SKILL.md)`.
+- Para arquivos de skill ou qualquer coisa fora do grafo de notas: link markdown relativo — `[clean-code](ia/agentes/claude/skills/clean-code/SKILL.md)`.
 - Toda nota nova entra no `README.md` do seu domínio. Índice desatualizado é vault perdido.
 
 ---
 
 ## 6. Skills
 
-Uma skill é uma pasta em `ia/skills/<nome>/` com:
+Uma skill é uma pasta em `ia/agentes/claude/skills/<nome>/` com:
 
 ```text
-ia/skills/<nome>/
+ia/agentes/claude/skills/<nome>/
 ├── SKILL.md              # obrigatório: frontmatter name + description, e as regras operacionais
 └── references/           # opcional: material de apoio carregado só quando necessário
 ```
@@ -123,4 +125,4 @@ Evite `update`, `wip`, `ajustes`.
 | Script | O que faz |
 | ------ | --------- |
 | `./scripts/validar-vault.py` | Checa link quebrado, wikilink ambíguo, nome duplicado, frontmatter faltando e skill mal formada. Sai com código 1 em caso de problema — dá para virar pre-commit. |
-| `./scripts/sync-skills.sh` | Liga `ia/skills/*` em `~/.claude/skills` por symlink. Sem argumento só simula; `--apply` executa. Nunca apaga diretório real. |
+| `./scripts/sync-skills.sh` | Liga `ia/agentes/claude/skills/*` em `~/.claude/skills` por symlink. Sem argumento só simula; `--apply` executa. Nunca apaga diretório real. |

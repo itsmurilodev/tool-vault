@@ -772,5 +772,5 @@ Sempre peça para a IA explicar:
 
 ## Ver também
 
-- Skill operacional derivada deste estudo: [`ia/skills/clean-code/`](../ia/skills/clean-code/SKILL.md)
-- Vocabulário de nomes PT-BR: [`nomenclatura-ptbr.md`](../ia/skills/clean-code/references/nomenclatura-ptbr.md)
+- Skill operacional derivada deste estudo: [`ia/agentes/claude/skills/clean-code/`](../ia/agentes/claude/skills/clean-code/SKILL.md)
+- Vocabulário de nomes PT-BR: [`nomenclatura-ptbr.md`](../ia/agentes/claude/skills/clean-code/references/nomenclatura-ptbr.md)

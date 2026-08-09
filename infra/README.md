@@ -2,8 +2,6 @@
 
 Onde o software roda: sistema operacional, containers, cloud, redes, banco de dados, CI/CD e observabilidade.
 
-**Ainda não há notas neste domínio.** Este arquivo existe para o conhecimento de infra ter um lugar óbvio quando chegar — em vez de virar mais uma pasta improvisada.
-
 ## O que entra aqui
 
 | Tópico            | Exemplos de nota                                                   |
@@ -25,7 +23,7 @@ Onde o software roda: sistema operacional, containers, cloud, redes, banco de da
 
 ## Notas
 
-_(vazio — primeira nota entra aqui)_
+- [Observabilidade — Sentry, Datadog, New Relic e OpenTelemetry](observabilidade.md) — as três plataformas são concorrentes, não somáveis; OpenTelemetry é o padrão de instrumentação que evita lock-in.
 
 ---
 
@@ -35,3 +33,4 @@ _(vazio — primeira nota entra aqui)_
 - [ ] Deploy: como um projeto sai do local para o ar hoje, passo a passo real
 - [ ] Backup de banco: comando exato de dump e de restore, testado
 - [ ] Secrets: onde ficam hoje e onde deveriam ficar
+- [ ] Instrumentar um projeto com OpenTelemetry, na prática

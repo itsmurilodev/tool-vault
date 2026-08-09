@@ -8,68 +8,67 @@ Toda nota é Markdown, navegável no Obsidian e versionada no Git.
 
 ## Como este vault é organizado
 
-O primeiro nível é **domínio** (o assunto). O segundo nível separa conhecimento de artefato.
+O primeiro nível é **domínio** (o assunto). Dentro de `ia/`, há um segundo corte: o que é portável entre agentes vs. o que é específico de um.
 
 ```text
 tool-vault/
 ├── CONVENCOES.md        # como adicionar conhecimento aqui (leia antes de criar nota)
 ├── templates/           # modelos para notas novas
-├── scripts/             # automações do vault
+├── scripts/             # validação e sync
 │
 ├── ia/                  # inteligência artificial e agentes
-│   ├── conceitos/       #   conhecimento: estudos e teoria
-│   ├── skills/          #   artefato: skills executáveis (espelha ~/.claude/skills)
-│   ├── personas/        #   artefato: perfis de comportamento de agente
-│   └── regras/          #   artefato: regras globais e de workspace
+│   ├── conceitos/       #   teoria — vale para qualquer LLM
+│   ├── personas/        #   perfis de comportamento (portáveis)
+│   ├── regras/          #   Global / Workspace Rules (portáveis)
+│   └── agentes/
+│       └── claude/      #   skills, conectores (MCP), configuração e hooks
 │
-├── engenharia/          # engenharia de software (código, arquitetura, testes)
-├── infra/               # infraestrutura, cloud, containers, redes, CI/CD
-└── ferramentas/         # ferramentas do dia a dia (git/github, editor, CLI)
+├── engenharia/          # código, arquitetura, testes, qualidade, front-end
+├── infra/               # cloud, containers, redes, CI/CD, observabilidade
+└── ferramentas/         # git/github, editor, terminal, CLIs
 ```
 
-Cada domínio tem um `README.md` que serve de índice — é lá que se registra nota nova.
+Cada domínio tem um `README.md` que serve de índice e backlog — é lá que se registra nota nova.
 
 ---
 
 ## Índice
 
-### 🤖 IA
+### 🤖 IA → [índice do domínio](ia/README.md)
 
 - **Conceitos** — [Prompt Engineering](ia/conceitos/prompt-engineering.md)
-- **Skills** — [clean-code](ia/skills/clean-code/SKILL.md) · [decisao-arquitetural](ia/skills/decisao-arquitetural/SKILL.md) · [grill-me](ia/skills/grill-me/SKILL.md) · [heuristicas-nielsen](ia/skills/heuristicas-nielsen/SKILL.md) · [levantamento-requisitos](ia/skills/levantamento-requisitos/SKILL.md) · [prompt-engineering-agente](ia/skills/prompt-engineering-agente/SKILL.md)
 - **Personas** — [Conselheiro Estratégico](ia/personas/conselheiro-estrategico.md) · [Engenheiro de Prompts](ia/personas/engenheiro-de-prompts.md)
 - **Regras** — [Global Rules](ia/regras/global-rules.md) · [Workspace Rules](ia/regras/workspace-rules.md)
+- **Claude** — [conectores (MCP)](ia/agentes/claude/conectores.md) · [configuração e hooks](ia/agentes/claude/configuracao.md) · [skills](ia/agentes/claude/README.md)
 
-→ [Índice completo do domínio](ia/README.md)
+### 🏗️ Engenharia → [índice do domínio](engenharia/README.md)
 
-### 🏗️ Engenharia
-
+- [Portão de adoção de ferramenta](engenharia/adocao-de-ferramenta.md)
 - [Clean Code](engenharia/clean-code.md)
+- [Qualidade automatizada](engenharia/qualidade-automatizada.md)
+- [Bibliotecas de UI e princípios de movimento](engenharia/bibliotecas-de-ui.md)
 
-→ [Índice completo do domínio](engenharia/README.md)
+### 🖥️ Infra → [índice do domínio](infra/README.md)
 
-### 🖥️ Infra
+- [Observabilidade — Sentry, Datadog, New Relic e OpenTelemetry](infra/observabilidade.md)
 
-Domínio ainda vazio. → [O que entra aqui](infra/README.md)
-
-### 🔧 Ferramentas
+### 🔧 Ferramentas → [índice do domínio](ferramentas/README.md)
 
 - [Padrão de nomes de repositórios GitHub](ferramentas/github/padrao-de-repositorios.md)
-
-→ [Índice completo do domínio](ferramentas/README.md)
+- [Fluxo Issue → PR → commit padronizado](ferramentas/github/fluxo-issue-pr.md)
 
 ---
 
 ## Usando as skills
 
-As skills em `ia/skills/` seguem o formato de skill do Claude (pasta com `SKILL.md` + frontmatter `name`/`description`). Para instalá-las localmente:
+As skills em `ia/agentes/claude/skills/` seguem o formato do Claude (pasta com `SKILL.md` + frontmatter `name`/`description`). Para instalá-las localmente:
 
 ```bash
 ./scripts/sync-skills.sh          # mostra o que faria
 ./scripts/sync-skills.sh --apply  # cria os links em ~/.claude/skills/
 ```
 
-O script usa symlink: editar a skill aqui já reflete no Claude, sem precisar sincronizar de novo.
+O script usa symlink: editar a skill aqui já reflete no Claude, sem sincronizar de novo. Ele nunca apaga diretório real — se avisar que já existe um, veja [configuração do Claude](ia/agentes/claude/configuracao.md).
 
 ---
 
