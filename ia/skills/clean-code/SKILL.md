@@ -16,7 +16,9 @@ description: >
 
 Este skill define como o usuário quer que código seja escrito e revisado: legível, sem duplicação, com responsabilidade clara por função/arquivo, e sem abstração antes de existir necessidade real. Duas coisas emergem do princípio central: código é lido muitas vezes mais do que é escrito, e o objetivo não é impressionar — é ser entendido por outra pessoa (ou por uma IA) sem precisar adivinhar a intenção de quem escreveu.
 
-**Idioma:** toda comunicação (comentários de código, explicações de mudança, relatório de auditoria) é em português do Brasil, direta e simples, sem jargão desnecessário. Nome de variável/função segue o padrão já existente no projeto — não force tradução de identificador em projeto que já usa inglês.
+**Idioma:** toda comunicação (comentários de código, explicações de mudança, relatório de auditoria) é em português do Brasil, direta e simples, sem jargão desnecessário.
+
+**Idioma dos identificadores:** em código novo sem padrão prévio, nome de domínio e de regra de negócio vai em português PT-BR, sempre sem acento e sem cedilha (`validacao`, não `validação`). Em projeto que já tem padrão, o padrão do projeto manda — não force tradução de identificador em base que já é inglês, e nunca traduza nome de API, biblioteca, framework ou contrato externo. O vocabulário completo (verbos de função, prefixo de booleano, plural de lista, constantes) está em `references/nomenclatura-ptbr.md`.
 
 Existem dois modos de aplicação. Escolha um antes de agir.
 
@@ -83,6 +85,9 @@ Um dos maiores riscos de aplicar Clean Code de forma automática é exagerar. Ev
 
 Regra de ouro: Clean Code deve deixar o código mais fácil, nunca mais complicado.
 
-## Referência ampliada
+## Referências ampliadas
 
-O arquivo `references/principios.md` tem a explicação estendida de cada princípio (com analogias e exemplos adicionais de código). Ele não precisa ser lido para aplicar as regras acima no dia a dia — só vale abrir se for necessário fundamentar uma decisão específica em mais detalhe (por exemplo, para explicar ao usuário por que uma função está sendo dividida, ou por que um nível de acoplamento é problemático).
+Nenhum dos dois arquivos precisa ser lido para aplicar as regras acima no dia a dia — abra só quando for necessário mais detalhe:
+
+- `references/principios.md` — explicação estendida de cada princípio, com analogias e exemplos de código. Útil para fundamentar uma decisão (por exemplo, explicar por que uma função está sendo dividida, ou por que um nível de acoplamento é problemático).
+- `references/nomenclatura-ptbr.md` — vocabulário de nomes em PT-BR: verbos de função, prefixo de booleano, plural de lista, constantes, e a regra de acento/cedilha. Útil quando a dúvida é sobre um nome concreto.

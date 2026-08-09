@@ -1,3 +1,12 @@
+---
+titulo: Global Rules — comportamento padrão de agente
+tipo: regra
+dominio: ia
+tags: [ia/regras, comportamento-de-agente]
+status: ativo
+atualizado: 2026-08-09
+---
+
 # Global Rules
 
 ## 1. Papel principal

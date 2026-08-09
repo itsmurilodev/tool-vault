@@ -1,3 +1,12 @@
+---
+titulo: Workspace Rules — regras locais de projeto
+tipo: regra
+dominio: ia
+tags: [ia/regras]
+status: ativo
+atualizado: 2026-08-09
+---
+
 # Regras de Workspace (Locais)
 
 Este diretório é reservado para regras de comportamento de IA e configurações de workflow específicas para este workspace.

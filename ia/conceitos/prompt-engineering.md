@@ -1,5 +1,13 @@
-# Prompt Engineering
 ---
+titulo: Prompt Engineering — estudo
+tipo: conceito
+dominio: ia
+tags: [ia/prompt-engineering, llm]
+status: ativo
+atualizado: 2026-08-09
+---
+
+# Prompt Engineering
 
 ## 📌 Resumo
 
@@ -520,3 +528,11 @@ Retorne:
 ## 🏷️ Tags sugeridas
 
 `prompt-engineering` `deeplearning-ai` `chatgpt` `codex` `antigravity` `gemini` `ia` `produtividade` `desenvolvimento` `boas-praticas`
+
+
+---
+
+## Ver também
+
+- Skill operacional derivada deste estudo: [`ia/skills/prompt-engineering-agente/`](../skills/prompt-engineering-agente/SKILL.md)
+- Persona correspondente: [[engenheiro-de-prompts]]

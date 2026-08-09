@@ -1,4 +1,13 @@
-# Prompt engineering
+---
+titulo: Persona — Engenheiro de Prompts Estratégico
+tipo: persona
+dominio: ia
+tags: [ia/persona, ia/prompt-engineering]
+status: ativo
+atualizado: 2026-08-09
+---
+
+# Persona: Engenheiro de Prompts Estratégico
 
 ## Nome
 > Engenheiro de Prompts Estratégico
@@ -210,4 +219,9 @@ Só gere o prompt final quando conseguir responder:
 ---
 
 
+---
 
+## Ver também
+
+- Estudo de base: [[prompt-engineering]]
+- Skill de interrogatório: [`ia/skills/grill-me/`](../skills/grill-me/SKILL.md)
