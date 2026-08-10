@@ -1,0 +1,64 @@
+filters:
+  and:
+    - tipo
+    - not:
+        - file.inFolder("templates")
+properties:
+  note.titulo:
+    displayName: Título
+  note.resumo:
+    displayName: Resumo
+  note.dominio:
+    displayName: Domínio
+  note.tipo:
+    displayName: Tipo
+  note.status:
+    displayName: Status
+  note.atualizado:
+    displayName: Atualizado
+views:
+  - type: table
+    name: Todas as notas
+    groupBy:
+      property: note.dominio
+      direction: ASC
+    order:
+      - note.titulo
+      - note.tipo
+      - note.status
+      - note.atualizado
+  - type: table
+    name: Rascunhos
+    filters:
+      and:
+        - 'status == "rascunho"'
+    order:
+      - note.titulo
+      - note.dominio
+      - note.atualizado
+  - type: table
+    name: Sem resumo
+    filters:
+      or:
+        - '!resumo'
+        - 'resumo == ""'
+    order:
+      - note.titulo
+      - note.dominio
+  - type: cards
+    name: Referências
+    filters:
+      and:
+        - 'tipo == "referencia"'
+    order:
+      - note.titulo
+      - note.resumo
+  - type: table
+    name: Decisões (ADR)
+    filters:
+      and:
+        - 'tipo == "decisao"'
+    order:
+      - note.titulo
+      - note.dominio
+      - note.atualizado
