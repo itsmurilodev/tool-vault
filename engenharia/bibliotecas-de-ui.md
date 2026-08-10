@@ -1,5 +1,6 @@
 ---
 titulo: Ecossistema de UI copy-paste — componentes, ícones e movimento
+resumo: "shadcn como núcleo, catálogos (Cult UI, Skiper UI, 21st.dev, coss ui), ícones Phosphor, Animista e princípios de movimento."
 tipo: referencia
 dominio: engenharia
 tags: [engenharia/frontend, ui, animacao, icones]

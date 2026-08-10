@@ -34,29 +34,38 @@ Cada domínio tem um `README.md` que serve de índice e backlog — é lá que s
 
 ## Índice
 
+<!-- INICIO:INDICE (gerado por scripts/gerar-indices.py — não editar à mão) -->
+
 ### 🤖 IA → [índice do domínio](ia/README.md)
 
-- **Conceitos** — [Prompt Engineering](ia/conceitos/prompt-engineering.md) · [Geração de UI e de app por IA](ia/geracao-de-ui-por-ia.md)
-- **Personas** — [Conselheiro Estratégico](ia/personas/conselheiro-estrategico.md) · [Engenheiro de Prompts](ia/personas/engenheiro-de-prompts.md)
-- **Regras** — [Global Rules](ia/regras/global-rules.md) · [Workspace Rules](ia/regras/workspace-rules.md)
-- **Claude** — [conectores (MCP)](ia/agentes/claude/conectores.md) · [configuração e hooks](ia/agentes/claude/configuracao.md) · [skills](ia/agentes/claude/README.md)
+- [Conectores do Claude (MCP)](ia/agentes/claude/conectores.md) — Conector é MCP remoto que roda na infra da Anthropic; custo de contexto e critério para conectar.
+- [Configuração e automação do Claude](ia/agentes/claude/configuracao.md) — Qual instrução vai para CLAUDE.md, qual vira skill e qual precisa ser hook. *(rascunho)*
+- [Geração de UI e de app por IA — os três níveis](ia/geracao-de-ui-por-ia.md) — Os três níveis — instalar componente, gerar componente, gerar app — com risco e reversibilidade de cada um.
+- [Global Rules — comportamento padrão de agente](ia/regras/global-rules.md) — Comportamento padrão do agente em qualquer projeto — o canônico de comportamento.
+- [Persona — Conselheiro Estratégico Direto](ia/personas/conselheiro-estrategico.md) — Escalada deliberada da postura crítica além do padrão; o comportamento base vive em global-rules.
+- [Persona — Engenheiro de Prompts Estratégico](ia/personas/engenheiro-de-prompts.md) — Postura crítica para trabalhar prompt; o método canônico vive nas skills, aqui fica só o bloco colável.
+- [Prompt Engineering — estudo](ia/conceitos/prompt-engineering.md) — Instruções claras, delimitadores, formato de saída e avaliação iterativa.
+- [Workspace Rules — regras locais de projeto](ia/regras/workspace-rules.md) — Como e onde escrever regra específica de projeto.
 
 ### 🏗️ Engenharia → [índice do domínio](engenharia/README.md)
 
-- [Portão de adoção de ferramenta](engenharia/adocao-de-ferramenta.md)
-- [Clean Code](engenharia/clean-code.md)
-- [Qualidade automatizada](engenharia/qualidade-automatizada.md)
-- [Ecossistema de UI copy-paste](engenharia/bibliotecas-de-ui.md)
+- [Clean Code — estudo](engenharia/clean-code.md) — Legibilidade, nomes, responsabilidade única, duplicação, tratamento de erro e overengineering.
+- [Ecossistema de UI copy-paste — componentes, ícones e movimento](engenharia/bibliotecas-de-ui.md) — shadcn como núcleo, catálogos (Cult UI, Skiper UI, 21st.dev, coss ui), ícones Phosphor, Animista e princípios de movimento.
+- [Portão de adoção de ferramenta](engenharia/adocao-de-ferramenta.md) — Como avaliar ferramenta nova, principalmente a que veio de conteúdo viral, antes de colocar no stack.
+- [Qualidade automatizada — lint, código morto, testes e contrato de arquitetura](engenharia/qualidade-automatizada.md) — Biome, Knip, Playwright, Codecov, Stryker e contrato de arquitetura, em ordem de adoção por custo.
 
 ### 🖥️ Infra → [índice do domínio](infra/README.md)
 
-- [Observabilidade — Sentry, Datadog, New Relic e OpenTelemetry](infra/observabilidade.md)
+- [ADR 001 — Plataforma de observabilidade padrão](infra/adr-001-observabilidade.md) — Sentry no free tier, instrumentado via OpenTelemetry, como padrão para projeto novo. Proposta.
+- [Observabilidade — Sentry, Datadog, New Relic e OpenTelemetry](infra/observabilidade.md) — Sentry, Datadog e New Relic são concorrentes; OpenTelemetry é o padrão que evita lock-in.
 
 ### 🔧 Ferramentas → [índice do domínio](ferramentas/README.md)
 
-- [Padrão de nomes de repositórios GitHub](ferramentas/github/padrao-de-repositorios.md)
-- [Fluxo Issue → PR → commit padronizado](ferramentas/github/fluxo-issue-pr.md)
-- [Prospecção B2B e mídia paga](ferramentas/prospeccao-e-midia-paga.md)
+- [Fluxo Issue → PR → commit padronizado](ferramentas/github/fluxo-issue-pr.md) — Disciplina de fluxo, Conventional Commits e commitlint — custo zero, alto retorno.
+- [Padrão de nomes de repositórios GitHub](ferramentas/github/padrao-de-repositorios.md) — Prefixos oficiais e formato `<contexto>-<projeto>-<tipo>` em kebab-case.
+- [Prospecção B2B e mídia paga — quando essas ferramentas passam a valer](ferramentas/prospeccao-e-midia-paga.md) — Apollo.io, ZoomInfo e Windsor.ai: custo real, portão de cada uma e o que a LGPD exige.
+
+<!-- FIM:INDICE -->
 
 ---
 
@@ -73,20 +82,37 @@ O script usa symlink: editar a skill aqui já reflete no Claude, sem sincronizar
 
 ---
 
-## Antes de adicionar conhecimento
-
-Leia [CONVENCOES.md](CONVENCOES.md). Em resumo:
-
-1. Nome de arquivo em `kebab-case`, descritivo e único no vault (`clean-code.md`, nunca `estudo.md`).
-2. Toda nota de conhecimento começa com frontmatter YAML (`tipo`, `dominio`, `tags`, `status`, `atualizado`).
-3. `SKILL.md` **não** leva esse frontmatter — o formato dele é o do Claude e quebra se alterado.
-4. Conhecimento fica no domínio, não em `ia/` só porque foi estudado com IA.
-5. Registrou a nota? Adicione o link no `README.md` do domínio.
-
-Para conferir se está tudo dentro do padrão:
+## Adicionando conhecimento
 
 ```bash
-./scripts/validar-vault.py
+./scripts/nova-nota.sh infra docker-compose
 ```
 
-Ele checa link quebrado, wikilink ambíguo, nome de arquivo duplicado, frontmatter faltando e skill mal formada.
+Cria a nota com frontmatter e data preenchidos, valida o nome e **regenera os índices**. Depois é só escrever e preencher o `resumo` — é ele que aparece no índice.
+
+Ative as verificações uma vez por clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+A partir daí, todo commit checa convenções e índices. O mesmo par roda no CI.
+
+| Script | Para quê |
+| ------ | -------- |
+| `./scripts/nova-nota.sh <dominio> <nome>` | Criar nota nova |
+| `./scripts/gerar-indices.py` | Regenerar os índices (`--check` só verifica) |
+| `./scripts/validar-vault.py` | Link quebrado, wikilink ambíguo, nome duplicado, frontmatter, skill |
+| `./scripts/sync-skills.sh --apply` | Ligar as skills em `~/.claude/skills` |
+
+As regras completas estão em [CONVENCOES.md](CONVENCOES.md). O essencial:
+
+1. Nome de arquivo em `kebab-case`, descritivo e **único no vault** (`clean-code.md`, nunca `estudo.md`).
+2. `titulo` e `resumo` **entre aspas** — um `:` solto quebra o YAML e a nota some do índice.
+3. `SKILL.md` **não** leva o frontmatter de nota — o formato dele é o do Claude e quebra se alterado.
+4. Conhecimento fica no domínio, não em `ia/` só porque foi estudado com IA.
+5. Índice de README é **gerado**. Não edite entre os marcadores.
+
+## Navegando no Obsidian
+
+`vault.base` traz cinco visões sobre as mesmas notas: **Todas** (por domínio), **Rascunhos**, **Sem resumo**, **Referências** e **Decisões (ADR)**. É navegação dentro do Obsidian; o README continua sendo a porta de entrada no GitHub.

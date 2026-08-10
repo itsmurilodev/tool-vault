@@ -1,5 +1,6 @@
 ---
 titulo: Geração de UI e de app por IA — os três níveis
+resumo: "Os três níveis — instalar componente, gerar componente, gerar app — com risco e reversibilidade de cada um."
 tipo: conceito
 dominio: ia
 tags: [ia/geracao-de-codigo, mcp, frontend, vibe-coding]

@@ -1,5 +1,6 @@
 ---
 titulo: Clean Code — estudo
+resumo: "Legibilidade, nomes, responsabilidade única, duplicação, tratamento de erro e overengineering."
 tipo: conceito
 dominio: engenharia
 tags: [engenharia/clean-code, qualidade-de-codigo]

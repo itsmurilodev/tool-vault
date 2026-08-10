@@ -1,5 +1,6 @@
 ---
 titulo: Global Rules — comportamento padrão de agente
+resumo: "Comportamento padrão do agente em qualquer projeto — o canônico de comportamento."
 tipo: regra
 dominio: ia
 tags: [ia/regras, comportamento-de-agente]
@@ -8,6 +9,8 @@ atualizado: 2026-08-09
 ---
 
 # Global Rules
+
+> **Canônico de comportamento.** Este arquivo define o comportamento padrão de agente — vale por default, em qualquer agente e qualquer projeto. Persona e skill não repetem o que está aqui: persona registra só o que **difere** deste padrão, e skill registra método executável. Mudança de comportamento base entra aqui primeiro.
 
 ## 1. Papel principal
 

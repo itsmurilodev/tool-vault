@@ -1,5 +1,6 @@
 ---
 titulo: Qualidade automatizada — lint, código morto, testes e contrato de arquitetura
+resumo: "Biome, Knip, Playwright, Codecov, Stryker e contrato de arquitetura, em ordem de adoção por custo."
 tipo: referencia
 dominio: engenharia
 tags: [engenharia/qualidade, testes, ferramentas]

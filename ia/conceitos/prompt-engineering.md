@@ -1,5 +1,6 @@
 ---
 titulo: Prompt Engineering — estudo
+resumo: "Instruções claras, delimitadores, formato de saída e avaliação iterativa."
 tipo: conceito
 dominio: ia
 tags: [ia/prompt-engineering, llm]

@@ -1,5 +1,6 @@
 ---
 titulo: Conectores do Claude (MCP)
+resumo: "Conector é MCP remoto que roda na infra da Anthropic; custo de contexto e critério para conectar."
 tipo: referencia
 dominio: ia
 tags: [ia/claude, mcp, conectores]

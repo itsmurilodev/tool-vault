@@ -4,14 +4,16 @@ Ferramentas de trabalho e as convenções pessoais de uso delas: Git/GitHub, ter
 
 ## Notas
 
+<!-- INICIO:INDICE (gerado por scripts/gerar-indices.py — não editar à mão) -->
+
+- [Prospecção B2B e mídia paga — quando essas ferramentas passam a valer](prospeccao-e-midia-paga.md) — Apollo.io, ZoomInfo e Windsor.ai: custo real, portão de cada uma e o que a LGPD exige.
+
 ### GitHub
 
-- [Padrão de nomes de repositórios](github/padrao-de-repositorios.md) — prefixos oficiais e formato `<contexto>-<projeto>-<tipo>`.
-- [Fluxo Issue → PR → commit padronizado](github/fluxo-issue-pr.md) — disciplina de fluxo, Conventional Commits e commitlint.
+- [Fluxo Issue → PR → commit padronizado](github/fluxo-issue-pr.md) — Disciplina de fluxo, Conventional Commits e commitlint — custo zero, alto retorno.
+- [Padrão de nomes de repositórios GitHub](github/padrao-de-repositorios.md) — Prefixos oficiais e formato `<contexto>-<projeto>-<tipo>` em kebab-case.
 
-### Negócio
-
-- [Prospecção B2B e mídia paga](prospeccao-e-midia-paga.md) — Apollo.io, ZoomInfo e Windsor.ai: o que cada uma faz, quanto custa de verdade, o portão de cada uma e o que a LGPD exige.
+<!-- FIM:INDICE -->
 
 > Se as notas de negócio chegarem a 3, viram o domínio `negocio/` — ver [CONVENCOES.md](../CONVENCOES.md) seção 1.
 

@@ -52,7 +52,8 @@ Toda nota de conhecimento começa com:
 
 ```yaml
 ---
-titulo: Título legível da nota
+titulo: "Título legível da nota"
+resumo: "Uma linha dizendo o que a nota entrega — é o que aparece no índice."
 tipo: conceito        # conceito | referencia | persona | regra | decisao
 dominio: engenharia   # ia | engenharia | infra | ferramentas
 tags: [engenharia/clean-code, qualidade-de-codigo]
@@ -61,6 +62,8 @@ atualizado: 2026-08-09
 ---
 ```
 
+- **Use aspas em `titulo` e `resumo`.** Sem aspas, um `:` no meio do texto quebra o YAML e a nota some do índice.
+- `resumo` é opcional para o validador, mas é ele que faz o índice ser útil. Nota sem resumo aparece só com o título.
 - `tags` usa hierarquia com `/` — o painel de tags do Obsidian agrupa sozinho.
 - `status: rascunho` é permitido e útil: melhor uma nota incompleta marcada do que nenhuma nota.
 - Atualize `atualizado` quando mudar o conteúdo de verdade, não a cada vírgula.
@@ -73,7 +76,7 @@ atualizado: 2026-08-09
 
 - Entre notas do vault: `[[nome-do-arquivo]]` (wikilink do Obsidian).
 - Para arquivos de skill ou qualquer coisa fora do grafo de notas: link markdown relativo — `[clean-code](ia/agentes/claude/skills/clean-code/SKILL.md)`.
-- Toda nota nova entra no `README.md` do seu domínio. Índice desatualizado é vault perdido.
+- **O índice dos README é gerado, não escrito à mão.** Ele vive entre os marcadores `INICIO:INDICE` / `FIM:INDICE` e sai do frontmatter. Não edite dentro dos marcadores — rode `./scripts/gerar-indices.py`. Prosa, tabelas curadas e backlog ficam fora dos marcadores e são preservados.
 
 ---
 
@@ -97,7 +100,18 @@ Regras práticas:
 
 ---
 
-## 7. Commits
+## 7. ADR (registro de decisão)
+
+- Mora **no domínio da decisão**, não numa pasta de tipo: decisão de observabilidade em `infra/`, de estrutura de código em `engenharia/`.
+- Nome com número sequencial: `adr-001-observabilidade.md`. O número não reinicia por domínio.
+- `tipo: decisao` no frontmatter, e a tag `adr`.
+- Comece a partir de `templates/decisao.md`.
+- **ADR específica de um projeto mora no repositório do projeto**, não aqui. Este vault guarda decisão de padrão pessoal — o que vale para projeto novo em geral. A arquitetura de um sistema específico vive com o sistema.
+- Nem toda escolha vira ADR. O portão está na skill `decisao-arquitetural`: se é fácil de reverter, não precisa de registro formal.
+
+---
+
+## 8. Commits
 
 Mensagem no imperativo, dizendo o conhecimento que entrou ou mudou:
 
@@ -111,18 +125,40 @@ Evite `update`, `wip`, `ajustes`.
 
 ---
 
-## 8. Checklist de nota nova
+## 9. Checklist de nota nova
 
 - [ ] Está no domínio certo (assunto, não ferramenta usada)?
 - [ ] Nome em `kebab-case`, descritivo e único no vault?
-- [ ] Frontmatter preenchido (e ausente, se for `SKILL.md`)?
-- [ ] Linkada no `README.md` do domínio?
+- [ ] Frontmatter preenchido, com `titulo` e `resumo` entre aspas (e ausente, se for `SKILL.md`)?
 - [ ] Não duplica conteúdo que já existe em outra nota ou skill?
+- [ ] `./scripts/gerar-indices.py` rodado e o resultado commitado junto?
 - [ ] `./scripts/validar-vault.py` passa?
 
-## 9. Automação disponível
+O hook de pre-commit checa os dois últimos itens sozinho — ver seção 10.
+
+---
+
+## 10. Automação disponível
 
 | Script | O que faz |
 | ------ | --------- |
-| `./scripts/validar-vault.py` | Checa link quebrado, wikilink ambíguo, nome duplicado, frontmatter faltando e skill mal formada. Sai com código 1 em caso de problema — dá para virar pre-commit. |
+| `./scripts/nova-nota.sh <dominio> <nome>` | Cria a nota já com frontmatter e data preenchidos, valida o nome e regenera o índice. É o caminho normal para começar uma nota. |
+| `./scripts/gerar-indices.py` | Regenera o índice de cada README a partir do frontmatter. `--check` só verifica e sai com 1 — é o que o CI roda. |
+| `./scripts/validar-vault.py` | Checa link quebrado, wikilink ambíguo, nome duplicado, frontmatter inválido e skill mal formada. Sai com código 1 em caso de problema. |
 | `./scripts/sync-skills.sh` | Liga `ia/agentes/claude/skills/*` em `~/.claude/skills` por symlink. Sem argumento só simula; `--apply` executa. Nunca apaga diretório real. |
+
+**Ative o hook uma vez por clone:**
+
+```bash
+git config core.hooksPath .githooks
+```
+
+A partir daí, todo commit roda validação e checagem de índice. Para pular pontualmente: `git commit --no-verify`. O mesmo par roda no GitHub Actions (`.github/workflows/validar-vault.yml`), então pular o hook local só adia o erro.
+
+---
+
+## 11. Navegação no Obsidian
+
+`vault.base` é uma Base do Obsidian com cinco visões sobre o mesmo conjunto de notas: **Todas** (agrupadas por domínio), **Rascunhos** (o que está pela metade), **Sem resumo** (o que não vai aparecer bem no índice), **Referências** e **Decisões (ADR)**.
+
+Ela lê o frontmatter — nota sem `tipo` não aparece. É complementar ao README, não substituta: a Base é navegação dentro do Obsidian, o README é a porta de entrada no GitHub.

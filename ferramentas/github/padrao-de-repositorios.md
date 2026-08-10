@@ -1,5 +1,6 @@
 ---
 titulo: Padrão de nomes de repositórios GitHub
+resumo: "Prefixos oficiais e formato `<contexto>-<projeto>-<tipo>` em kebab-case."
 tipo: referencia
 dominio: ferramentas
 tags: [ferramentas/github, convencao]

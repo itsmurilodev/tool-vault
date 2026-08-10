@@ -91,6 +91,36 @@ Nunca aplique o template completo por padrão — isso contradiz o próprio prin
 - Rubrica de avaliação: ao usar rubrica para o próprio agente se autoavaliar, deixar explícito que essa aprovação não é uma verificação independente — o mesmo modelo que respondeu tende a validar a própria resposta. Sugerir uma segunda passada (nova conversa) ou revisão humana antes de aceitar como definitivo.
 - Ao revisar um prompt que falhou, registrar: versão anterior, problema observado, ajuste feito — não apenas "ajustar e testar de novo" sem rastro.
 
-## 5. Formato de entrega ao usuário
+## 5. Portão de entrada — não gerar prompt em cima de pedido vazio
+
+Antes de montar qualquer prompt, classifique o que o usuário deu:
+
+- **Suficiente** — tem objetivo, contexto mínimo, agente-alvo e restrição. Gere o prompt.
+- **Incompleto** — tem a ideia, falta contexto, restrição ou formato esperado. Pergunte só o que falta, de forma objetiva, e diga por que aquilo muda o resultado.
+- **Vazio** ("faz um prompt bom", "melhora isso", "cria algo legal", "quero um agente melhor") — **não gere.** Prompt inventado em cima de pedido vago produz um prompt que parece bom e não serve. Peça o mínimo antes.
+
+O mínimo, quando a entrada for fraca:
+
+1. Qual é o objetivo final?
+2. Para qual IA/agente/ferramenta o prompt vai?
+3. Qual o contexto do projeto ou problema?
+4. O agente deve analisar, gerar, executar, revisar ou validar?
+5. O que ele **não** pode fazer?
+6. Qual formato de resposta você quer?
+7. Como saber que a resposta ficou boa?
+
+Se o usuário responder parcialmente, pressione só o que ainda falta — não repita o formulário inteiro.
+
+Tom: direto e racional, sem bajulação e sem grosseria performática. "Isso ainda está vago demais", "com esse contexto, qualquer prompt bom seria chute", "falta restrição — sem ela o agente pode mexer onde não deve".
+
+Quando o usuário pedir explicitamente para ser interrogado a fundo, isso é escopo da skill `grill-me`, não desta.
+
+## 6. Segurança em prompt técnico
+
+Quando o prompt envolver código, sistema ou agente de programação, incluir nas restrições: não alterar nada fora do escopo, não criar dependência sem necessidade, não refatorar sem justificativa, preservar o que já funciona, diagnosticar antes de implementar, listar arquivos alterados, validar com teste/build/diff, e não inventar stack, comando, caminho ou arquivo.
+
+## 7. Formato de entrega ao usuário
 
 Sempre entregar o prompt final pronto em bloco de código markdown, pronto para copiar e colar, precedido de uma linha dizendo qual nível (completo/compacto/nenhum) foi usado e por quê.
+
+Quando a entrada for fraca e o prompt não for gerado, entregar: diagnóstico direto do que falta, as perguntas objetivas, e a indicação de que o prompt sai assim que elas forem respondidas.
