@@ -1,0 +1,25 @@
+name: Validar vault
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar PyYAML
+        run: pip install pyyaml
+
+      - name: Convenções do vault
+        run: ./scripts/validar-vault.py
+
+      - name: Índices atualizados
+        run: ./scripts/gerar-indices.py --check

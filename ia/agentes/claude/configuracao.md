@@ -1,5 +1,6 @@
 ---
 titulo: Configuração e automação do Claude
+resumo: "Qual instrução vai para CLAUDE.md, qual vira skill e qual precisa ser hook."
 tipo: referencia
 dominio: ia
 tags: [ia/claude, configuracao, hooks]

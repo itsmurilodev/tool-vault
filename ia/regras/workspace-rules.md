@@ -1,5 +1,6 @@
 ---
 titulo: Workspace Rules — regras locais de projeto
+resumo: "Como e onde escrever regra específica de projeto."
 tipo: regra
 dominio: ia
 tags: [ia/regras]

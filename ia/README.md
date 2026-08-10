@@ -11,25 +11,39 @@ ia/
     └── claude/  # skills, conectores, configuração
 ```
 
-## Conceitos — portável
+`ia/regras/global-rules.md` é o **canônico de comportamento**: o que vale por padrão em qualquer agente. Persona é escalada deliberada além desse padrão, e só registra o que difere dele. Skill é método executável empacotado no formato de um agente.
 
-- [Prompt Engineering](conceitos/prompt-engineering.md) — instruções claras, delimitadores, formato de saída, avaliação iterativa.
-- [Geração de UI e de app por IA](geracao-de-ui-por-ia.md) — os três níveis (instalar componente, gerar componente, gerar app), com risco e reversibilidade de cada um.
+## Notas
 
-## Personas — portável
+<!-- INICIO:INDICE (gerado por scripts/gerar-indices.py — não editar à mão) -->
 
-- [Conselheiro Estratégico Direto](personas/conselheiro-estrategico.md) — espelho crítico, sem bajulação, crítica que vira plano.
-- [Engenheiro de Prompts Estratégico](personas/engenheiro-de-prompts.md) — avaliador crítico de prompts, com grill-me obrigatório.
+- [Geração de UI e de app por IA — os três níveis](geracao-de-ui-por-ia.md) — Os três níveis — instalar componente, gerar componente, gerar app — com risco e reversibilidade de cada um.
 
-## Regras — portável
+### Agentes › Claude
 
-- [Global Rules](regras/global-rules.md) — comportamento padrão em qualquer projeto.
-- [Workspace Rules](regras/workspace-rules.md) — como e onde escrever regra específica de projeto.
+- [Conectores do Claude (MCP)](agentes/claude/conectores.md) — Conector é MCP remoto que roda na infra da Anthropic; custo de contexto e critério para conectar.
+- [Configuração e automação do Claude](agentes/claude/configuracao.md) — Qual instrução vai para CLAUDE.md, qual vira skill e qual precisa ser hook. *(rascunho)*
 
-## Agentes — específico
+### Conceitos
 
-- [Claude](agentes/claude/) — [skills](agentes/claude/skills/), [conectores (MCP)](agentes/claude/conectores.md), [configuração e hooks](agentes/claude/configuracao.md).
+- [Prompt Engineering — estudo](conceitos/prompt-engineering.md) — Instruções claras, delimitadores, formato de saída e avaliação iterativa.
+
+### Personas
+
+- [Persona — Conselheiro Estratégico Direto](personas/conselheiro-estrategico.md) — Escalada deliberada da postura crítica além do padrão; o comportamento base vive em global-rules.
+- [Persona — Engenheiro de Prompts Estratégico](personas/engenheiro-de-prompts.md) — Postura crítica para trabalhar prompt; o método canônico vive nas skills, aqui fica só o bloco colável.
+
+### Regras
+
+- [Global Rules — comportamento padrão de agente](regras/global-rules.md) — Comportamento padrão do agente em qualquer projeto — o canônico de comportamento.
+- [Workspace Rules — regras locais de projeto](regras/workspace-rules.md) — Como e onde escrever regra específica de projeto.
+
+<!-- FIM:INDICE -->
+
+## Atalhos
+
 - [Panorama dos agentes](agentes/README.md) — critério do que é portável e o que não é.
+- [Claude](agentes/claude/README.md) — skills, conectores e configuração.
 
 ---
 

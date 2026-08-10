@@ -4,18 +4,14 @@ Como o software é escrito e estruturado: código, arquitetura, padrões, testes
 
 ## Notas
 
-### Processo e decisão
+<!-- INICIO:INDICE (gerado por scripts/gerar-indices.py — não editar à mão) -->
 
-- [Portão de adoção de ferramenta](adocao-de-ferramenta.md) — como avaliar ferramenta nova (principalmente a que veio de conteúdo viral) antes de colocar no stack.
+- [Clean Code — estudo](clean-code.md) — Legibilidade, nomes, responsabilidade única, duplicação, tratamento de erro e overengineering.
+- [Ecossistema de UI copy-paste — componentes, ícones e movimento](bibliotecas-de-ui.md) — shadcn como núcleo, catálogos (Cult UI, Skiper UI, 21st.dev, coss ui), ícones Phosphor, Animista e princípios de movimento.
+- [Portão de adoção de ferramenta](adocao-de-ferramenta.md) — Como avaliar ferramenta nova, principalmente a que veio de conteúdo viral, antes de colocar no stack.
+- [Qualidade automatizada — lint, código morto, testes e contrato de arquitetura](qualidade-automatizada.md) — Biome, Knip, Playwright, Codecov, Stryker e contrato de arquitetura, em ordem de adoção por custo.
 
-### Código
-
-- [Clean Code](clean-code.md) — legibilidade, nomes, responsabilidade única, duplicação, tratamento de erro, overengineering.
-- [Qualidade automatizada](qualidade-automatizada.md) — Biome, Knip, Playwright, Codecov, Stryker e contrato de arquitetura, em ordem de adoção.
-
-### Front-end
-
-- [Ecossistema de UI copy-paste](bibliotecas-de-ui.md) — shadcn como núcleo, catálogos (Cult UI, Skiper UI, 21st.dev, coss ui), ícones Phosphor, Animista e princípios de movimento.
+<!-- FIM:INDICE -->
 
 ## Artefatos relacionados
 
@@ -31,4 +27,3 @@ Como o software é escrito e estruturado: código, arquitetura, padrões, testes
 - [ ] Testes: pirâmide, o que vale testar, nomeação de teste
 - [ ] Arquitetura em camadas / separação de responsabilidade em projeto real
 - [ ] Padrões de tratamento de erro por stack
-- [ ] Índice das ADRs escritas (quando começarem a existir)

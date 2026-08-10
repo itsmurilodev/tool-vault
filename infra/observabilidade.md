@@ -1,5 +1,6 @@
 ---
 titulo: Observabilidade — Sentry, Datadog, New Relic e OpenTelemetry
+resumo: "Sentry, Datadog e New Relic são concorrentes; OpenTelemetry é o padrão que evita lock-in."
 tipo: referencia
 dominio: infra
 tags: [infra/observabilidade, monitoramento, custo]

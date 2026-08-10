@@ -1,5 +1,6 @@
 ---
 titulo: Portão de adoção de ferramenta
+resumo: "Como avaliar ferramenta nova, principalmente a que veio de conteúdo viral, antes de colocar no stack."
 tipo: conceito
 dominio: engenharia
 tags: [engenharia/processo, decisao, ferramentas]

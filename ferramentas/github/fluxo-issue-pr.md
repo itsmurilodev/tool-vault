@@ -1,5 +1,6 @@
 ---
 titulo: Fluxo Issue → PR → commit padronizado
+resumo: "Disciplina de fluxo, Conventional Commits e commitlint — custo zero, alto retorno."
 tipo: referencia
 dominio: ferramentas
 tags: [ferramentas/github, git, processo]

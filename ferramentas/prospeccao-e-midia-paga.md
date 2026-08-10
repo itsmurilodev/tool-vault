@@ -1,5 +1,6 @@
 ---
 titulo: Prospecção B2B e mídia paga — quando essas ferramentas passam a valer
+resumo: "Apollo.io, ZoomInfo e Windsor.ai: custo real, portão de cada uma e o que a LGPD exige."
 tipo: referencia
 dominio: ferramentas
 tags: [ferramentas/vendas, gtm, custo, lgpd]
