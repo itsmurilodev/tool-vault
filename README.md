@@ -36,7 +36,7 @@ Cada domínio tem um `README.md` que serve de índice e backlog — é lá que s
 
 ### 🤖 IA → [índice do domínio](ia/README.md)
 
-- **Conceitos** — [Prompt Engineering](ia/conceitos/prompt-engineering.md)
+- **Conceitos** — [Prompt Engineering](ia/conceitos/prompt-engineering.md) · [Geração de UI e de app por IA](ia/geracao-de-ui-por-ia.md)
 - **Personas** — [Conselheiro Estratégico](ia/personas/conselheiro-estrategico.md) · [Engenheiro de Prompts](ia/personas/engenheiro-de-prompts.md)
 - **Regras** — [Global Rules](ia/regras/global-rules.md) · [Workspace Rules](ia/regras/workspace-rules.md)
 - **Claude** — [conectores (MCP)](ia/agentes/claude/conectores.md) · [configuração e hooks](ia/agentes/claude/configuracao.md) · [skills](ia/agentes/claude/README.md)
@@ -46,7 +46,7 @@ Cada domínio tem um `README.md` que serve de índice e backlog — é lá que s
 - [Portão de adoção de ferramenta](engenharia/adocao-de-ferramenta.md)
 - [Clean Code](engenharia/clean-code.md)
 - [Qualidade automatizada](engenharia/qualidade-automatizada.md)
-- [Bibliotecas de UI e princípios de movimento](engenharia/bibliotecas-de-ui.md)
+- [Ecossistema de UI copy-paste](engenharia/bibliotecas-de-ui.md)
 
 ### 🖥️ Infra → [índice do domínio](infra/README.md)
 
