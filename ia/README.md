@@ -14,6 +14,7 @@ ia/
 ## Conceitos — portável
 
 - [Prompt Engineering](conceitos/prompt-engineering.md) — instruções claras, delimitadores, formato de saída, avaliação iterativa.
+- [Geração de UI e de app por IA](geracao-de-ui-por-ia.md) — os três níveis (instalar componente, gerar componente, gerar app), com risco e reversibilidade de cada um.
 
 ## Personas — portável
 

@@ -15,7 +15,7 @@ Como o software é escrito e estruturado: código, arquitetura, padrões, testes
 
 ### Front-end
 
-- [Bibliotecas de UI copy-paste e princípios de movimento](bibliotecas-de-ui.md) — Cult UI, Skiper UI, coss ui (ex-Origin UI), skeleton loading e animação.
+- [Ecossistema de UI copy-paste](bibliotecas-de-ui.md) — shadcn como núcleo, catálogos (Cult UI, Skiper UI, 21st.dev, coss ui), ícones Phosphor, Animista e princípios de movimento.
 
 ## Artefatos relacionados
 
