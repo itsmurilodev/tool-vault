@@ -18,7 +18,7 @@ cd "$RAIZ"
 
 if [[ $# -lt 2 ]]; then
   echo "uso: ./scripts/nova-nota.sh <dominio> <nome-em-kebab-case> [\"Título\"]" >&2
-  echo "domínios: ia, engenharia, infra, ferramentas (subpasta permitida)" >&2
+  echo "domínios: ia, engenharia, infra, ferramentas, negocio (subpasta permitida)" >&2
   exit 1
 fi
 
@@ -27,11 +27,12 @@ NOME="$2"
 DOMINIO_RAIZ="${DOMINIO_COMPLETO%%/*}"
 
 case "$DOMINIO_RAIZ" in
-  ia|engenharia|infra|ferramentas) ;;
+  ia|engenharia|infra|ferramentas|negocio) ;;
   *)
     echo "erro: domínio '$DOMINIO_RAIZ' não existe." >&2
-    echo "use ia, engenharia, infra ou ferramentas — ou crie o domínio novo antes," >&2
-    echo "seguindo a regra de CONVENCOES.md seção 1 (3+ notas que não cabem nos atuais)." >&2
+    echo "use ia, engenharia, infra, ferramentas ou negocio — ou crie o domínio novo antes," >&2
+    echo "seguindo a regra de CONVENCOES.md seção 1 (o assunto é claramente diferente dos" >&2
+    echo "domínios atuais, a ponto de confundir quem procura depois)." >&2
     exit 1
     ;;
 esac

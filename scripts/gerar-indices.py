@@ -32,6 +32,7 @@ INDICES = [
     ("engenharia/README.md", "engenharia"),
     ("infra/README.md", "infra"),
     ("ferramentas/README.md", "ferramentas"),
+    ("negocio/README.md", "negocio"),
     ("ia/agentes/claude/README.md", "ia/agentes/claude"),
 ]
 
@@ -40,6 +41,7 @@ DOMINIOS_RAIZ = [
     ("engenharia", "🏗️ Engenharia"),
     ("infra", "🖥️ Infra"),
     ("ferramentas", "🔧 Ferramentas"),
+    ("negocio", "💼 Negócio"),
 ]
 
 # Rótulo legível para subpastas cujo nome não fica bom só capitalizado.
@@ -82,6 +84,7 @@ def listar_notas(diretorio, ignoradas=None):
     """
     grupos = {}
     for caminho in sorted(glob(f"{diretorio}/**/*.md", recursive=True)):
+        caminho = caminho.replace(os.sep, "/")
         base = os.path.basename(caminho)
         if base in ("README.md", "SKILL.md") or "/references/" in caminho:
             continue
@@ -93,14 +96,14 @@ def listar_notas(diretorio, ignoradas=None):
                 ignoradas.add(caminho)
             continue
 
-        subpasta = os.path.relpath(os.path.dirname(caminho), diretorio)
+        subpasta = os.path.relpath(os.path.dirname(caminho), diretorio).replace(os.sep, "/")
         chave = "" if subpasta == "." else subpasta
         grupos.setdefault(chave, []).append((caminho, dados))
     return grupos
 
 
 def linha_da_nota(caminho, dados, base_do_readme):
-    destino = os.path.relpath(caminho, base_do_readme)
+    destino = os.path.relpath(caminho, base_do_readme).replace(os.sep, "/")
     titulo = dados["titulo"]
     linha = f"- [{titulo}]({destino})"
     if dados.get("resumo"):
@@ -152,7 +155,7 @@ def aplicar(caminho_readme, conteudo):
 
     novo = re.sub(
         re.escape(INICIO) + r".*?" + re.escape(FIM),
-        f"{INICIO}\n\n{conteudo}\n\n{FIM}",
+        lambda _match: f"{INICIO}\n\n{conteudo}\n\n{FIM}",
         original,
         flags=re.DOTALL,
     )

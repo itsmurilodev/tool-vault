@@ -21,7 +21,7 @@ except ImportError:
 
 CAMPOS_OBRIGATORIOS = {"titulo", "tipo", "dominio", "tags", "status", "atualizado"}
 TIPOS_VALIDOS = {"conceito", "referencia", "persona", "regra", "decisao"}
-DOMINIOS_VALIDOS = {"ia", "engenharia", "infra", "ferramentas"}
+DOMINIOS_VALIDOS = {"ia", "engenharia", "infra", "ferramentas", "negocio"}
 STATUS_VALIDOS = {"rascunho", "ativo", "arquivado"}
 
 # Documentação e modelos usam wikilinks e frontmatter como exemplo, não como link real.
@@ -30,7 +30,7 @@ PREFIXOS_IGNORADOS = (".obsidian/", "templates/")
 
 
 def listar_notas():
-    caminhos = sorted(glob("**/*.md", recursive=True))
+    caminhos = sorted(c.replace(os.sep, "/") for c in glob("**/*.md", recursive=True))
     return [c for c in caminhos if not c.startswith(PREFIXOS_IGNORADOS)]
 
 
@@ -120,6 +120,14 @@ def validar_frontmatter_das_notas(notas, problemas):
                 problemas.append(
                     f"{caminho}: {campo}='{valor}' fora dos valores aceitos {sorted(validos)}"
                 )
+
+        dominio = dados.get("dominio")
+        pasta_raiz = caminho.split("/")[0]
+        if dominio in DOMINIOS_VALIDOS and dominio != pasta_raiz:
+            problemas.append(
+                f"{caminho}: dominio='{dominio}' no frontmatter, mas o arquivo está em "
+                f"'{pasta_raiz}/' — nota fora do lugar ou frontmatter errado"
+            )
 
 
 def validar_skills(problemas):

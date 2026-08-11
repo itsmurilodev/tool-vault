@@ -14,14 +14,15 @@ Decida por **domínio** (o assunto), não por como você aprendeu.
 | `engenharia/`  | Código, arquitetura, padrões, testes, refatoração, qualidade                 |
 | `infra/`       | Cloud, containers, redes, Linux, CI/CD, observabilidade, banco de dados      |
 | `ferramentas/` | Git/GitHub, editor, terminal, CLIs, produtividade                            |
+| `negocio/`     | Marketing, vendas, prospecção, SEO/AEO, growth — o lado comercial, sem código |
 
 > Um estudo de Clean Code feito conversando com uma IA é conhecimento de **engenharia**, não de IA. O domínio é o assunto da nota, não a ferramenta usada para produzi-la.
 
 **Dentro de `ia/`, há um segundo corte:** o que funciona em qualquer agente fica em `conceitos/`, `personas/` e `regras/`; o que só funciona num agente específico fica em `agentes/<nome>/`. Teste: se a nota começa com "no Claude você faz assim", ela é de `agentes/`. Se começa com "prompt bom tem objetivo explícito", é de `conceitos/`.
 
-**Quando criar um domínio novo:** só quando existirem 3+ notas que não cabem em nenhum dos atuais. Antes disso, coloque no domínio mais próximo.
+**Quando criar um domínio novo:** quando o assunto é claramente diferente dos domínios que já existem, a ponto de guardá-lo num deles ia confundir quem procura depois. Pergunta simples para decidir: *"se eu procurasse isso daqui a um ano, eu abriria esta pasta ou uma que ainda não existe?"* — se a resposta for "uma que ainda não existe", crie o domínio, mesmo que seja a primeira nota dele. Não é uma questão de quantidade. Único cuidado: se for só uma nota isolada, sem nenhuma outra parecida no radar, ela geralmente ainda cabe solta no domínio mais próximo até aparecer a segunda relacionada.
 
-**Quando criar subpasta:** só quando o tópico tiver 3+ arquivos. Um tópico com uma nota só é um arquivo solto no domínio (`engenharia/clean-code.md`), não uma pasta com um arquivo dentro.
+**Quando criar subpasta:** só quando o tópico tiver 3+ arquivos. Um tópico com uma nota só é um arquivo solto no domínio (`engenharia/clean-code.md`), não uma pasta com um arquivo dentro. (Essa regra de subpasta continua por contagem — é sobre organização dentro de um domínio já definido, diferente da decisão de criar o domínio em si.)
 
 ---
 
@@ -55,7 +56,7 @@ Toda nota de conhecimento começa com:
 titulo: "Título legível da nota"
 resumo: "Uma linha dizendo o que a nota entrega — é o que aparece no índice."
 tipo: conceito        # conceito | referencia | persona | regra | decisao
-dominio: engenharia   # ia | engenharia | infra | ferramentas
+dominio: engenharia   # ia | engenharia | infra | ferramentas | negocio
 tags: [engenharia/clean-code, qualidade-de-codigo]
 status: ativo         # rascunho | ativo | arquivado
 atualizado: 2026-08-09

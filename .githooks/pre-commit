@@ -12,16 +12,23 @@ set -uo pipefail
 RAIZ="$(git rev-parse --show-toplevel)"
 cd "$RAIZ"
 
+# python3 pode existir só como stub inválido (ex.: alias da Microsoft Store no
+# Windows sem Python real registrado) — nesse caso cai para "python".
+PY=python3
+if ! "$PY" -c "" >/dev/null 2>&1; then
+  PY=python
+fi
+
 falhou=0
 
 echo "→ validando o vault"
-if ! ./scripts/validar-vault.py; then
+if ! "$PY" ./scripts/validar-vault.py; then
   falhou=1
 fi
 
 echo
 echo "→ verificando os índices"
-if ! ./scripts/gerar-indices.py --check; then
+if ! "$PY" ./scripts/gerar-indices.py --check; then
   echo
   echo "índice desatualizado. Rode:"
   echo "    ./scripts/gerar-indices.py && git add -u"
