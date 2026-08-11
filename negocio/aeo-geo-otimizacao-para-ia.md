@@ -41,7 +41,9 @@ Conteúdo bem estruturado tende a performar nos três ao mesmo tempo — não s�
 | Claude | Conteúdo longo e completo |
 | Microsoft Copilot | Presença forte no LinkedIn, em contexto B2B |
 | Gemini | Conteúdo multimodal (imagem, vídeo) |
-| Google AI Overviews | Puxa dos top-10 resultados orgânicos — SEO técnico continua sendo pré-requisito |
+| Google AI Overviews | Fontes majoritariamente **fora** do top-10 orgânico (~94% dos links citados vêm de fora da primeira página; só ~17% das citações também rankeiam no top-10) — SEO tradicional ajuda menos do que se assume, AI Overviews busca diversidade de fonte, não só posição |
+
+> ⚠️ Correção sobre a linha do Google AI Overviews: dado de 2026 (BrightEdge) mostra que a maioria das fontes citadas **não** vem da primeira página de resultados orgânicos — o oposto do que se assume por padrão. Isso não invalida SEO técnico (schema, clareza de entidade continuam valendo para os outros dois alvos), mas apostar tudo em subir ranking tradicional como aposta de AEO/GEO tem uma base mais fraca do que parece.
 
 ## ✅ Como aplicar no SEO das 27 SKUs da Hamidi
 
@@ -60,3 +62,4 @@ Conteúdo bem estruturado tende a performar nos três ao mesmo tempo — não s�
 - [What Is Answer Engine Optimization (AEO)? — Contently](https://contently.com/2026/02/03/what-is-aeo-answer-engine-optimization/)
 - [Answer Engine Optimization: The Complete AEO and GEO Guide — Surmado](https://www.surmado.com/blog/answer-engine-optimization-aeo-geo-guide)
 - [Generative Engine Optimization 2026: AI Visibility Report — Gigawatt Group](https://gigawattgroup.com/generative-engine-optimization/generative-engine-optimization-report-2026/)
+- [Google AI 2026: 54% Overlap with Organic Search — SchemaNinja](https://schemaninja.com/google-ai/)

@@ -25,7 +25,7 @@ Diferença prática, se o requisito aparecer:
 | | Pinecone | pgvector no Supabase |
 | - | -------- | --------------------- |
 | Vendor novo | Sim | Não — já é o banco atual |
-| Free tier | ~2 GB, ~1 milhão de vetores | Dentro dos 500 MB do banco já usado |
+| Free tier | ~2 GB, ~100 mil vetores (embedding de 1536 dimensões, ex.: OpenAI) | Dentro dos 500 MB do banco já usado |
 | Portabilidade | Formato proprietário — migrar exige reindexar tudo | Padrão Postgres — `pg_dump` já inclui os vetores |
 | Latência em escala alta | Melhor, feito sob medida | Compete por CPU com o resto do banco no free tier |
 
@@ -49,3 +49,4 @@ Antes de avaliar Pinecone ou pgvector, responda: **existe uma feature descrita**
 ## 📚 Fontes
 
 - [Vector Database Pricing Comparison 2026 — AgentDeals](https://agentdeals.dev/vector-database-pricing)
+- [Limit of vectors on free plan — Pinecone Community](https://community.pinecone.io/t/limit-of-vectors-on-free-plan/3821)

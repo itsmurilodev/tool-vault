@@ -37,7 +37,7 @@ Free tiers (referência de 2026, confirme antes de decidir, isso muda):
 
 - **New Relic** — 100 GB de ingestão e um usuário full-platform. O mais generoso para início.
 - **Sentry** — na ordem de 5.000 eventos de erro por mês. Suficiente para aplicação pequena.
-- **Datadog** — trial de 14 dias. Não há free tier real; paga-se cedo.
+- **Datadog** — tem um free tier real desde 2026, mas estreito: até 5 hosts, só Infrastructure Monitoring, retenção de métrica de 1 dia. Fora disso (APM, log, full-stack), o caminho é o trial de 14 dias e depois pago. Na prática equivale a "não serve para o que este documento está decidindo" — o free tier existe, mas não cobre error tracking/APM, que é o que MVP pré-receita precisa.
 
 O custo do Datadog compõe por eixos que se acumulam: taxa por host de infraestrutura, taxa por host de APM, cobrança de log em dois níveis e sobretaxa de métrica custom — com cobrança em *high-water mark* (a conta do mês segue o pico, não a média). É a razão de contas de Datadog surpreenderem.
 

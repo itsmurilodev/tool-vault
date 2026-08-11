@@ -26,7 +26,7 @@ Bancos de dados de empresas e contatos profissionais, com filtro por setor, port
 
 | | Apollo.io | ZoomInfo |
 | --- | --- | --- |
-| Preço de entrada | Plano gratuito permanente: 900 créditos/ano, 2 sequências, 250 e-mails/dia | Não é público — contato comercial |
+| Preço de entrada | Plano gratuito permanente: 900 créditos/ano, 2 sequências, 250 e-mails/dia | "ZoomInfo Lite" existe (10 créditos/mês, sem cartão) mas não sustenta prospecção real — abaixo disso é contato comercial |
 | Pago | Basic ~US$ 49/usuário/mês · Professional ~US$ 79 · Organization ~US$ 119 | Professional a partir de ~US$ 15 mil/ano para 3 assentos; tiers acima vão a US$ 25–40 mil/ano |
 | Modelo | Crédito por export, **não acumula** — crédito não usado expira no mês | Contrato anual |
 | Perfil | Solo e time pequeno | Time de vendas estruturado |
