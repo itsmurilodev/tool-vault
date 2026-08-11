@@ -124,7 +124,7 @@ def validar_frontmatter_das_notas(notas, problemas):
 
 def validar_skills(problemas):
     for caminho in sorted(glob("ia/agentes/claude/skills/*/SKILL.md")):
-        pasta = caminho.split(os.sep)[4]
+        pasta = caminho.replace(os.sep, "/").split("/")[4]
         dados, erro = ler_frontmatter(open(caminho, encoding="utf-8").read())
         if erro:
             problemas.append(f"{caminho}: {erro}")

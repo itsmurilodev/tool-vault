@@ -7,7 +7,7 @@ description: >
   formato pronto para virar trabalho futuro de arquitetura e implementação.
   Usar SEMPRE que o usuário descrever uma funcionalidade nova, um problema a
   resolver, um pedido de cliente (inclusive projetos de clientes da Async
-  Studio como o [cliente]), ou disser algo como "quero adicionar X", "preciso
+  Studio), ou disser algo como "quero adicionar X", "preciso
   resolver Y", "o cliente pediu Z" — mesmo sem a palavra "requisito" aparecer.
   Não usar para bugs triviais, ajuste visual pontual ou tarefa cujo escopo já
   está 100% claro e é pequeno — nesses casos aplicar o portão de porte abaixo
@@ -64,7 +64,7 @@ Pular qualquer pergunta cuja resposta já seja óbvia pelo contexto da conversa 
 
 - Escopo de fase/release: **MoSCoW** (Must/Should/Could/Won't) — serve para decidir o que entra na fase atual do CRM ou do projeto de cliente.
 - Ranking dentro da fase já definida: **Value vs Effort** — julgamento informado de valor e esforço. Não usar RICE agora: RICE depende de dados de alcance/impacto que um produto pré-product-market-fit (seu caso, com dois beta testers) ainda não tem — usar RICE nesse estágio é preencher a fórmula com achismo disfarçado de dado.
-- Quando o requisito vem de um cliente da Async Studio (ex. [cliente]), o MoSCoW também serve para negociar escopo de contrato — "Won't" documentado evita expectativa mal alinhada depois.
+- Quando o requisito vem de um cliente da Async Studio, o MoSCoW também serve para negociar escopo de contrato — "Won't" documentado evita expectativa mal alinhada depois.
 
 ### 5. Sinalizar para arquitetura
 

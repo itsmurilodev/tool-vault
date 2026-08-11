@@ -17,7 +17,7 @@ description: >
 
 # Decisão arquitetural (ADR)
 
-O objetivo aqui é capturar o *porquê* de uma decisão técnica difícil de reverter — não decidir ou guardar a arquitetura atual de um projeto específico. A arquitetura real do CRM, do [cliente] ou de qualquer outro projeto vive no repositório/Notion do projeto, não dentro desta skill. Esta skill é método, não fato de projeto — se algum dia esta skill passar a citar detalhes específicos de um sistema em vez de processo, ela virou documentação de projeto disfarçada de skill, e vai ficar desatualizada no primeiro pivot.
+O objetivo aqui é capturar o *porquê* de uma decisão técnica difícil de reverter — não decidir ou guardar a arquitetura atual de um projeto específico. A arquitetura real do CRM, de um projeto de cliente ou de qualquer outro projeto vive no repositório/Notion do projeto, não dentro desta skill. Esta skill é método, não fato de projeto — se algum dia esta skill passar a citar detalhes específicos de um sistema em vez de processo, ela virou documentação de projeto disfarçada de skill, e vai ficar desatualizada no primeiro pivot.
 
 Para princípios de como o código em si deve ser escrito (nomes, tamanho de função, duplicação), usar a skill `clean-code` — não duplicar essa regra aqui. Esta skill é sobre decisão estrutural (o quê e por quê), não sobre estilo de código (como).
 
