@@ -3,13 +3,12 @@
 # Cria uma nota nova já com frontmatter preenchido e regenera os índices.
 #
 # Uso:
-#   ./scripts/nova-nota.sh <dominio> <nome-em-kebab-case> ["Título da nota"]
-#   ./scripts/nova-nota.sh infra docker-compose
-#   ./scripts/nova-nota.sh engenharia testes "Estratégia de testes"
-#   ./scripts/nova-nota.sh ferramentas/github actions-base
+#   ./scripts/nova-nota.sh <pilar/subpasta> <nome-em-kebab-case> ["Título da nota"]
+#   ./scripts/nova-nota.sh murilo/engenharia/infra docker-compose
+#   ./scripts/nova-nota.sh murilo/engenharia testes "Estratégia de testes"
+#   ./scripts/nova-nota.sh async/identidade brand-tokens
+#   ./scripts/nova-nota.sh async/produtos app-novo "Novo SaaS"
 #
-# O domínio aceita subpasta (ferramentas/github). O tipo é inferido do domínio
-# e pode ser trocado à mão depois — o que importa é a nota existir.
 
 set -euo pipefail
 
@@ -17,8 +16,8 @@ RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$RAIZ"
 
 if [[ $# -lt 2 ]]; then
-  echo "uso: ./scripts/nova-nota.sh <dominio> <nome-em-kebab-case> [\"Título\"]" >&2
-  echo "domínios: ia, engenharia, infra, ferramentas, negocio (subpasta permitida)" >&2
+  echo "uso: ./scripts/nova-nota.sh <pilar/subpasta> <nome-em-kebab-case> [\"Título\"]" >&2
+  echo "pilares raiz: murilo, async (ex: murilo/engenharia, async/produtos)" >&2
   exit 1
 fi
 
@@ -27,12 +26,10 @@ NOME="$2"
 DOMINIO_RAIZ="${DOMINIO_COMPLETO%%/*}"
 
 case "$DOMINIO_RAIZ" in
-  ia|engenharia|infra|ferramentas|negocio) ;;
+  murilo|async) ;;
   *)
-    echo "erro: domínio '$DOMINIO_RAIZ' não existe." >&2
-    echo "use ia, engenharia, infra, ferramentas ou negocio — ou crie o domínio novo antes," >&2
-    echo "seguindo a regra de CONVENCOES.md seção 1 (o assunto é claramente diferente dos" >&2
-    echo "domínios atuais, a ponto de confundir quem procura depois)." >&2
+    echo "erro: pilar raiz '$DOMINIO_RAIZ' inválido." >&2
+    echo "use caminhos dentro de 'murilo' ou 'async' (ex: murilo/engenharia, async/produtos)." >&2
     exit 1
     ;;
 esac
@@ -49,8 +46,7 @@ if [[ -e "$DESTINO" ]]; then
   exit 1
 fi
 
-# Nome de arquivo precisa ser único no vault inteiro: o Obsidian resolve
-# wikilink por nome, e nome repetido torna todo [[link]] ambíguo.
+# Nome de arquivo precisa ser único no vault inteiro
 EXISTENTE="$(find . -name "$NOME.md" -not -path "./.git/*" -print -quit)"
 if [[ -n "$EXISTENTE" ]]; then
   echo "erro: já existe uma nota chamada '$NOME.md' em $EXISTENTE." >&2
@@ -61,7 +57,6 @@ fi
 if [[ $# -ge 3 ]]; then
   TITULO="$3"
 else
-  # kebab-case vira título legível: "docker-compose" -> "Docker compose"
   TITULO="$(echo "$NOME" | tr '-' ' ')"
   TITULO="$(tr '[:lower:]' '[:upper:]' <<< "${TITULO:0:1}")${TITULO:1}"
 fi
@@ -75,7 +70,7 @@ titulo: "$TITULO"
 resumo: ""
 tipo: conceito
 dominio: $DOMINIO_RAIZ
-tags: []
+tags: [$DOMINIO_COMPLETO]
 status: rascunho
 atualizado: $HOJE
 ---
@@ -88,7 +83,7 @@ _O que é isso e por que importa, em 3-5 linhas._
 
 ## 🧠 Conceitos principais
 
-## ⚠️ Erros comuns
+## ⚠️ Erros comuns e trade-offs
 
 ## ✅ Como aplicar na prática
 
@@ -98,7 +93,6 @@ _O que é isso e por que importa, em 3-5 linhas._
 EOF
 
 echo "criada: $DESTINO"
-echo
+
+# Regenera os índices para a nota nova já entrar
 ./scripts/gerar-indices.py
-echo
-echo "próximo passo: preencher o resumo no frontmatter — é ele que aparece no índice."

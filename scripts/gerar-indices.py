@@ -7,9 +7,6 @@ Uso:
 
 O índice fica entre marcadores HTML. Tudo fora deles (prosa, backlog, tabelas
 curadas) é preservado — o script só substitui o miolo.
-
-Existe para eliminar o modo de falha "adicionei nota e esqueci de registrar no
-índice", que é como um vault deixa de ser navegável.
 """
 
 import os
@@ -20,40 +17,47 @@ from glob import glob
 try:
     import yaml
 except ImportError:
-    print("erro: este script precisa de PyYAML (pip install pyyaml)", file=sys.stderr)
-    sys.exit(2)
+    yaml = None
 
 INICIO = "<!-- INICIO:INDICE (gerado por scripts/gerar-indices.py — não editar à mão) -->"
 FIM = "<!-- FIM:INDICE -->"
 
 # (README a atualizar, diretório cujas notas ele indexa)
 INDICES = [
-    ("ia/README.md", "ia"),
-    ("engenharia/README.md", "engenharia"),
-    ("infra/README.md", "infra"),
-    ("ferramentas/README.md", "ferramentas"),
-    ("negocio/README.md", "negocio"),
-    ("ia/agentes/claude/README.md", "ia/agentes/claude"),
+    ("murilo/README.md", "murilo"),
+    ("murilo/ia/README.md", "murilo/ia"),
+    ("murilo/engenharia/README.md", "murilo/engenharia"),
+    ("murilo/engenharia/infra/README.md", "murilo/engenharia/infra"),
+    ("murilo/engenharia/ferramentas/README.md", "murilo/engenharia/ferramentas"),
+    ("murilo/ia/agentes/claude/README.md", "murilo/ia/agentes/claude"),
+    ("async/README.md", "async"),
+    ("async/negocio/README.md", "async/negocio"),
 ]
 
 DOMINIOS_RAIZ = [
-    ("ia", "🤖 IA"),
-    ("engenharia", "🏗️ Engenharia"),
-    ("infra", "🖥️ Infra"),
-    ("ferramentas", "🔧 Ferramentas"),
-    ("negocio", "💼 Negócio"),
+    ("murilo", "👤 Murilo (Pessoal & Engenharia)"),
+    ("async", "🏢 Async Studio (Marca, Produtos & Negócio)"),
 ]
 
-# Rótulo legível para subpastas cujo nome não fica bom só capitalizado.
+# Rótulo legível para subpastas
 ROTULOS = {
     "github": "GitHub",
-    "ia": "IA",
+    "ia": "IA & Agentes",
     "adr": "Decisões (ADR)",
     "agentes/claude": "Agentes › Claude",
     "agentes": "Agentes",
+    "perfil": "Perfil & Modus Operandi",
+    "estudos": "Estudos & Faculdade",
+    "engenharia": "Engenharia",
+    "infra": "Infraestrutura",
+    "ferramentas": "Ferramentas",
+    "identidade": "Identidade & Marca",
+    "design-system": "Design System & UI",
+    "produtos": "Produtos & ADRs",
+    "negocio": "Negócio & Marketing",
 }
 
-IGNORADOS = ("templates/", ".obsidian/")
+IGNORADOS = ("templates/", ".obsidian/", "scripts/")
 
 
 def rotulo(caminho_relativo):
@@ -70,18 +74,25 @@ def ler_frontmatter(caminho):
     partes = texto.split("---\n", 2)
     if len(partes) < 3:
         return None
-    try:
-        return yaml.safe_load(partes[1]) or {}
-    except yaml.YAMLError:
-        return None
+    bloco = partes[1]
+    if yaml is not None:
+        try:
+            return yaml.safe_load(bloco) or {}
+        except yaml.YAMLError:
+            return None
+
+    dados = {}
+    for linha in bloco.splitlines():
+        m = re.match(r"^([a-z_]+):\s*(.*)$", linha)
+        if m:
+            chave = m.group(1)
+            valor = m.group(2).strip().strip('"').strip("'")
+            dados[chave] = valor
+    return dados
 
 
 def listar_notas(diretorio, ignoradas=None):
-    """Notas de conhecimento sob `diretorio`, agrupadas por subpasta.
-
-    Nota sem frontmatter válido é registrada em `ignoradas` em vez de sumir em
-    silêncio — índice que perde nota sem avisar é pior do que índice manual.
-    """
+    """Notas de conhecimento sob `diretorio`, agrupadas por subpasta."""
     grupos = {}
     for caminho in sorted(glob(f"{diretorio}/**/*.md", recursive=True)):
         caminho = caminho.replace(os.sep, "/")
@@ -117,7 +128,7 @@ def montar_indice(diretorio, caminho_readme, ignoradas=None):
     base = os.path.dirname(caminho_readme)
     grupos = listar_notas(diretorio, ignoradas)
     if not grupos:
-        return "_Ainda sem notas neste domínio. Crie a primeira com `./scripts/nova-nota.sh`._"
+        return "_Ainda sem notas neste domínio._"
 
     blocos = []
     for chave in sorted(grupos, key=lambda k: (k != "", k)):
@@ -170,10 +181,10 @@ def main():
     somente_checar = "--check" in sys.argv
 
     ignoradas = set()
-    alvos = [
-        (caminho, montar_indice(diretorio, caminho, ignoradas))
-        for caminho, diretorio in INDICES
-    ]
+    alvos = []
+    for caminho, diretorio in INDICES:
+        if os.path.exists(caminho):
+            alvos.append((caminho, montar_indice(diretorio, caminho, ignoradas)))
     alvos.append(("README.md", montar_indice_raiz(ignoradas)))
 
     desatualizados, erros = [], []

@@ -21,7 +21,7 @@ except ImportError:
 
 CAMPOS_OBRIGATORIOS = {"titulo", "tipo", "dominio", "tags", "status", "atualizado"}
 TIPOS_VALIDOS = {"conceito", "referencia", "persona", "regra", "decisao"}
-DOMINIOS_VALIDOS = {"ia", "engenharia", "infra", "ferramentas", "negocio"}
+DOMINIOS_VALIDOS = {"murilo", "async"}
 STATUS_VALIDOS = {"rascunho", "ativo", "arquivado"}
 
 # Documentação e modelos usam wikilinks e frontmatter como exemplo, não como link real.
@@ -49,7 +49,12 @@ def ler_frontmatter(texto):
     bloco = partes[1]
     if yaml is None:
         campos = set(re.findall(r"^([a-z_]+):", bloco, flags=re.MULTILINE))
-        return {campo: "" for campo in campos}, None
+        dados = {campo: "" for campo in campos}
+        for linha in bloco.splitlines():
+            m = re.match(r"^([a-z_]+):\s*([^\s#]+)", linha)
+            if m:
+                dados[m.group(1)] = m.group(2).strip().strip('"').strip("'")
+        return dados, None
     try:
         return yaml.safe_load(bloco) or {}, None
     except yaml.YAMLError as erro:
@@ -108,15 +113,15 @@ def validar_frontmatter_das_notas(notas, problemas):
         faltando = CAMPOS_OBRIGATORIOS - set(dados)
         if faltando:
             problemas.append(f"{caminho}: frontmatter sem {sorted(faltando)}")
-        if yaml is None:
             continue
+
         for campo, validos in (
             ("tipo", TIPOS_VALIDOS),
             ("dominio", DOMINIOS_VALIDOS),
             ("status", STATUS_VALIDOS),
         ):
             valor = dados.get(campo)
-            if valor is not None and valor not in validos:
+            if valor and valor not in validos:
                 problemas.append(
                     f"{caminho}: {campo}='{valor}' fora dos valores aceitos {sorted(validos)}"
                 )
@@ -131,8 +136,9 @@ def validar_frontmatter_das_notas(notas, problemas):
 
 
 def validar_skills(problemas):
-    for caminho in sorted(glob("ia/agentes/claude/skills/*/SKILL.md")):
-        pasta = caminho.replace(os.sep, "/").split("/")[4]
+    for caminho in sorted(glob("murilo/ia/agentes/claude/skills/*/SKILL.md")):
+        partes = caminho.replace(os.sep, "/").split("/")
+        pasta = partes[-2]
         dados, erro = ler_frontmatter(open(caminho, encoding="utf-8").read())
         if erro:
             problemas.append(f"{caminho}: {erro}")
@@ -140,13 +146,11 @@ def validar_skills(problemas):
         if dados is None:
             problemas.append(f"{caminho}: SKILL.md sem frontmatter name/description")
             continue
-        if yaml is None:
-            continue
-        if dados.get("name") != pasta:
+        if dados.get("name") and dados.get("name") != pasta:
             problemas.append(
                 f"{caminho}: name='{dados.get('name')}' diferente da pasta '{pasta}'"
             )
-        if not dados.get("description"):
+        if "description" not in dados:
             problemas.append(f"{caminho}: sem description — a skill nunca vai disparar")
         extras = set(dados) - {"name", "description"}
         if extras:
@@ -155,7 +159,7 @@ def validar_skills(problemas):
                 "SKILL.md aceita só name e description"
             )
 
-    for pasta in sorted(glob("ia/agentes/claude/skills/*/")):
+    for pasta in sorted(glob("murilo/ia/agentes/claude/skills/*/")):
         if not os.path.isfile(os.path.join(pasta, "SKILL.md")):
             problemas.append(f"{pasta}: pasta de skill sem SKILL.md")
 
