@@ -16,8 +16,12 @@ Pasta [`skills/`](skills/) — formato de skill do Claude (pasta com `SKILL.md` 
 | [decisao-arquitetural](skills/decisao-arquitetural/SKILL.md) | Escolha estrutural difícil de reverter (ADR) |
 | [grill-me](skills/grill-me/SKILL.md) | Só sob pedido explícito — interrogatório até a ideia ficar consistente |
 | [heuristicas-nielsen](skills/heuristicas-nielsen/SKILL.md) | Qualquer trabalho de interface / front-end |
+| [impeccable-ui](skills/impeccable-ui/SKILL.md) | Geração, refinamento e auditoria de design/UI (59 regras anti-slop) |
 | [levantamento-requisitos](skills/levantamento-requisitos/SKILL.md) | Funcionalidade nova ou pedido de cliente antes de implementar |
 | [prompt-engineering-agente](skills/prompt-engineering-agente/SKILL.md) | Gerar, revisar ou melhorar prompt para outra IA |
+| [semgrep-scan](skills/semgrep-scan/SKILL.md) | Segurança estática (SAST) em backend, RLS, SQL e secrets |
+| [spec-compliance](skills/spec-compliance/SKILL.md) | Auditoria de conformidade entre SPEC.md e código implementado |
+
 
 Formato e regras de escrita de skill: [CONVENCOES.md](../../../../CONVENCOES.md) seção 6.
 

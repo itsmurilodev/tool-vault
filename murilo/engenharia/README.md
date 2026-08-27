@@ -11,9 +11,16 @@ Como o software é escrito e estruturado: código, arquitetura, padrões, testes
 - [Portão de adoção de ferramenta](adocao-de-ferramenta.md) — Como avaliar ferramenta nova, principalmente a que veio de conteúdo viral, antes de colocar no stack.
 - [Qualidade automatizada — lint, código morto, testes e contrato de arquitetura](qualidade-automatizada.md) — Biome, Knip, Playwright, Codecov, Stryker e contrato de arquitetura, em ordem de adoção por custo.
 
+### Ferramentas
+
+- [Impeccable — Linter Determinístico e Design System para UI por IA](ferramentas/impeccable.md) — Ferramenta de 59 regras determinísticas e comandos de design para eliminar padrões genéricos ('AI slop') e polir interfaces no front-end.
+- [Semgrep Guardian & Semgrep MCP — SAST para Agentes de Código](ferramentas/semgrep-guardian.md) — Auditoria estática de segurança integrada ao loop de agentes de IA, bloqueando vulnerabilidades em tempo real antes do commit.
+- [Spec to Code Compliance — Auditoria Determinística de Requisitos por IA](ferramentas/spec-to-code-compliance.md) — Plugin da Trail of Bits para verificação formal de conformidade entre especificações (SPEC.md/PRD) e código implementado.
+
 ### Ferramentas › GitHub
 
 - [Fluxo Issue → PR → commit padronizado](ferramentas/github/fluxo-issue-pr.md) — Disciplina de fluxo, Conventional Commits e commitlint — custo zero, alto retorno.
+- [GitHub Issue Creator — Estruturação Automatizada de Chamados](ferramentas/github/github-issue-creator.md) — Skill para conversão de logs e stack traces em issues formatadas no GitHub com sanitização de segredos.
 - [Padrão de nomes de repositórios GitHub](ferramentas/github/padrao-de-repositorios.md) — Prefixos oficiais e formato `<contexto>-<projeto>-<tipo>` em kebab-case.
 
 ### Infraestrutura
@@ -23,7 +30,9 @@ Como o software é escrito e estruturado: código, arquitetura, padrões, testes
 - [Banco de dados vetorial — Pinecone, pgvector e quando isso vira requisito](infra/banco-de-dados-vetorial.md) — Pinecone é bom, mas pgvector (já dentro do Supabase que Encaixe usa) resolve o mesmo problema sem vendor novo — e nenhum dos dois entra sem uma feature de busca semântica definida.
 - [Cache e fila — Upstash Redis e o gatilho real de adoção](infra/cache-e-fila.md) — Upstash resolve cache, rate-limit e o adapter multi-instância do Socket.io — mas só entra quando há pressão de tráfego real, não em MVP de usuário único.
 - [Email transacional — Resend](infra/email-transacional.md) — Resend cobre uma lacuna real (confirmação de cadastro, notificação, recuperação de senha) sem redundância com nada já adotado — dos itens do reel, é dos poucos que passam no portão agora.
+- [Guarita — Auditoria Externa de Superfície de Ataque e Conformidade LGPD](infra/guarita.md) — Plataforma automatizada de varredura externa de vulnerabilidades, headers HTTP e conformidade de privacidade em produção.
 - [Observabilidade — Sentry, Datadog, New Relic e OpenTelemetry](infra/observabilidade.md) — Sentry, Datadog e New Relic são concorrentes; OpenTelemetry é o padrão que evita lock-in.
+- [Portless — Proxy Reverso Local e Domínios Estáticos com HTTPS](infra/portless.md) — Substitui portas localhost caóticas por domínios estáticos e seguros (*.localhost) para facilitar desenvolvimento de múltiplos serviços e agentes.
 - [Supabase como backend-as-a-service — o teto real do free tier](infra/backend-como-servico.md) — 500 MB de banco, 50 mil MAU e pausa após 7 dias de inatividade: os números concretos que decidem quando sair do free tier do Supabase.
 
 <!-- FIM:INDICE -->

@@ -23,7 +23,9 @@ Onde o software roda: sistema operacional, containers, cloud, redes, banco de da
 - [Banco de dados vetorial — Pinecone, pgvector e quando isso vira requisito](banco-de-dados-vetorial.md) — Pinecone é bom, mas pgvector (já dentro do Supabase que Encaixe usa) resolve o mesmo problema sem vendor novo — e nenhum dos dois entra sem uma feature de busca semântica definida.
 - [Cache e fila — Upstash Redis e o gatilho real de adoção](cache-e-fila.md) — Upstash resolve cache, rate-limit e o adapter multi-instância do Socket.io — mas só entra quando há pressão de tráfego real, não em MVP de usuário único.
 - [Email transacional — Resend](email-transacional.md) — Resend cobre uma lacuna real (confirmação de cadastro, notificação, recuperação de senha) sem redundância com nada já adotado — dos itens do reel, é dos poucos que passam no portão agora.
+- [Guarita — Auditoria Externa de Superfície de Ataque e Conformidade LGPD](guarita.md) — Plataforma automatizada de varredura externa de vulnerabilidades, headers HTTP e conformidade de privacidade em produção.
 - [Observabilidade — Sentry, Datadog, New Relic e OpenTelemetry](observabilidade.md) — Sentry, Datadog e New Relic são concorrentes; OpenTelemetry é o padrão que evita lock-in.
+- [Portless — Proxy Reverso Local e Domínios Estáticos com HTTPS](portless.md) — Substitui portas localhost caóticas por domínios estáticos e seguros (*.localhost) para facilitar desenvolvimento de múltiplos serviços e agentes.
 - [Supabase como backend-as-a-service — o teto real do free tier](backend-como-servico.md) — 500 MB de banco, 50 mil MAU e pausa após 7 dias de inatividade: os números concretos que decidem quando sair do free tier do Supabase.
 
 <!-- FIM:INDICE -->

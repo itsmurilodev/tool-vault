@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Padrão de Engenharia & Fluxo"
+    url: "https://github.com/itsmurilo"
+    about: "Consulte o fluxo de Issues e PRs antes de abrir novas demandas."

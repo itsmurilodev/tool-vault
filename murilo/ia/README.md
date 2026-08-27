@@ -26,6 +26,8 @@ ia/
 
 ### Conceitos
 
+- [Agent-Browser — Automação e Navegação Web para Agentes de IA](conceitos/agent-browser.md) — Arquitetura Rust/Node.js de navegação autônoma por IA com sistema ref-based, limitações de latência e comparação com Playwright.
+- [Find Skills — Descoberta de Extensões e Riscos de Inchaço de Contexto](conceitos/find-skills.md) — Análise da CLI npx skills (skills.sh) e diretrizes de defesa contra prompt bloating e injeção de dependências em agentes.
 - [Prompt Engineering — estudo](conceitos/prompt-engineering.md) — Instruções claras, delimitadores, formato de saída e avaliação iterativa.
 
 ### Personas

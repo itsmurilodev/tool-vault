@@ -1,11 +1,11 @@
 ---
-titulo: Fluxo Issue → PR → commit padronizado
+titulo: "Fluxo Issue → PR → commit padronizado"
 resumo: "Disciplina de fluxo, Conventional Commits e commitlint — custo zero, alto retorno."
 tipo: referencia
 dominio: murilo
-tags: [ferramentas/github, git, processo]
+tags: [murilo/engenharia, ferramentas/github, git, processo]
 status: ativo
-atualizado: 2026-08-09
+atualizado: 2026-08-27
 ---
 
 # Fluxo Issue → PR → commit padronizado
@@ -58,13 +58,24 @@ Ganhos reais: changelog gerado automaticamente, versionamento semântico derivad
 
 > Isso não conflita com a convenção deste vault, que usa mensagem em imperativo e português (ver [CONVENCOES.md](../../../../CONVENCOES.md) seção 7). Vault de conhecimento não gera release. Aplicar Conventional Commits em repositório de código, e o padrão simples aqui.
 
+## 🧠 5. Templates Padrão de Issue (`.github/ISSUE_TEMPLATE/`)
+
+Para manter as issues concisas e orientadas à ação (tanto para você quanto para agentes de IA), use a tríade padrão:
+
+1. **`01_bug_report.md`** (`fix: `): Comportamento ocorrido, comportamento esperado, passos de reprodução e critério de resolução.
+2. **`02_feature_request.md`** (`feat: `): Dor/oportunidade, proposta de solução, regras de negócio e critérios de aceite (*Definition of Done*).
+3. **`03_technical_task.md`** (`chore: ` / `refactor: `): Motivação técnica, plano de ação em checklist, riscos/áreas afetadas e validação.
+
+> 📁 Os templates canônicos estão salvos em `.github/ISSUE_TEMPLATE/` e podem ser copiados diretamente para qualquer repositório (`app-encaixe`, `app-asynchub`, `site-institucional`).
+
 ## ✅ Como aplicar
 
 | Estágio | O que adotar |
 | ------- | ------------ |
-| Qualquer um | Issue → PR referenciando a issue → padrão escrito em arquivo. Custo zero |
+| Qualquer um | Issue via Template → PR referenciando a issue (`Closes #NN`) → padrão escrito em arquivo. Custo zero |
 | Projeto com mais de uma pessoa ou com release | Conventional Commits + commitlint em hook |
 | Projeto com CI | Exigir check verde antes do merge |
+
 
 ## ⚠️ Erros comuns
 
