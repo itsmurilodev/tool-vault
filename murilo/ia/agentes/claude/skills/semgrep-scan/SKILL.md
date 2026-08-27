@@ -3,68 +3,90 @@ name: semgrep-scan
 description: >
   Audita e blinda código contra vulnerabilidades de segurança (SAST) em tempo
   real — injeção SQL, brechas em Row Level Security (RLS) do Supabase, CORS
-  permissivo, segredos/tokens expostos e violações OWASP. Usar ao gerar, editar
-  ou revisar código backend, APIs, rotas e infraestrutura.
+  permissivo, segredos/tokens expostos e violações OWASP. Usar SEMPRE que for
+  escrever, gerar, editar ou auditar código backend, APIs, rotas, banco de
+  dados ou infraestrutura. Quando o pedido for uma auditoria explícita (ex:
+  "verifique a segurança", "rode o semgrep", "audite vulnerabilidades"), seguir
+  o modo de auditoria com relatório estruturado e revalidação obrigatória.
 ---
 
-# Semgrep Scan — Blindagem Estática de Código (SAST)
+# Semgrep Scan — Blindagem Estática de Segurança (SAST)
 
-Este skill define as diretrizes para auditar e corrigir vulnerabilidades de segurança em código gerado por IA ou legado, utilizando o motor estático Semgrep no modo local (sem dependência de cloud).
+Esta skill define as diretrizes para auditar e prevenir vulnerabilidades de segurança em código gerado por IA ou legado, utilizando o motor estático Semgrep no modo local (offline, sem dependência de cloud) e regras do OWASP Top 10.
 
-## 🛡️ Quando Disparar
+**Idioma:** toda comunicação (relatórios de auditoria, justificativas de segurança) é em português do Brasil, direta e técnica.
 
-* **Modo Silencioso (Default)**: Ao gerar código de backend, endpoints de API, consultas a banco de dados (SQL / Supabase) ou manipulação de tokens e variáveis de ambiente.
-* **Modo Auditoria Explícita**: Quando o usuário solicitar comandos como `"audite a segurança deste código"`, `"verifique vulnerabilidades"`, `"rode o semgrep"`.
-
----
-
-## 🧠 1. Regras de Prevenção em Tempo de Geração
-
-Sempre que escrever ou refatorar código backend:
-
-1. **Zero SQL Dinâmico**: Toda query deve usar prepared statements / consultas parametrizadas do ORM ou driver. Jamais concatenar strings com entradas do usuário.
-2. **Supabase RLS Estrito**: Toda tabela no PostgreSQL acessível via API client-side deve ter `ENABLE ROW LEVEL SECURITY` e policies explícitas para `SELECT`, `INSERT`, `UPDATE`, `DELETE`.
-3. **Zero Secrets Hardcoded**: Chaves de API, senhas e tokens nunca devem ser escritos diretamente em arquivos. Utilize sempre `process.env.VAR` ou arquivos `.env.local` ignorados no `.gitignore`.
-4. **Sanitização de Entradas**: Todo payload de requisição deve ser validado via schemas estritos (ex: Zod, Yup, Pydantic) antes de qualquer processamento.
+Existem dois modos de operação. Escolha um antes de agir:
 
 ---
 
-## 🛠️ 2. Execução de Varredura Local
+## 🛡️ Modo Padrão — Escrever ou Editar Código (Comportamento Default)
 
-Quando for solicitado escanear o projeto ou validar uma pasta:
+Aplicar silenciosamente estas salvaguardas sempre que gerar ou refatorar código de backend, endpoints, banco de dados ou autenticação, sem produzir relatórios intermediários visíveis:
 
-```bash
-# Varredura rápida automática no diretório corrente
-semgrep --config auto .
-
-# Ou varredura focada em TypeScript, Next.js e OWASP
-semgrep scan --config "p/default" --config "p/typescript" --config "p/owasp-top-ten"
-```
-
----
-
-## ⚠️ 3. Guardrail Obrigatório de Correção
-
-Ao aplicar correções automáticas para achados do Semgrep:
-
-* **Preservação de Comportamento**: A correção deve mitigar a vulnerabilidade estritamente sem quebrar regras de negócio ou alterar o comportamento esperado da aplicação.
-* **Validação Obrigatória**: Sempre re-execute a varredura (`semgrep scan`) após aplicar a correção para garantir que o alerta foi mitigado e nenhum novo problema foi introduzido.
-* **Alerta Humano**: Se a correção exigir mudança em contrato de API pública ou schema de banco de dados, interrompa a edição e alerte o usuário com as opções disponíveis.
+1. **Zero SQL Dinâmico / Injeção**: Jamais concatenar strings ou interpolar variáveis diretamente em comandos SQL. Use sempre prepared statements, consultas parametrizadas do driver ou métodos seguros do ORM/query builder.
+2. **Supabase Row Level Security (RLS) Estrito**:
+   * Toda tabela pública deve conter `ALTER TABLE <nome> ENABLE ROW LEVEL SECURITY;`.
+   * Políticas explícitas para cada operação (`SELECT`, `INSERT`, `UPDATE`, `DELETE`) baseadas em `auth.uid()` ou roles seguras. Nunca criar políticas genéricas com `USING (true)` para escrita.
+3. **Zero Segredos em Código**: Chaves de API, senhas, tokens JWT e connection strings jamais devem ser fixados no código. Utilize exclusivamente variáveis de ambiente (`process.env.VAR`) e garanta que arquivos `.env*` estejam no `.gitignore`.
+4. **Sanitização de Payloads**: Todo dado recebido de clientes externos ou webhooks deve ser validado via schemas estritos (Zod, Yup, Pydantic) antes de ser processado ou salvo.
+5. **CORS e Headers Seguros**: Endpoints de API devem restringir origens autorizadas (sem `Access-Control-Allow-Origin: *` em rotas autenticadas).
 
 ---
 
-## 📋 Formato de Saída em Auditorias Explícitas
+## 🔍 Modo Auditoria — Varredura Explícita de Segurança
+
+Acionar quando o usuário solicitar expressamente a revisão de segurança de um arquivo, pasta ou projeto (ex: *"verifique vulnerabilidades"*, *"rode o semgrep"*, *"audite o backend"*).
+
+### Processo de Execução:
+
+1. **Executar a Varredura Local**:
+   ```bash
+   # Varredura automática no diretório
+   semgrep --config auto .
+
+   # Ou varredura direcionada por tecnologia
+   semgrep scan --config "p/default" --config "p/typescript" --config "p/owasp-top-ten" --config "p/sql-injection"
+   ```
+2. **Classificar os Achados por Severidade**:
+   * **Crítico**: Execução remota de código, injeção SQL direta, RLS desativado com dados sensíveis expostos, credencial de produção vazada.
+   * **Alto**: Autenticação bypassável, CORS irrestrito em rotas privadas, tokens fracos, CSRF.
+   * **Médio**: Falta de rate limiting, mensagens de erro expondo stack trace interno, headers de segurança ausentes.
+   * **Baixo / Info**: Más práticas de configuração, comentários com TODO de segurança.
+3. **Aplicar a Correção com Guardrail de Ouro**:
+   * **Preservar o Comportamento**: Corrigir a brecha sem alterar a regra de negócio ou o contrato da API.
+   * **Revalidação Obrigatória**: Rodar a mesma varredura do Semgrep após a correção para provar que o achado foi eliminado.
+
+### Formato de Saída Obrigatório (Markdown):
 
 ```markdown
-## 🛡️ Diagnóstico de Segurança (Semgrep)
-* **Status**: [Vulnerabilidades Encontradas / Seguro]
-* **Arquivos Analisados**: [Lista]
+## 🛡️ Diagnóstico de Segurança (Semgrep SAST)
+* **Status**: [Vulnerabilidades Encontradas | Seguro]
+* **Escopo Analisado**: [Diretório / Arquivos]
 
-### 🚨 Achados Críticos & Mitigações
-1. **[Arquivo:Linha]** — [Descrição da Vulnerabilidade (ex: CWE-89 SQLi)]
-   * **Risco**: [Impacto concreto]
-   * **Correção Aplicada**: [Trecho de código seguro]
+### 🚨 Achados de Segurança (Ordenados por Severidade)
+| # | Severidade | Vulnerabilidade (CWE/OWASP) | Arquivo:Linha | Impacto Real | Mitigação Aplicada |
+| :-: | :---: | :--- | :--- | :--- | :--- |
+| 1 | Crítica | SQL Injection (CWE-89) | `src/api/search.ts:L32` | Acesso não autorizado ao banco | Parametrização com Zod/Prisma |
+| 2 | Alta | Supabase RLS Missing | `supabase/schema.sql:L14` | Leitura pública de dados | Adicionado ENABLE RLS + Policy |
+
+### 🛠️ Código Corrigido (Antes vs Depois)
+[Diff ou snippets concisos mostrando a correção]
 
 ### ✅ Validação Pós-Correção
-* [ ] Varredura semgrep limpa (0 alertas).
+- [ ] Varredura do Semgrep reexecutada — 0 novos alertas encontrados.
+- [ ] Comportamento e regras de negócio preservados.
 ```
+
+---
+
+## ⚠️ Restrições Rígidas da Skill
+
+* **Não delegar regras de negócio ao autofix**: Se o Semgrep acusar um falso positivo ou se a correção exigir mudança no banco de dados, alerte o desenvolvedor antes de executar reescritas profundas.
+* **Privacidade Total**: A execução do Semgrep é 100% local (`uvx semgrep` ou `semgrep scan`). Não envie código ou chaves para servidores de terceiros.
+
+---
+
+## 📚 Referência Ampliada
+
+Consulte `references/padroes-seguranca-sast.md` para ver exemplos de código vulnerável vs código blindado em Next.js, Supabase, TypeScript e Node.js.
