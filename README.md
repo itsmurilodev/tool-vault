@@ -19,7 +19,7 @@ tool-vault/
 │   │   ├── infra/              #     Supabase, Sentry, Redis, Resend, etc.
 │   │   └── ferramentas/        #     GitHub Flow, commits, convenções
 │   └── ia/                     #   Engenharia de prompts, personas, regras e skills
-│       └── agentes/claude/     #     Skills locais do Claude (~/.claude/skills)
+│       └── agentes/skills/     #     Skills operacionais para agentes de IA
 │
 ├── async/                      # PILAR 2: Async Studio (Marca, Produtos & Negócio)
 │   ├── identidade/             #   Brandbook, paleta de cores, tom de voz
@@ -96,7 +96,7 @@ tool-vault/
 
 ## 🤖 Usando as Skills com Agentes de IA
 
-As skills em `murilo/ia/agentes/claude/skills/` seguem o formato padrão de skills (pasta com `SKILL.md` + frontmatter `name`/`description`). Para instalá-las localmente:
+As skills em `murilo/ia/agentes/skills/` seguem o formato padrão de skills (pasta com `SKILL.md` + frontmatter `name`/`description`). Para instalá-las localmente:
 
 ```bash
 ./scripts/sync-skills.sh          # simulação (mostra o que faria)

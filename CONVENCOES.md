@@ -15,7 +15,7 @@ O vault é dividido em **dois grandes pilares canônicos** de primeiro nível:
 
 > Um estudo de Clean Code ou Docker é conhecimento de **`murilo/engenharia/`**. As decisões de marca, cores e produtos da Async vivem em **`async/`**.
 
-**Dentro de `murilo/ia/`, há um segundo corte:** o que funciona em qualquer agente fica em `conceitos/`, `personas/` e `regras/`; o que só funciona no Claude fica em `agentes/claude/`.
+**Dentro de `murilo/ia/`, há um segundo corte:** o que é conceito de prompt/LLM fica em `conceitos/`, personas em `personas/`, regras em `regras/`, e skills/conectores/configurações em `agentes/`.
 
 ---
 
@@ -24,7 +24,7 @@ O vault é dividido em **dois grandes pilares canônicos** de primeiro nível:
 Duas naturezas diferentes, tratadas de formas diferentes:
 
 - **Conhecimento** (`conceitos/`, notas técnicas de domínio, brandbook) — o que foi estudado ou decidido. Escrito em formato legível para humanos e para consulta de agentes (RAG / MCP).
-- **Artefato** (`murilo/ia/agentes/claude/skills/`, `personas/`, `regras/`) — o que uma IA consome e executa operacionalmente. Deve ser enxuto, direto e sem teoria decorativa.
+- **Artefato** (`murilo/ia/agentes/skills/`, `personas/`, `regras/`) — o que uma IA consome e executa operacionalmente. Deve ser enxuto, direto e sem teoria decorativa.
 
 Quando os dois existem para o mesmo assunto, o artefato **referencia** o conhecimento em vez de copiá-lo.
 
@@ -36,7 +36,7 @@ Quando os dois existem para o mesmo assunto, o artefato **referencia** o conheci
 - **Descritivo e único no vault inteiro.** O Obsidian resolve `[[link]]` por nome de arquivo — dois `estudo.md` em pastas diferentes tornam todo link ambíguo.
   - ✅ `clean-code.md`, `paleta-de-cores.md`, `docker-compose.md`
   - ❌ `estudo.md`, `notas.md`, `README2.md`, `Estudo Docker.md`
-- Exceção: `README.md` (índice de domínio) e `SKILL.md` (formato fixo do Claude).
+- Exceção: `README.md` (índice de domínio) e `SKILL.md` (formato padrão de skill para agentes).
 
 ---
 
@@ -59,24 +59,24 @@ atualizado: 2026-08-26
 - **Use aspas em `titulo` e `resumo`.**
 - `tags` usa hierarquia com `/` (ex: `murilo/estudos`, `async/produtos`).
 - `status: rascunho` é permitido e útil.
-- **Não coloque esse frontmatter em `SKILL.md`.** Skill do Claude usa frontmatter próprio (`name` + `description`).
+- **Não coloque esse frontmatter em `SKILL.md`.** Skill de agente usa frontmatter próprio (`name` + `description`).
 
 ---
 
 ## 5. Links
 
 - Entre notas do vault: `[[nome-do-arquivo]]` (wikilink do Obsidian).
-- Para arquivos de skill ou qualquer coisa fora do grafo de notas: link markdown relativo — `[clean-code](murilo/ia/agentes/claude/skills/clean-code/SKILL.md)`.
+- Para arquivos de skill ou qualquer coisa fora do grafo de notas: link markdown relativo — `[clean-code](murilo/ia/agentes/skills/clean-code/SKILL.md)`.
 - **O índice dos README é gerado, não escrito à mão.** Execute `./scripts/gerar-indices.py`.
 
 ---
 
 ## 6. Skills
 
-Uma skill é uma pasta em `murilo/ia/agentes/claude/skills/<nome>/` com:
+Uma skill é uma pasta em `murilo/ia/agentes/skills/<nome>/` com:
 
 ```text
-murilo/ia/agentes/claude/skills/<nome>/
+murilo/ia/agentes/skills/<nome>/
 ├── SKILL.md              # obrigatório: frontmatter name + description, e regras operacionais
 └── references/           # opcional: material de apoio carregado sob demanda
 ```

@@ -9,7 +9,7 @@
 * **`perfil/`**: Modus operandi, diretrizes de código e postura esperada de agentes.
 * **`estudos/`**: Anotações e disciplinas da faculdade (`faculdade/`) e cursos (`cursos/`).
 * **`engenharia/`**: Clean code, qualidade de software, infraestrutura (`infra/`) e ferramentas (`ferramentas/`).
-* **`ia/`**: Engenharia de prompts, personas, regras globais e skills do Claude (`agentes/claude/skills/`).
+* **`ia/`**: Engenharia de prompts, personas, regras globais e skills de agentes (`agentes/skills/`).
 
 ---
 

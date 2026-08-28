@@ -1,4 +1,4 @@
-Modelo de `SKILL.md`. Copie para `ia/agentes/claude/skills/<nome>/SKILL.md` e apague esta linha e a próxima.
+Modelo de `SKILL.md`. Copie para `ia/agentes/skills/<nome>/SKILL.md` e apague esta linha e a próxima.
 
 **Atenção:** o frontmatter de skill tem só `name` e `description`. Não adicione os campos do frontmatter de nota (`tipo`, `dominio`, `tags`) aqui.
 

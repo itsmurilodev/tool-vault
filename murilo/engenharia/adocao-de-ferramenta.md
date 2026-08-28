@@ -65,5 +65,5 @@ Antes de adotar, responda:
 ## 🔗 Ver também
 
 - [[qualidade-automatizada]] · [[bibliotecas-de-ui]] · [[observabilidade]] — aplicações deste portão.
-- Skill [decisao-arquitetural](../ia/agentes/claude/skills/decisao-arquitetural/SKILL.md) — quando a escolha vira ADR.
-- Skill [levantamento-requisitos](../ia/agentes/claude/skills/levantamento-requisitos/SKILL.md) — o portão de porte equivalente para funcionalidade.
+- Skill [decisao-arquitetural](../ia/agentes/skills/decisao-arquitetural/SKILL.md) — quando a escolha vira ADR.
+- Skill [levantamento-requisitos](../ia/agentes/skills/levantamento-requisitos/SKILL.md) — o portão de porte equivalente para funcionalidade.

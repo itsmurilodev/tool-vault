@@ -7,8 +7,7 @@ ia/
 ├── conceitos/   # teoria — vale para qualquer LLM
 ├── personas/    # texto que você cola em qualquer agente
 ├── regras/      # regras de comportamento (Global/Workspace Rules)
-└── agentes/     # específico de cada agente
-    └── claude/  # skills, conectores, configuração
+└── agentes/     # ecossistema de agentes, conectores e skills operacionais
 ```
 
 `ia/regras/global-rules.md` é o **canônico de comportamento**: o que vale por padrão em qualquer agente. Persona é escalada deliberada além desse padrão, e só registra o que difere dele. Skill é método executável empacotado no formato de um agente.
@@ -47,8 +46,7 @@ ia/
 
 ## Atalhos
 
-- [Panorama dos agentes](agentes/README.md) — critério do que é portável e o que não é.
-- [Claude](agentes/claude/README.md) — skills, conectores e configuração.
+- [Agentes & Skills](agentes/README.md) — skills operacionais, conectores e configuração.
 
 ---
 

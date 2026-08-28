@@ -42,10 +42,10 @@ Como o software é escrito e estruturado: código, arquitetura, padrões, testes
 
 ## Artefatos relacionados
 
-- Skill [clean-code](../ia/agentes/claude/skills/clean-code/SKILL.md) — versão operacional do estudo, aplicada ao escrever código.
-- Skill [decisao-arquitetural](../ia/agentes/claude/skills/decisao-arquitetural/SKILL.md) — método de ADR para decisão estrutural.
-- Skill [levantamento-requisitos](../ia/agentes/claude/skills/levantamento-requisitos/SKILL.md) — o que fazer antes de começar a implementar.
-- Skill [heuristicas-nielsen](../ia/agentes/claude/skills/heuristicas-nielsen/SKILL.md) — usabilidade aplicada a interface.
+- Skill [clean-code](../ia/agentes/skills/clean-code/SKILL.md) — versão operacional do estudo, aplicada ao escrever código.
+- Skill [decisao-arquitetural](../ia/agentes/skills/decisao-arquitetural/SKILL.md) — método de ADR para decisão estrutural.
+- Skill [levantamento-requisitos](../ia/agentes/skills/levantamento-requisitos/SKILL.md) — o que fazer antes de começar a implementar.
+- Skill [heuristicas-nielsen](../ia/agentes/skills/heuristicas-nielsen/SKILL.md) — usabilidade aplicada a interface.
 
 ---
 

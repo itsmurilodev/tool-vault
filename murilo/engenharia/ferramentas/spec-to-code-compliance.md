@@ -67,7 +67,7 @@ Gere o relatório em spec-compliance/REPORT.md com a matriz de alinhamento.
 
 ## ⚖️ 4. Sinergia com as Skills do Vault
 
-* **Skill [levantamento-requisitos](../../ia/agentes/claude/skills/levantamento-requisitos/SKILL.md)**: Gera o `SPEC.md` / PRD estruturado antes de implementar.
+* **Skill [levantamento-requisitos](../../ia/agentes/skills/levantamento-requisitos/SKILL.md)**: Gera o `SPEC.md` / PRD estruturado antes de implementar.
 
 * **`spec-to-code-compliance`**: Audita se o código gerado após o desenvolvimento respeitou o `SPEC.md` sem sofrer desvios (*scope drift*).
 * **[[clean-code]]**: Garante que o código auditado seja mantido limpo e sustentável.
@@ -79,4 +79,4 @@ Gere o relatório em spec-compliance/REPORT.md com a matriz de alinhamento.
 * [[semgrep-guardian]] — análise estática de segurança complementar.
 * [[adocao-de-ferramenta]] — portão de adoção técnica.
 * [[qualidade-automatizada]] — testes determinísticos de regressão.
-* [levantamento-requisitos](../../ia/agentes/claude/skills/levantamento-requisitos/SKILL.md) — elicitação e estruturação de requisitos.
+* [levantamento-requisitos](../../ia/agentes/skills/levantamento-requisitos/SKILL.md) — elicitação e estruturação de requisitos.

@@ -139,5 +139,5 @@ jobs:
 * [[adocao-de-ferramenta]] — portão de adoção técnica de ferramentas.
 * [[qualidade-automatizada]] — Biome, Knip, Playwright e camadas de qualidade.
 * [[clean-code]] — padrões de sustentabilidade e clareza de código.
-* [react-doctor](../../ia/agentes/claude/skills/react-doctor/SKILL.md) — skill operacional para agentes de IA auditarem código React.
+* [react-doctor](../../ia/agentes/skills/react-doctor/SKILL.md) — skill operacional para agentes de IA auditarem código React.
 * [[impeccable]] — linter determinístico para design e estética de UI.

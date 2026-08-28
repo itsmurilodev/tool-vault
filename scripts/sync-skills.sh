@@ -13,7 +13,7 @@
 set -euo pipefail
 
 DIRETORIO_VAULT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-DIRETORIO_ORIGEM="$DIRETORIO_VAULT/murilo/ia/agentes/claude/skills"
+DIRETORIO_ORIGEM="$DIRETORIO_VAULT/murilo/ia/agentes/skills"
 DIRETORIO_DESTINO="${CLAUDE_SKILLS_DIR:-$HOME/.claude/skills}"
 
 APLICAR=false

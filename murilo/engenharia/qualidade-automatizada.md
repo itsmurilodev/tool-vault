@@ -68,7 +68,7 @@ Pular direto para 3 e 4 é o erro clássico: instalar auditoria de teste antes d
 
 - [[adocao-de-ferramenta]] — o portão de estágio.
 - [[clean-code]] — Knip automatiza a parte de código morto; Biome, a de formatação e regra básica.
-- Skill [clean-code](../ia/agentes/claude/skills/clean-code/SKILL.md).
+- Skill [clean-code](../ia/agentes/skills/clean-code/SKILL.md).
 
 ## 📚 Fontes
 

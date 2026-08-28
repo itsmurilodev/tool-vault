@@ -136,7 +136,7 @@ def validar_frontmatter_das_notas(notas, problemas):
 
 
 def validar_skills(problemas):
-    for caminho in sorted(glob("murilo/ia/agentes/claude/skills/*/SKILL.md")):
+    for caminho in sorted(glob("murilo/ia/agentes/skills/*/SKILL.md")):
         partes = caminho.replace(os.sep, "/").split("/")
         pasta = partes[-2]
         dados, erro = ler_frontmatter(open(caminho, encoding="utf-8").read())
@@ -159,7 +159,7 @@ def validar_skills(problemas):
                 "SKILL.md aceita só name e description"
             )
 
-    for pasta in sorted(glob("murilo/ia/agentes/claude/skills/*/")):
+    for pasta in sorted(glob("murilo/ia/agentes/skills/*/")):
         if not os.path.isfile(os.path.join(pasta, "SKILL.md")):
             problemas.append(f"{pasta}: pasta de skill sem SKILL.md")
 

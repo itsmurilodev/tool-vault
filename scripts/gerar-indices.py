@@ -26,10 +26,10 @@ FIM = "<!-- FIM:INDICE -->"
 INDICES = [
     ("murilo/README.md", "murilo"),
     ("murilo/ia/README.md", "murilo/ia"),
+    ("murilo/ia/agentes/README.md", "murilo/ia/agentes"),
     ("murilo/engenharia/README.md", "murilo/engenharia"),
     ("murilo/engenharia/infra/README.md", "murilo/engenharia/infra"),
     ("murilo/engenharia/ferramentas/README.md", "murilo/engenharia/ferramentas"),
-    ("murilo/ia/agentes/claude/README.md", "murilo/ia/agentes/claude"),
     ("async/README.md", "async"),
     ("async/negocio/README.md", "async/negocio"),
 ]
@@ -44,7 +44,6 @@ ROTULOS = {
     "github": "GitHub",
     "ia": "IA & Agentes",
     "adr": "Decisões (ADR)",
-    "agentes/claude": "Agentes › Claude",
     "agentes": "Agentes",
     "perfil": "Perfil & Modus Operandi",
     "estudos": "Estudos & Faculdade",

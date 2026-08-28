@@ -88,4 +88,4 @@ Para manter as issues concisas e orientadas à ação (tanto para você quanto p
 
 - [[padrao-de-repositorios]] — nomenclatura dos repositórios.
 - [[adocao-de-ferramenta]] — por que este item é o único da categoria que não precisa de portão.
-- Skill [levantamento-requisitos](../../../ia/agentes/claude/skills/levantamento-requisitos/SKILL.md) — o que entra numa issue de funcionalidade.
+- Skill [levantamento-requisitos](../../../ia/agentes/skills/levantamento-requisitos/SKILL.md) — o que entra numa issue de funcionalidade.

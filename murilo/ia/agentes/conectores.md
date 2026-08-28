@@ -93,5 +93,5 @@ Trate a lista de conectores como dependência de projeto: revise a cada poucos m
 ## Ver também
 
 - [Configuração e automação do Claude](configuracao.md)
-- [Observabilidade](../../../engenharia/infra/observabilidade.md) — o conector do Sentry só faz sentido depois de decidir a plataforma
+- [Observabilidade](../../engenharia/infra/observabilidade.md) — o conector do Sentry só faz sentido depois de decidir a plataforma
 - Fontes: [Anthropic Connectors Directory FAQ](https://support.claude.com/en/articles/11596036-anthropic-connectors-directory-faq) · [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp) · [Remote MCP support in Claude Code](https://claude.com/blog/claude-code-remote-mcp) · [modelcontextprotocol.io](https://modelcontextprotocol.io/docs/develop/connect-remote-servers)

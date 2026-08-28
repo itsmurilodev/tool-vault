@@ -64,7 +64,7 @@ Regra: **uma plataforma, instrumentada por OpenTelemetry.**
 
 - [[adocao-de-ferramenta]] — o portão que decide se isso é para agora.
 - [[analytics-de-produto]] — PostHog também rastreia erro (100 mil eventos/mês no free tier); a divisão atual é Sentry para "quebrou onde" e PostHog para "onde o usuário desistiu", não redundância.
-- [Conectores do Claude](../../ia/agentes/claude/conectores.md) — existe conector de Sentry, útil depois que a plataforma estiver escolhida.
+- [Conectores do Claude](../../ia/agentes/conectores.md) — existe conector de Sentry, útil depois que a plataforma estiver escolhida.
 
 ## 📚 Fontes
 

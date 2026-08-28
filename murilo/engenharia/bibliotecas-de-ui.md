@@ -112,7 +112,7 @@ Cuidado prático: o catálogo é cheio de efeito chamativo (bounce, flip, jello)
 
 - [[adocao-de-ferramenta]] — o portão de estágio.
 - [[geracao-de-ui-por-ia]] — quando é a IA que escreve o componente, incluindo o MCP do 21st.dev e o do shadcn.
-- Skill [heuristicas-nielsen](../ia/agentes/claude/skills/heuristicas-nielsen/SKILL.md) — visibilidade de status, reconhecimento vs memorização e consistência aplicadas a componente.
+- Skill [heuristicas-nielsen](../ia/agentes/skills/heuristicas-nielsen/SKILL.md) — visibilidade de status, reconhecimento vs memorização e consistência aplicadas a componente.
 
 ## 📚 Fontes
 

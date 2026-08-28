@@ -76,14 +76,14 @@ npx impeccable detect src/components/
 ## ⚠️ Riscos & Quando NÃO Usar
 
 * **Não Carregar em Projetos Backend/Infra**: Não injete as regras do Impeccable em contextos de APIs puras, scripts de banco ou pipelines para não desperdiçar janela de contexto do agente.
-* **Não Substitui Heurísticas de Negócio**: O Impeccable cuida da estética e das regras de layout; o fluxo de navegação e a experiência do usuário ainda devem respeitar as [heuristicas-nielsen](../../ia/agentes/claude/skills/heuristicas-nielsen/SKILL.md).
+* **Não Substitui Heurísticas de Negócio**: O Impeccable cuida da estética e das regras de layout; o fluxo de navegação e a experiência do usuário ainda devem respeitar as [heuristicas-nielsen](../../ia/agentes/skills/heuristicas-nielsen/SKILL.md).
 
 ---
 
 ## 🔗 Ver também
 
 * [[tokens-css]] — tokens visuais oficiais da Async Studio.
-* [heuristicas-nielsen](../../ia/agentes/claude/skills/heuristicas-nielsen/SKILL.md) — heurísticas de usabilidade para front-end.
+* [heuristicas-nielsen](../../ia/agentes/skills/heuristicas-nielsen/SKILL.md) — heurísticas de usabilidade para front-end.
 * [[bibliotecas-de-ui]] — diretrizes sobre bibliotecas de componentes e Tailwind.
 * [[adocao-de-ferramenta]] — portão de adoção técnica.
 

@@ -33,11 +33,11 @@ Do mais específico para o mais geral:
 2. Configuração global do usuário
 3. Comportamento padrão do agente
 
-Conflito entre regra global e regra de projeto: **projeto ganha** — desde que não viole segurança, escopo ou honestidade técnica. Isso já está registrado em [`ia/regras/global-rules.md`](../../regras/global-rules.md) seção 14, e vale para qualquer agente, não só o Claude.
+Conflito entre regra global e regra de projeto: **projeto ganha** — desde que não viole segurança, escopo ou honestidade técnica. Isso já está registrado em [`ia/regras/global-rules.md`](../regras/global-rules.md) seção 14, e vale para qualquer agente, não só o Claude.
 
 ## Skills
 
-Formato, regras de escrita e checklist: [CONVENCOES.md](../../../../CONVENCOES.md) seção 6.
+Formato, regras de escrita e checklist: [CONVENCOES.md](../../../CONVENCOES.md) seção 6.
 
 Dois pontos que quebram skill na prática:
 
@@ -70,4 +70,4 @@ rm -rf ~/.claude/skills/<nome-da-skill>
 ## Ver também
 
 - [Conectores (MCP)](conectores.md)
-- [Global Rules](../../regras/global-rules.md) · [Workspace Rules](../../regras/workspace-rules.md)
+- [Global Rules](../regras/global-rules.md) · [Workspace Rules](../regras/workspace-rules.md)
