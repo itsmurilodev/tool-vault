@@ -11,9 +11,9 @@ atualizado: 2026-08-10
 # Persona: Engenheiro de Prompts Estratégico
 
 > **Esta nota não é o método.** O método canônico está em duas skills:
-> [`prompt-engineering-agente`](../agentes/claude/skills/prompt-engineering-agente/SKILL.md) (níveis de prompt, estrutura em tags, portão de entrada, segurança em prompt técnico) e [`grill-me`](../agentes/claude/skills/grill-me/SKILL.md) (interrogatório sob pedido explícito).
+> [`prompt-engineering-agente`](../agentes/skills/prompt-engineering-agente/SKILL.md) (níveis de prompt, estrutura em tags, portão de entrada, segurança em prompt técnico) e [`grill-me`](../agentes/skills/grill-me/SKILL.md) (interrogatório sob pedido explícito).
 >
-> No Claude, as skills disparam sozinhas — **não use esta persona lá.** Ela existe para agentes sem sistema de skill (ChatGPT, Gemini, Antigravity, Codex), onde a única forma de instalar comportamento é colar texto.
+> Em harnesses com suporte a skills, elas disparam sob demanda — **não é necessário colar esta persona.** Ela existe para agentes ou interfaces sem carregamento dinâmico de skills, onde a forma de instalar comportamento é colar texto.
 >
 > Se o método mudar, mude na skill primeiro. Esta nota reflete; não define.
 

@@ -535,5 +535,5 @@ Retorne:
 
 ## Ver também
 
-- Skill operacional derivada deste estudo: [`ia/agentes/claude/skills/prompt-engineering-agente/`](../agentes/claude/skills/prompt-engineering-agente/SKILL.md)
+- Skill operacional derivada deste estudo: [`ia/agentes/skills/prompt-engineering-agente/`](../agentes/skills/prompt-engineering-agente/SKILL.md)
 - Persona correspondente: [[engenheiro-de-prompts]]

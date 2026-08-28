@@ -81,10 +81,10 @@ Em fluxos tradicionais, desenvolvedores inseriam regras completas de design no p
 No ecossistema do Murilo e da Async Studio, a adoção de UI Skills segue diretrizes claras:
 
 1. **Conexão com Níveis de Automação:** Enquadra-se no **Nível 2** de [[geracao-de-ui-por-ia]] (geração e refinamento de componentes sob medida com revisão obrigatória).
-2. **Curadoria Estática de Skills:** Novas skills de UI devem ser avaliadas pelo [[adocao-de-ferramenta]] e mantidas em `murilo/ia/agentes/claude/skills/` (ex: a skill operacional [impeccable-ui](../agentes/claude/skills/impeccable-ui/SKILL.md) e a nota técnica [[impeccable]]).
+2. **Curadoria Estática de Skills:** Novas skills de UI devem ser avaliadas pelo [[adocao-de-ferramenta]] e mantidas em `murilo/ia/agentes/skills/` (ex: a skill operacional [impeccable-ui](../agentes/skills/impeccable-ui/SKILL.md) e a nota técnica [[impeccable]]).
 3. **Régua Tripla de Revisão:** Todo componente gerado via UI Skill deve ser validado contra:
    - [[clean-code]] (nomes com intenção, responsabilidade única, tratamento de erro).
-   - [heuristicas-nielsen](../agentes/claude/skills/heuristicas-nielsen/SKILL.md) (visibilidade de status, prevenção de erros e consistência).
+   - [heuristicas-nielsen](../agentes/skills/heuristicas-nielsen/SKILL.md) (visibilidade de status, prevenção de erros e consistência).
    - [[tokens-css]] e [[paleta-de-cores]] (aderência à identidade visual da Async Studio).
 
 ---

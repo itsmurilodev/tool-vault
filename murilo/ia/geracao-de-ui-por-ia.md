@@ -38,8 +38,8 @@ O 21st AI gera componentes em variantes a partir de descrição em linguagem nat
 
 Aqui entra o risco real, e ele não é técnico — é de **revisão**. Código gerado chega pronto, bonito e plausível, e é exatamente por isso que passa sem leitura. As duas réguas que você já tem existem para esse momento:
 
-- **[clean-code](agentes/claude/skills/clean-code/SKILL.md)** — o componente gerado tem nome que revela intenção? Erro tratado? Responsabilidade única? Código de IA tende a nomes genéricos e a `catch` vazio.
-- **[heuristicas-nielsen](agentes/claude/skills/heuristicas-nielsen/SKILL.md)** — tem estado de loading, de vazio e de erro? Foco de teclado funciona? Rótulo junto do ícone? Gerador otimiza o caso feliz; os outros estados costumam sair faltando.
+- **[clean-code](agentes/skills/clean-code/SKILL.md)** — o componente gerado tem nome que revela intenção? Erro tratado? Responsabilidade única? Código de IA tende a nomes genéricos e a `catch` vazio.
+- **[heuristicas-nielsen](agentes/skills/heuristicas-nielsen/SKILL.md)** — tem estado de loading, de vazio e de erro? Foco de teclado funciona? Rótulo junto do ícone? Gerador otimiza o caso feliz; os outros estados costumam sair faltando.
 
 Regra: **componente gerado entra pela mesma porta que componente copiado de catálogo** — o de [[bibliotecas-de-ui]]. É código de origem externa, e você assume a manutenção dele.
 
@@ -61,7 +61,7 @@ Onde nível 3 é honestamente bom: **provar uma ideia rápido**, mostrar algo cl
 - **Tratar os três níveis como a mesma decisão.** Adotar MCP de instalação é barato e reversível; adotar plataforma de geração de app é decisão de arquitetura.
 - **Não revisar porque "a IA fez".** Código gerado tem a mesma dívida de código escrito — só chega mais rápido e com aparência melhor, o que reduz a chance de alguém olhar.
 - **Promover protótipo a produto.** O código de nível 3 foi otimizado para existir, não para ser mantido.
-- **Confundir velocidade de geração com velocidade de entrega.** O gargalo raramente é escrever o componente; é decidir o que construir. Isso é escopo de [levantamento-requisitos](agentes/claude/skills/levantamento-requisitos/SKILL.md), e nenhuma dessas ferramentas toca nisso.
+- **Confundir velocidade de geração com velocidade de entrega.** O gargalo raramente é escrever o componente; é decidir o que construir. Isso é escopo de [levantamento-requisitos](agentes/skills/levantamento-requisitos/SKILL.md), e nenhuma dessas ferramentas toca nisso.
 
 ## ✅ Como aplicar
 
@@ -72,7 +72,7 @@ Onde nível 3 é honestamente bom: **provar uma ideia rápido**, mostrar algo cl
 | Quero validar uma ideia de app em um fim de semana | **3** — desde que fique claro que é protótipo descartável |
 | Vou construir produto para manter | **1 e 2** dentro do seu projeto. Nível 3 não |
 
-Sobre ligar o MCP: vale o custo de contexto já registrado em [conectores do Claude](agentes/claude/conectores.md) — cada servidor ativo injeta as definições de ferramenta em toda conversa. MCP de UI ligado num projeto de back-end é peso morto.
+Sobre ligar o MCP: vale o custo de contexto já registrado em [conectores de agentes](agentes/conectores.md) — cada servidor ativo injeta as definições de ferramenta em toda conversa. MCP de UI ligado num projeto de back-end é peso morto.
 
 ## 🔗 Ver também
 

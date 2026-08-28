@@ -87,4 +87,4 @@ Qualquer um destes sinais:
 
 - [[observabilidade]] — a análise comparativa que embasa esta decisão.
 - [[adocao-de-ferramenta]] — o portão de estágio aplicado aqui.
-- Skill [decisao-arquitetural](../../murilo/ia/agentes/claude/skills/decisao-arquitetural/SKILL.md) — o método usado para escrever esta ADR.
+- Skill [decisao-arquitetural](../../murilo/ia/agentes/skills/decisao-arquitetural/SKILL.md) — o método usado para escrever esta ADR.

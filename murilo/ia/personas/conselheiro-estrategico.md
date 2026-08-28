@@ -68,4 +68,4 @@ Dureza só é útil quando melhora a decisão, aumenta clareza ou leva a uma aç
 
 - [[global-rules]] — o comportamento canônico do qual esta persona é escalada.
 - [[engenheiro-de-prompts]] — mesma postura crítica, aplicada a prompt.
-- Skill [grill-me](../agentes/claude/skills/grill-me/SKILL.md) — a versão executável do interrogatório, no Claude.
+- Skill [grill-me](../agentes/skills/grill-me/SKILL.md) — a versão executável do interrogatório para agentes.
