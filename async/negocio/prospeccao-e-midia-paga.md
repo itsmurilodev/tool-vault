@@ -75,7 +75,7 @@ Conectar essas ferramentas ao Claude não substitui o processo — remove o pass
 
 Windsor.ai tem MCP próprio, que envia dado de marketing direto para o assistente. Útil para perguntar "qual canal caiu semana passada" sem abrir o painel. Continua valendo o pré-requisito: precisa haver canal e verba.
 
-E vale o custo geral de conector já registrado em [conectores do Claude](../../murilo/ia/agentes/claude/conectores.md): cada conector ativo ocupa contexto em toda conversa e amplia a superfície de injeção. Conector de vendas ligado "para quando eu precisar" cobra esse preço todos os dias.
+E vale o custo geral de conector já registrado em [conectores de agentes](../../murilo/ia/agentes/conectores.md): cada conector ativo ocupa contexto em toda conversa e amplia a superfície de injeção. Conector de vendas ligado "para quando eu precisar" cobra esse preço todos os dias.
 
 ## ✅ Caminho de adoção
 
@@ -90,7 +90,7 @@ Reavalie a cada trimestre. O portão que hoje diz "ainda não" é o mesmo que um
 ## 🔗 Ver também
 
 - [[adocao-de-ferramenta]] — o portão genérico de estágio, do qual esta nota é uma aplicação.
-- [Conectores do Claude](../../murilo/ia/agentes/claude/conectores.md) — custo de manter conector ligado.
+- [Conectores de agentes](../../murilo/ia/agentes/conectores.md) — custo de manter conector ligado.
 
 ## 📚 Fontes
 

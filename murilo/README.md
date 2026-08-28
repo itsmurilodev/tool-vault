@@ -55,10 +55,10 @@
 
 - [Geração de UI e de app por IA — os três níveis](ia/geracao-de-ui-por-ia.md) — Os três níveis — instalar componente, gerar componente, gerar app — com risco e reversibilidade de cada um.
 
-### IA & Agentes › Agentes › Claude
+### IA & Agentes › Agentes
 
-- [Conectores do Claude (MCP)](ia/agentes/claude/conectores.md) — Conector é MCP remoto que roda na infra da Anthropic; custo de contexto e critério para conectar.
-- [Configuração e automação do Claude](ia/agentes/claude/configuracao.md) — Qual instrução vai para CLAUDE.md, qual vira skill e qual precisa ser hook. *(rascunho)*
+- [Conectores do Claude (MCP)](ia/agentes/conectores.md) — Conector é MCP remoto que roda na infra da Anthropic; custo de contexto e critério para conectar.
+- [Configuração e automação do Claude](ia/agentes/configuracao.md) — Qual instrução vai para CLAUDE.md, qual vira skill e qual precisa ser hook. *(rascunho)*
 
 ### IA & Agentes › Conceitos
 

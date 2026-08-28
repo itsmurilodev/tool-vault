@@ -35,6 +35,9 @@ Formato e regras de escrita de skill: [CONVENCOES.md](../../../CONVENCOES.md) se
 
 <!-- INICIO:INDICE (gerado por scripts/gerar-indices.py — não editar à mão) -->
 
+- [Conectores do Claude (MCP)](conectores.md) — Conector é MCP remoto que roda na infra da Anthropic; custo de contexto e critério para conectar.
+- [Configuração e automação do Claude](configuracao.md) — Qual instrução vai para CLAUDE.md, qual vira skill e qual precisa ser hook. *(rascunho)*
+
 <!-- FIM:INDICE -->
 
 ---
