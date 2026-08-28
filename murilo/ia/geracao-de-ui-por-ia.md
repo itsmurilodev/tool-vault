@@ -76,6 +76,7 @@ Sobre ligar o MCP: vale o custo de contexto já registrado em [conectores do Cla
 
 ## 🔗 Ver também
 
+- [[skill-ui]] — padrão de UI Skills para agentes, arquitetura SKILL.md e combate a AI slop.
 - [[bibliotecas-de-ui]] — o catálogo que os níveis 1 e 2 consomem, e as regras de ícone e movimento.
 - [[adocao-de-ferramenta]] — o portão de estágio.
 - [[conectores]] — custo de manter servidor MCP ligado.

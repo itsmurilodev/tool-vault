@@ -58,6 +58,7 @@ Apesar da arquitetura otimizada, a navegação web autônoma por IA carrega rest
 
 ## 🔗 Ver também
 
+* [[playwright-mcp]] — servidor MCP oficial da Microsoft para automação de browser por agentes via ARIA snapshot.
 * [[qualidade-automatizada]] — testes determinísticos com Playwright e Vitest.
 * [[adocao-de-ferramenta]] — portão de adoção técnica.
 * [[geracao-de-ui-por-ia]] — níveis de automação de interface por IA.

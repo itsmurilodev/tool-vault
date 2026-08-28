@@ -27,8 +27,11 @@
 ### Engenharia › Ferramentas
 
 - [Impeccable — Linter Determinístico e Design System para UI por IA](engenharia/ferramentas/impeccable.md) — Ferramenta de 59 regras determinísticas e comandos de design para eliminar padrões genéricos ('AI slop') e polir interfaces no front-end.
+- [React Doctor — Auditoria Estática e Profiling de Anti-Patterns em React](engenharia/ferramentas/react-doctor.md) — Scanner em Rust (Oxlint) e profiler de DevTools para diagnosticar gargalos de render, anti-patterns de estado/efeitos e guiar agentes de IA.
+- [React Scan — Detecção Automática de Re-renders e Profiling Visual](engenharia/ferramentas/react-scan.md) — Ferramenta zero-config de profiling e auditoria de re-renders no React via Canvas overlay e interceptação de Fiber.
 - [Semgrep Guardian & Semgrep MCP — SAST para Agentes de Código](engenharia/ferramentas/semgrep-guardian.md) — Auditoria estática de segurança integrada ao loop de agentes de IA, bloqueando vulnerabilidades em tempo real antes do commit.
 - [Spec to Code Compliance — Auditoria Determinística de Requisitos por IA](engenharia/ferramentas/spec-to-code-compliance.md) — Plugin da Trail of Bits para verificação formal de conformidade entre especificações (SPEC.md/PRD) e código implementado.
+- [Strix — Pentest Autônomo e Validação Dinâmica de Segurança por IA](engenharia/ferramentas/strix.md) — Framework open-source de agentes de IA para descoberta, exploração ativa e validação via PoC de vulnerabilidades em aplicações.
 
 ### Engenharia › Ferramentas › GitHub
 
@@ -60,8 +63,11 @@
 ### IA & Agentes › Conceitos
 
 - [Agent-Browser — Automação e Navegação Web para Agentes de IA](ia/conceitos/agent-browser.md) — Arquitetura Rust/Node.js de navegação autônoma por IA com sistema ref-based, limitações de latência e comparação com Playwright.
+- [Context7 — Injeção de Documentação Atualizada para Agentes (MCP e Skills)](ia/conceitos/context7.md) — Arquitetura do Context7 da Upstash, protocolo MCP de 2 passos, redução de context bloat (~65%), benefícios, riscos operacionais e matriz de decisão.
 - [Find Skills — Descoberta de Extensões e Riscos de Inchaço de Contexto](ia/conceitos/find-skills.md) — Análise da CLI npx skills (skills.sh) e diretrizes de defesa contra prompt bloating e injeção de dependências em agentes.
+- [Playwright para Agentes — MCP vs. CLI (Automação de Browser e Economia de Tokens)](ia/conceitos/playwright-mcp.md) — Comparação arquitetural entre Playwright MCP (JSON-RPC) e Playwright CLI (Shell/Skills), análise de consumo de tokens (114k vs 27k) e matriz de decisão.
 - [Prompt Engineering — estudo](ia/conceitos/prompt-engineering.md) — Instruções claras, delimitadores, formato de saída e avaliação iterativa.
+- [Skill UI — Engenharia de Contexto para Interfaces e Geração de Front-end](ia/conceitos/skill-ui.md) — Padrão de UI Skills para agentes de IA: arquitetura SKILL.md, injeção progressiva, combate a AI slop e governança de contexto.
 
 ### IA & Agentes › Personas
 

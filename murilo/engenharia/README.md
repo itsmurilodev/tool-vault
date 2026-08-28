@@ -14,8 +14,11 @@ Como o software é escrito e estruturado: código, arquitetura, padrões, testes
 ### Ferramentas
 
 - [Impeccable — Linter Determinístico e Design System para UI por IA](ferramentas/impeccable.md) — Ferramenta de 59 regras determinísticas e comandos de design para eliminar padrões genéricos ('AI slop') e polir interfaces no front-end.
+- [React Doctor — Auditoria Estática e Profiling de Anti-Patterns em React](ferramentas/react-doctor.md) — Scanner em Rust (Oxlint) e profiler de DevTools para diagnosticar gargalos de render, anti-patterns de estado/efeitos e guiar agentes de IA.
+- [React Scan — Detecção Automática de Re-renders e Profiling Visual](ferramentas/react-scan.md) — Ferramenta zero-config de profiling e auditoria de re-renders no React via Canvas overlay e interceptação de Fiber.
 - [Semgrep Guardian & Semgrep MCP — SAST para Agentes de Código](ferramentas/semgrep-guardian.md) — Auditoria estática de segurança integrada ao loop de agentes de IA, bloqueando vulnerabilidades em tempo real antes do commit.
 - [Spec to Code Compliance — Auditoria Determinística de Requisitos por IA](ferramentas/spec-to-code-compliance.md) — Plugin da Trail of Bits para verificação formal de conformidade entre especificações (SPEC.md/PRD) e código implementado.
+- [Strix — Pentest Autônomo e Validação Dinâmica de Segurança por IA](ferramentas/strix.md) — Framework open-source de agentes de IA para descoberta, exploração ativa e validação via PoC de vulnerabilidades em aplicações.
 
 ### Ferramentas › GitHub
 

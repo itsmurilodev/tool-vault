@@ -48,6 +48,7 @@ tool-vault/
 - [Clean Code — estudo](murilo/engenharia/clean-code.md) — Legibilidade, nomes, responsabilidade única, duplicação, tratamento de erro e overengineering.
 - [Conectores do Claude (MCP)](murilo/ia/agentes/claude/conectores.md) — Conector é MCP remoto que roda na infra da Anthropic; custo de contexto e critério para conectar.
 - [Configuração e automação do Claude](murilo/ia/agentes/claude/configuracao.md) — Qual instrução vai para CLAUDE.md, qual vira skill e qual precisa ser hook. *(rascunho)*
+- [Context7 — Injeção de Documentação Atualizada para Agentes (MCP e Skills)](murilo/ia/conceitos/context7.md) — Arquitetura do Context7 da Upstash, protocolo MCP de 2 passos, redução de context bloat (~65%), benefícios, riscos operacionais e matriz de decisão.
 - [Ecossistema de UI copy-paste — componentes, ícones e movimento](murilo/engenharia/bibliotecas-de-ui.md) — shadcn como núcleo, catálogos (Cult UI, Skiper UI, 21st.dev, coss ui), ícones Phosphor, Animista e princípios de movimento.
 - [Email transacional — Resend](murilo/engenharia/infra/email-transacional.md) — Resend cobre uma lacuna real (confirmação de cadastro, notificação, recuperação de senha) sem redundância com nada já adotado — dos itens do reel, é dos poucos que passam no portão agora.
 - [Find Skills — Descoberta de Extensões e Riscos de Inchaço de Contexto](murilo/ia/conceitos/find-skills.md) — Análise da CLI npx skills (skills.sh) e diretrizes de defesa contra prompt bloating e injeção de dependências em agentes.
@@ -62,12 +63,17 @@ tool-vault/
 - [Padrão de nomes de repositórios GitHub](murilo/engenharia/ferramentas/github/padrao-de-repositorios.md) — Prefixos oficiais e formato `<contexto>-<projeto>-<tipo>` em kebab-case.
 - [Persona — Conselheiro Estratégico Direto](murilo/ia/personas/conselheiro-estrategico.md) — Escalada deliberada da postura crítica além do padrão; o comportamento base vive em global-rules.
 - [Persona — Engenheiro de Prompts Estratégico](murilo/ia/personas/engenheiro-de-prompts.md) — Postura crítica para trabalhar prompt; o método canônico vive nas skills, aqui fica só o bloco colável.
+- [Playwright para Agentes — MCP vs. CLI (Automação de Browser e Economia de Tokens)](murilo/ia/conceitos/playwright-mcp.md) — Comparação arquitetural entre Playwright MCP (JSON-RPC) e Playwright CLI (Shell/Skills), análise de consumo de tokens (114k vs 27k) e matriz de decisão.
 - [Portless — Proxy Reverso Local e Domínios Estáticos com HTTPS](murilo/engenharia/infra/portless.md) — Substitui portas localhost caóticas por domínios estáticos e seguros (*.localhost) para facilitar desenvolvimento de múltiplos serviços e agentes.
 - [Portão de adoção de ferramenta](murilo/engenharia/adocao-de-ferramenta.md) — Como avaliar ferramenta nova, principalmente a que veio de conteúdo viral, antes de colocar no stack.
 - [Prompt Engineering — estudo](murilo/ia/conceitos/prompt-engineering.md) — Instruções claras, delimitadores, formato de saída e avaliação iterativa.
 - [Qualidade automatizada — lint, código morto, testes e contrato de arquitetura](murilo/engenharia/qualidade-automatizada.md) — Biome, Knip, Playwright, Codecov, Stryker e contrato de arquitetura, em ordem de adoção por custo.
+- [React Doctor — Auditoria Estática e Profiling de Anti-Patterns em React](murilo/engenharia/ferramentas/react-doctor.md) — Scanner em Rust (Oxlint) e profiler de DevTools para diagnosticar gargalos de render, anti-patterns de estado/efeitos e guiar agentes de IA.
+- [React Scan — Detecção Automática de Re-renders e Profiling Visual](murilo/engenharia/ferramentas/react-scan.md) — Ferramenta zero-config de profiling e auditoria de re-renders no React via Canvas overlay e interceptação de Fiber.
 - [Semgrep Guardian & Semgrep MCP — SAST para Agentes de Código](murilo/engenharia/ferramentas/semgrep-guardian.md) — Auditoria estática de segurança integrada ao loop de agentes de IA, bloqueando vulnerabilidades em tempo real antes do commit.
+- [Skill UI — Engenharia de Contexto para Interfaces e Geração de Front-end](murilo/ia/conceitos/skill-ui.md) — Padrão de UI Skills para agentes de IA: arquitetura SKILL.md, injeção progressiva, combate a AI slop e governança de contexto.
 - [Spec to Code Compliance — Auditoria Determinística de Requisitos por IA](murilo/engenharia/ferramentas/spec-to-code-compliance.md) — Plugin da Trail of Bits para verificação formal de conformidade entre especificações (SPEC.md/PRD) e código implementado.
+- [Strix — Pentest Autônomo e Validação Dinâmica de Segurança por IA](murilo/engenharia/ferramentas/strix.md) — Framework open-source de agentes de IA para descoberta, exploração ativa e validação via PoC de vulnerabilidades em aplicações.
 - [Supabase como backend-as-a-service — o teto real do free tier](murilo/engenharia/infra/backend-como-servico.md) — 500 MB de banco, 50 mil MAU e pausa após 7 dias de inatividade: os números concretos que decidem quando sair do free tier do Supabase.
 - [Workspace Rules — regras locais de projeto](murilo/ia/regras/workspace-rules.md) — Como e onde escrever regra específica de projeto.
 
