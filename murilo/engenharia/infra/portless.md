@@ -87,4 +87,5 @@ https://minha-loja.localhost
 
 * [[adocao-de-ferramenta]] — critérios de estágio e necessidade real.
 * [[app-asynchub]] — monorepo com potencial sinergia para proxy local.
+* Skill [portless-dev](../../ia/agentes/claude/skills/portless-dev/SKILL.md) — execução operacional de servidores locais para agentes.
 
