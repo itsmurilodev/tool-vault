@@ -44,6 +44,7 @@ Antes de avaliar Pinecone ou pgvector, responda: **existe uma feature descrita**
 ## 🔗 Ver também
 
 - [[backend-como-servico]] — o Supabase que já cobre isso sem custo adicional.
+- [[graphiti]] — grafos de conhecimento temporal e memória dinâmica para agentes quando a busca vetorial simples não basta.
 - [[adocao-de-ferramenta]] — o portão que impede adotar infraestrutura antes do requisito existir.
 
 ## 📚 Fontes
