@@ -19,6 +19,7 @@ Como o software é escrito e estruturado: código, arquitetura, padrões, testes
 - [Semgrep Guardian & Semgrep MCP — SAST para Agentes de Código](ferramentas/semgrep-guardian.md) — Auditoria estática de segurança integrada ao loop de agentes de IA, bloqueando vulnerabilidades em tempo real antes do commit.
 - [Spec to Code Compliance — Auditoria Determinística de Requisitos por IA](ferramentas/spec-to-code-compliance.md) — Plugin da Trail of Bits para verificação formal de conformidade entre especificações (SPEC.md/PRD) e código implementado.
 - [Strix — Pentest Autônomo e Validação Dinâmica de Segurança por IA](ferramentas/strix.md) — Framework open-source de agentes de IA para descoberta, exploração ativa e validação via PoC de vulnerabilidades em aplicações.
+- [SyncPay — Infraestrutura de Pagamentos, Pix, Recorrência e Automação via MCP](ferramentas/sync-pay.md) — Gateway de pagamentos focado no mercado brasileiro com Pix instantâneo, Pix Automático, cartão tokenizado, split e servidor MCP nativo para agentes de IA.
 
 ### Ferramentas › GitHub
 

@@ -75,6 +75,7 @@ tool-vault/
 - [Spec to Code Compliance — Auditoria Determinística de Requisitos por IA](murilo/engenharia/ferramentas/spec-to-code-compliance.md) — Plugin da Trail of Bits para verificação formal de conformidade entre especificações (SPEC.md/PRD) e código implementado.
 - [Strix — Pentest Autônomo e Validação Dinâmica de Segurança por IA](murilo/engenharia/ferramentas/strix.md) — Framework open-source de agentes de IA para descoberta, exploração ativa e validação via PoC de vulnerabilidades em aplicações.
 - [Supabase como backend-as-a-service — o teto real do free tier](murilo/engenharia/infra/backend-como-servico.md) — 500 MB de banco, 50 mil MAU e pausa após 7 dias de inatividade: os números concretos que decidem quando sair do free tier do Supabase.
+- [SyncPay — Infraestrutura de Pagamentos, Pix, Recorrência e Automação via MCP](murilo/engenharia/ferramentas/sync-pay.md) — Gateway de pagamentos focado no mercado brasileiro com Pix instantâneo, Pix Automático, cartão tokenizado, split e servidor MCP nativo para agentes de IA.
 - [Workspace Rules — regras locais de projeto](murilo/ia/regras/workspace-rules.md) — Como e onde escrever regra específica de projeto.
 
 ### 🏢 Async Studio (Marca, Produtos & Negócio) → [índice do domínio](async/README.md)
