@@ -14,7 +14,7 @@ O repositório é estruturado em **dois grandes pilares canônicos**:
 tool-vault/
 ├── murilo/                     # PILAR 1: Pessoal, Estudos, Engenharia & IA
 │   ├── perfil/                 #   Modus operandi pessoal e preferências
-│   ├── estudos/                #   Faculdade (disciplinas) e cursos
+│   ├── estudos/                #   Faculdade e cursos (ainda sem notas)
 │   ├── engenharia/             #   Clean code, qualidade, infra e ferramentas
 │   │   ├── infra/              #     Supabase, Sentry, Redis, Resend, etc.
 │   │   └── ferramentas/        #     GitHub Flow, commits, convenções
@@ -28,7 +28,8 @@ tool-vault/
 │   └── negocio/                #   Prospecção B2B, AEO/GEO e estratégias comerciais
 │
 ├── templates/                  # Modelos reutilizáveis para agentes criarem notas
-├── scripts/                    # Automações em Python/Shell e base do MCP Server
+├── scripts/                    # Geração de índice, validação e sync de skills
+├── AGENTS.md                   # Ponto de entrada para agentes de IA (CLAUDE.md aponta para ele)
 └── CONVENCOES.md               # Manual de regras canônicas de escrita
 ```
 
@@ -53,6 +54,7 @@ tool-vault/
 - [Ecossistema de UI copy-paste — componentes, ícones e movimento](murilo/engenharia/bibliotecas-de-ui.md) — shadcn como núcleo, catálogos (Cult UI, Skiper UI, 21st.dev, coss ui), ícones Phosphor, Animista e princípios de movimento.
 - [Email transacional — Resend](murilo/engenharia/infra/email-transacional.md) — Resend cobre uma lacuna real (confirmação de cadastro, notificação, recuperação de senha) sem redundância com nada já adotado — dos itens do reel, é dos poucos que passam no portão agora.
 - [Find Skills — Descoberta de Extensões e Riscos de Inchaço de Contexto](murilo/ia/conceitos/find-skills.md) — Análise da CLI npx skills (skills.sh) e diretrizes de defesa contra prompt bloating e injeção de dependências em agentes.
+- [Fluxo de construção de projetos — os 6 documentos](murilo/engenharia/fluxo-de-construcao-de-projetos.md) — PRD, TRD, Fluxo do app, UI/UX, Esquema backend e Plano de implementação: o que cada um responde, em que ordem e por que existe um portão humano entre eles. *(rascunho)*
 - [Fluxo Issue → PR → commit padronizado](murilo/engenharia/ferramentas/github/fluxo-issue-pr.md) — Disciplina de fluxo, Conventional Commits e commitlint — custo zero, alto retorno.
 - [Geração de UI e de app por IA — os três níveis](murilo/ia/geracao-de-ui-por-ia.md) — Os três níveis — instalar componente, gerar componente, gerar app — com risco e reversibilidade de cada um.
 - [GitHub Issue Creator — Estruturação Automatizada de Chamados](murilo/engenharia/ferramentas/github/github-issue-creator.md) — Skill para conversão de logs e stack traces em issues formatadas no GitHub com sanitização de segredos.
@@ -101,6 +103,10 @@ tool-vault/
 ---
 
 ## 🤖 Usando as Skills com Agentes de IA
+
+Agentes começam por [AGENTS.md](AGENTS.md): protocolo de consulta, rotas por assunto e como conferir se uma nota é confiável.
+
+Para começar um projeto novo, a skill [fluxo-de-projeto](murilo/ia/agentes/skills/fluxo-de-projeto/SKILL.md) conduz os 6 documentos (PRD → TRD → Fluxo do app → UI/UX → Esquema backend → Plano de implementação). Explicação para humanos: [Fluxo de construção de projetos](murilo/engenharia/fluxo-de-construcao-de-projetos.md).
 
 As skills em `murilo/ia/agentes/skills/` seguem o formato padrão de skills (pasta com `SKILL.md` + frontmatter `name`/`description`). Para instalá-las localmente:
 

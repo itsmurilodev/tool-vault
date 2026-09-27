@@ -21,6 +21,7 @@
 
 - [Clean Code — estudo](engenharia/clean-code.md) — Legibilidade, nomes, responsabilidade única, duplicação, tratamento de erro e overengineering.
 - [Ecossistema de UI copy-paste — componentes, ícones e movimento](engenharia/bibliotecas-de-ui.md) — shadcn como núcleo, catálogos (Cult UI, Skiper UI, 21st.dev, coss ui), ícones Phosphor, Animista e princípios de movimento.
+- [Fluxo de construção de projetos — os 6 documentos](engenharia/fluxo-de-construcao-de-projetos.md) — PRD, TRD, Fluxo do app, UI/UX, Esquema backend e Plano de implementação: o que cada um responde, em que ordem e por que existe um portão humano entre eles. *(rascunho)*
 - [Portão de adoção de ferramenta](engenharia/adocao-de-ferramenta.md) — Como avaliar ferramenta nova, principalmente a que veio de conteúdo viral, antes de colocar no stack.
 - [Qualidade automatizada — lint, código morto, testes e contrato de arquitetura](engenharia/qualidade-automatizada.md) — Biome, Knip, Playwright, Codecov, Stryker e contrato de arquitetura, em ordem de adoção por custo.
 

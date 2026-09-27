@@ -25,7 +25,7 @@ DOMINIOS_VALIDOS = {"murilo", "async"}
 STATUS_VALIDOS = {"rascunho", "ativo", "arquivado"}
 
 # Documentação e modelos usam wikilinks e frontmatter como exemplo, não como link real.
-ARQUIVOS_META = {"README.md", "CONVENCOES.md"}
+ARQUIVOS_META = {"README.md", "CONVENCOES.md", "AGENTS.md", "CLAUDE.md"}
 PREFIXOS_IGNORADOS = (".obsidian/", "templates/")
 
 
