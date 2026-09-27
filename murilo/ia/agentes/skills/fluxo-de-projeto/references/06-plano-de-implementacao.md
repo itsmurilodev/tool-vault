@@ -34,6 +34,17 @@ atualizado: AAAA-MM-DD
 >
 > **Sinais de alerta:** tarefa do tipo "implementar o backend"; fase final chamada "ajustes e testes"; nenhum marco demonstrável antes do fim.
 
+## 🎯 Decisões críticas para validar
+
+> [!WARNING]
+> **Preenchido pela IA, respondido por você.** De 1 a 5 pontos deste documento em que um erro agora custa caro depois — porque é difícil de reverter, porque se espalha pelos documentos seguintes ou porque se apoia em hipótese não confirmada. Ponto óbvio não entra. **O documento só é aprovado quando todas as linhas tiverem sua resposta.**
+>
+> _Onde costumam estar neste documento: qual é a primeira fatia vertical · qual incerteza é validada primeiro · os marcos em que você para e revisa._
+
+| # | Decisão ou suposição | Por que pesa no futuro | Se estiver errada… | Recomendação da IA | Sua resposta |
+| :-: | :--- | :--- | :--- | :--- | :--- |
+| 1 | | | | | ⬜ confirmo · ✏️ ajusto: … |
+
 ---
 
 ## 1. Estratégia

@@ -8,7 +8,7 @@ aprovado_em:
 atualizado: AAAA-MM-DD
 ---
 
-# 02 · TRD — {{nome do projeto}}
+# 03 · TRD — {{nome do projeto}}
 
 > [!NOTE]
 > **Sobre este documento — leia antes de preencher ou revisar**
@@ -17,7 +17,7 @@ atualizado: AAAA-MM-DD
 >
 > **Para que serve:** fixar **com o quê** e **sob quais restrições** o sistema será construído, antes do código. Sem ele, cada sessão com a IA reescolhe biblioteca e padrão por gosto, e o projeto vira uma colcha de retalhos.
 >
-> **Vem de:** [PRD](01-prd.md) aprovado (principalmente os RNF). · **Alimenta:** Fluxo (limites técnicos), UI/UX (biblioteca de componentes), Backend (banco, auth), Plano (setup).
+> **Vem de:** [PRD](01-prd.md) (principalmente os RNF) e [Fluxo do app](02-fluxo-do-app.md) (seção *Necessidades técnicas reveladas*), ambos aprovados. · **Alimenta:** UI/UX (biblioteca de componentes), Backend (banco, auth), Plano (setup).
 >
 > **Não entra aqui:** campos de tabela (Backend), telas (UI/UX), ordem de tarefas (Plano).
 
@@ -31,9 +31,21 @@ atualizado: AAAA-MM-DD
 > - [ ] **Versões** foram conferidas na documentação atual, não tiradas da memória da IA.
 > - [ ] **Segurança:** sei onde ficam os segredos, como é a autenticação, quem autoriza o quê, e como tratamos dado pessoal (LGPD).
 > - [ ] Todo **RNF-NN** do PRD tem uma estratégia técnica e uma forma de validar aqui.
+> - [ ] Toda **necessidade técnica** listada no Fluxo (tempo real, upload, notificação, offline…) tem resposta aqui.
 > - [ ] Decisões **difíceis de reverter** viraram ADR (skill `decisao-arquitetural`).
 >
 > **Sinais de alerta:** microsserviço, fila, Kubernetes ou cache num MVP sem tráfego; biblioteca que eu nunca ouvi falar; dois serviços fazendo a mesma coisa (ex.: dois provedores de auth).
+
+## 🎯 Decisões críticas para validar
+
+> [!WARNING]
+> **Preenchido pela IA, respondido por você.** De 1 a 5 pontos deste documento em que um erro agora custa caro depois — porque é difícil de reverter, porque se espalha pelos documentos seguintes ou porque se apoia em hipótese não confirmada. Ponto óbvio não entra. **O documento só é aprovado quando todas as linhas tiverem sua resposta.**
+>
+> _Onde costumam estar neste documento: banco e BaaS · provedor de autenticação · hospedagem e dependência de fornecedor (lock-in) · custo quando sair do free tier._
+
+| # | Decisão ou suposição | Por que pesa no futuro | Se estiver errada… | Recomendação da IA | Sua resposta |
+| :-: | :--- | :--- | :--- | :--- | :--- |
+| 1 | | | | | ⬜ confirmo · ✏️ ajusto: … |
 
 ---
 
@@ -70,9 +82,9 @@ _Explique em prosa o que o diagrama não mostra: onde roda a lógica de negócio
 | :--- | :--- | :--- | :--- | :--- |
 | | | | | |
 
-## 5. Atendimento dos requisitos não funcionais
+## 5. Atendimento dos requisitos não funcionais e das necessidades do Fluxo
 
-| RNF | Estratégia técnica | Como validar |
+| Origem (RNF-NN ou necessidade do Fluxo) | Estratégia técnica | Como validar |
 | :--- | :--- | :--- |
 | RNF-01 | | |
 

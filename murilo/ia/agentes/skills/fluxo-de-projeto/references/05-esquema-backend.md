@@ -17,7 +17,7 @@ atualizado: AAAA-MM-DD
 >
 > **Para que serve:** dado é a parte **mais cara de mudar depois** — uma tabela mal modelada contamina todo o resto. E é aqui que moram as falhas de segurança mais graves (um usuário vendo dado de outro). Fixar antes impede a IA de criar uma tabela nova a cada feature.
 >
-> **Vem de:** [PRD](01-prd.md) (entidades citadas nos RF), [TRD](02-trd.md) (banco, auth) e [Fluxo](03-fluxo-do-app.md) (cada ação lê ou grava algo). · **Alimenta:** Plano (migrations, endpoints) e a implementação.
+> **Vem de:** [PRD](01-prd.md) (entidades citadas nos RF), [Fluxo](02-fluxo-do-app.md) (cada ação lê ou grava algo) e [TRD](03-trd.md) (banco, auth). · **Alimenta:** Plano (migrations, endpoints) e a implementação.
 >
 > **Não entra aqui:** escolha do banco (TRD), aparência (UI/UX), ordem de construção (Plano).
 
@@ -36,6 +36,17 @@ atualizado: AAAA-MM-DD
 > - [ ] Chave secreta (ex.: *service role*) **nunca** vai para o cliente.
 >
 > **Sinais de alerta:** coluna JSON genérica guardando "tudo"; tabela sem dono; endpoint que confia no `user_id` enviado pelo front.
+
+## 🎯 Decisões críticas para validar
+
+> [!WARNING]
+> **Preenchido pela IA, respondido por você.** De 1 a 5 pontos deste documento em que um erro agora custa caro depois — porque é difícil de reverter, porque se espalha pelos documentos seguintes ou porque se apoia em hipótese não confirmada. Ponto óbvio não entra. **O documento só é aprovado quando todas as linhas tiverem sua resposta.**
+>
+> _Onde costumam estar neste documento: as entidades centrais e seus relacionamentos · quem é dono de cada dado (isolamento entre usuários/clientes) · regra de exclusão · dado pessoal guardado._
+
+| # | Decisão ou suposição | Por que pesa no futuro | Se estiver errada… | Recomendação da IA | Sua resposta |
+| :-: | :--- | :--- | :--- | :--- | :--- |
+| 1 | | | | | ⬜ confirmo · ✏️ ajusto: … |
 
 ---
 

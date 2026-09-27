@@ -17,7 +17,7 @@ atualizado: AAAA-MM-DD
 >
 > **Para que serve:** sem ele a IA gera interface genérica ("AI slop") e inconsistente — cada tela com espaçamento, cor e botão diferentes, porque cada sessão decide do zero. Este documento é a regra que o agente segue toda vez que gera front-end.
 >
-> **Vem de:** [Fluxo do app](03-fluxo-do-app.md) (lista de telas e estados), [TRD](02-trd.md) (biblioteca de componentes) e, se existir, a identidade visual da marca. · **Alimenta:** Plano e toda a implementação de front-end.
+> **Vem de:** [Fluxo do app](02-fluxo-do-app.md) (lista de telas e estados), [TRD](03-trd.md) (biblioteca de componentes) e, se existir, a identidade visual da marca. · **Alimenta:** Plano e toda a implementação de front-end.
 >
 > **Não entra aqui:** regra de negócio (PRD), navegação entre telas (Fluxo), dado e permissão (Backend).
 
@@ -34,6 +34,17 @@ atualizado: AAAA-MM-DD
 > - [ ] Passou pelas **heurísticas de Nielsen** (skill `heuristicas-nielsen`).
 >
 > **Sinais de alerta:** gradiente roxo genérico, card dentro de card, emoji no lugar de ícone, fonte padrão sem decisão, "moderno e clean" como único princípio.
+
+## 🎯 Decisões críticas para validar
+
+> [!WARNING]
+> **Preenchido pela IA, respondido por você.** De 1 a 5 pontos deste documento em que um erro agora custa caro depois — porque é difícil de reverter, porque se espalha pelos documentos seguintes ou porque se apoia em hipótese não confirmada. Ponto óbvio não entra. **O documento só é aprovado quando todas as linhas tiverem sua resposta.**
+>
+> _Onde costumam estar neste documento: plataforma prioritária (celular ou desktop) · design system de base · o padrão de navegação principal · a densidade de informação._
+
+| # | Decisão ou suposição | Por que pesa no futuro | Se estiver errada… | Recomendação da IA | Sua resposta |
+| :-: | :--- | :--- | :--- | :--- | :--- |
+| 1 | | | | | ⬜ confirmo · ✏️ ajusto: … |
 
 ---
 

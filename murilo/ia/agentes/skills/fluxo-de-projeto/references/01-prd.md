@@ -35,6 +35,17 @@ atualizado: AAAA-MM-DD
 >
 > **Sinais de alerta:** adjetivo sem número ("rápido", "intuitivo", "escalável"); mais de ~10 *Musts* no MVP; persona genérica ("usuários que querem produtividade").
 
+## 🎯 Decisões críticas para validar
+
+> [!WARNING]
+> **Preenchido pela IA, respondido por você.** De 1 a 5 pontos deste documento em que um erro agora custa caro depois — porque é difícil de reverter, porque se espalha pelos documentos seguintes ou porque se apoia em hipótese não confirmada. Ponto óbvio não entra. **O documento só é aprovado quando todas as linhas tiverem sua resposta.**
+>
+> _Onde costumam estar neste documento: o problema e o usuário escolhidos · o corte do MVP (o que é Must) · a métrica que define sucesso · o que ficou fora do escopo._
+
+| # | Decisão ou suposição | Por que pesa no futuro | Se estiver errada… | Recomendação da IA | Sua resposta |
+| :-: | :--- | :--- | :--- | :--- | :--- |
+| 1 | | | | | ⬜ confirmo · ✏️ ajusto: … |
+
 ---
 
 ## 1. Resumo

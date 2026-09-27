@@ -17,7 +17,7 @@ Pasta [`skills/`](skills/) — skills operacionais padronizadas (pasta com `SKIL
 | [clean-code](skills/clean-code/SKILL.md) | Sempre que houver código sendo escrito, editado ou revisado |
 | [context7](skills/context7/SKILL.md) | Consulta de documentações oficiais versionadas e snippets atualizados via Context7 |
 | [decisao-arquitetural](skills/decisao-arquitetural/SKILL.md) | Escolha estrutural difícil de reverter (ADR) |
-| [fluxo-de-projeto](skills/fluxo-de-projeto/SKILL.md) | Começar projeto novo: 6 docs (PRD → TRD → Fluxo → UI/UX → Backend → Plano) com aprovação humana entre eles |
+| [fluxo-de-projeto](skills/fluxo-de-projeto/SKILL.md) | Começar projeto novo: 6 docs (PRD → Fluxo → TRD → UI/UX → Backend → Plano), um por vez, com validação humana das decisões críticas |
 | [grill-me](skills/grill-me/SKILL.md) | Só sob pedido explícito — interrogatório até a ideia ficar consistente |
 | [heuristicas-nielsen](skills/heuristicas-nielsen/SKILL.md) | Qualquer trabalho de interface / front-end |
 | [impeccable-ui](skills/impeccable-ui/SKILL.md) | Geração, refinamento e auditoria de design/UI (59 regras anti-slop) |

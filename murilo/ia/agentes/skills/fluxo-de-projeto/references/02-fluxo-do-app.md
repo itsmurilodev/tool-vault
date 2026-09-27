@@ -8,7 +8,7 @@ aprovado_em:
 atualizado: AAAA-MM-DD
 ---
 
-# 03 · Fluxo do app — {{nome do projeto}}
+# 02 · Fluxo do app — {{nome do projeto}}
 
 > [!NOTE]
 > **Sobre este documento — leia antes de preencher ou revisar**
@@ -17,9 +17,11 @@ atualizado: AAAA-MM-DD
 >
 > **Para que serve:** é a ponte entre **o que** (PRD), **como aparece** (UI/UX) e **que dado precisa** (Backend). É aqui que aparecem os caminhos esquecidos: erro, lista vazia, sem permissão, cancelar, voltar. A IA tende a implementar só o caminho feliz; este documento obriga os outros.
 >
-> **Vem de:** [PRD](01-prd.md) (cada RF vira pelo menos um fluxo) e [TRD](02-trd.md) (limites técnicos). · **Alimenta:** UI/UX (inventário de telas), Backend (cada ação lê ou grava algo), Plano.
+> **Vem de:** [PRD](01-prd.md) (cada RF vira pelo menos um fluxo). · **Alimenta:** [TRD](03-trd.md) (os fluxos revelam o que a tecnologia precisa suportar: tempo real, notificação, upload, offline, pagamento), UI/UX (inventário de telas), Backend (cada ação lê ou grava algo), Plano.
 >
-> **Não entra aqui:** cor, tamanho, componente visual (UI/UX); tabela e endpoint (Backend).
+> **Por que vem antes do TRD:** o fluxo não depende de tecnologia, mas a escolha de tecnologia depende do fluxo. Decidir a stack antes de saber que o app precisa de notificação em tempo real é escolher no escuro.
+>
+> **Não entra aqui:** tecnologia e biblioteca (TRD); cor, tamanho, componente visual (UI/UX); tabela e endpoint (Backend).
 
 > [!IMPORTANT]
 > **Revisão humana — confira antes de aprovar**
@@ -32,6 +34,17 @@ atualizado: AAAA-MM-DD
 > - [ ] A **tarefa principal** do produto tem o menor número de passos possível — contei os cliques.
 >
 > **Sinais de alerta:** tela que aparece no diagrama e não no inventário (ou vice-versa); fluxo sem estado de erro; "o usuário faz login" sem dizer o que acontece se errar a senha.
+
+## 🎯 Decisões críticas para validar
+
+> [!WARNING]
+> **Preenchido pela IA, respondido por você.** De 1 a 5 pontos deste documento em que um erro agora custa caro depois — porque é difícil de reverter, porque se espalha pelos documentos seguintes ou porque se apoia em hipótese não confirmada. Ponto óbvio não entra. **O documento só é aprovado quando todas as linhas tiverem sua resposta.**
+>
+> _Onde costumam estar neste documento: a jornada da tarefa principal · papéis e permissões · primeiro uso · o que acontece quando algo dá errado no fluxo central._
+
+| # | Decisão ou suposição | Por que pesa no futuro | Se estiver errada… | Recomendação da IA | Sua resposta |
+| :-: | :--- | :--- | :--- | :--- | :--- |
+| 1 | | | | | ⬜ confirmo · ✏️ ajusto: … |
 
 ---
 
@@ -83,15 +96,23 @@ flowchart TD
 
 ## 6. Eventos e notificações
 
-| Evento | Quem é avisado | Canal (e-mail, push, in-app) | FLX |
+| Evento | Quem é avisado | Canal desejado (e-mail, push, in-app) | FLX |
 | :--- | :--- | :--- | :--- |
 | | | | |
 
-## 7. Perguntas em aberto
+## 7. Necessidades técnicas reveladas (entrada para o TRD)
+
+_Tudo que os fluxos exigem e que a tecnologia terá de suportar. Não escolher a solução aqui — só registrar a necessidade._
+
+| Necessidade | Fluxo de origem | Exemplo concreto |
+| :--- | :--- | :--- |
+| _ex.: atualização em tempo real_ | FLX-03 | _o profissional vê o encaixe aparecer sem recarregar_ |
+
+## 8. Perguntas em aberto
 
 - [ ]
 
-## 8. Registro de mudanças
+## 9. Registro de mudanças
 
 | Versão | Data | Mudança | Motivo |
 | :--- | :--- | :--- | :--- |
