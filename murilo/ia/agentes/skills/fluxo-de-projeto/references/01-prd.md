@@ -1,6 +1,7 @@
 ---
 documento: prd
 projeto: "{{nome do projeto}}"
+porte: substancial      # pequeno (só PRD enxuto + Plano) | substancial (os 6)
 status: rascunho        # rascunho → em-revisao → aprovado
 versao: 0.1
 aprovado_por:

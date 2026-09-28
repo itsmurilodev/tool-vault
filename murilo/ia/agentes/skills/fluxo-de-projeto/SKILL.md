@@ -32,6 +32,8 @@ Decidir antes de gerar qualquer coisa. Processo pesado em projeto pequeno é o m
 
 Na dúvida entre pequeno e substancial, fazer **uma** pergunta objetiva ao usuário. Não escolher o porte maior "por segurança". Qualquer que seja o porte, os documentos gerados seguem as mesmas regras abaixo.
 
+**Registrar o porte** no frontmatter do PRD (`porte: pequeno` ou `porte: substancial`). É por ele que uma sessão futura sabe quais documentos existem no projeto.
+
 ## A ordem e por quê
 
 **PRD → Fluxo do app → TRD → UI/UX → Esquema backend → Plano**
@@ -56,9 +58,9 @@ Se o projeto tiver `CLAUDE.md` ou `AGENTS.md`, acrescentar uma linha apontando p
 
 ## Regras de execução
 
-1. **Proibido gerar mais de um documento por vez.** Nem "rascunho rápido dos seis", nem "já adianto o próximo". Antes de começar o documento N, abrir o N-1 e conferir `status: aprovado` no frontmatter. Se não estiver aprovado, parar e dizer isso ao usuário — mesmo que ele peça para pular: nesse caso, explicar o risco em uma frase e pedir confirmação explícita, registrando a decisão no *Registro de mudanças* do documento pulado.
+1. **Proibido gerar mais de um documento por vez.** Nem "rascunho rápido dos seis", nem "já adianto o próximo". Antes de começar um documento, abrir o **anterior previsto para o porte** (no porte pequeno, o anterior do Plano é o PRD) e conferir `status: aprovado` no frontmatter. Se não estiver aprovado, parar e dizer isso ao usuário — mesmo que ele peça para pular: nesse caso, explicar o risco em uma frase e pedir confirmação explícita, registrando a decisão no *Registro de mudanças* do documento pulado.
 2. **Copiar o template inteiro** de `references/` — incluindo os blocos "Sobre este documento", "Revisão humana" e "Decisões críticas". Esses blocos são para o humano; **não apagar nem resumir**.
-3. **Perguntar antes de inventar.** Faltou informação → escrever `❓ PERGUNTA:` no ponto exato e listar em *Perguntas em aberto*. Não preencher lacuna com suposição plausível. Número (meta, custo, prazo, limite) que o usuário não deu é marcado como **hipótese**.
+3. **Perguntar antes de inventar.** No PRD, antes de escrever, fazer **uma rodada curta de até 5 perguntas** com o essencial (problema, quem sente, como resolve hoje, métrica, prazo) — usando `levantamento-requisitos`. Nos demais documentos, partir dos anteriores aprovados e perguntar só o que eles não respondem. Depois disso, o que ainda faltar → escrever `❓ PERGUNTA:` no ponto exato e listar em *Perguntas em aberto*. Não preencher lacuna com suposição plausível. Número (meta, custo, prazo, limite) que o usuário não deu é marcado como **hipótese**.
 4. **IDs rastreáveis.** `RF-NN` e `RNF-NN` nascem no PRD; `TELA-NN` e `FLX-NN` no Fluxo; `T-NN` no Plano. Todo item de um documento posterior cita o ID de onde veio. Item sem origem é escopo inventado — remover ou levar ao PRD.
 5. **Portão de validação das decisões críticas** — ver seção abaixo. Sem ele respondido, o documento não é aprovado.
 6. **Mudança depois de aprovado:** se a implementação exigir mudar uma decisão, atualizar **primeiro o documento de origem**, registrar em *Registro de mudanças*, e avisar os documentos que dependem dele. Se a mudança atinge uma linha de *Decisões críticas*, ela volta para validação do humano. Documento desatualizado é pior que nenhum: o próximo agente vai obedecê-lo.
@@ -100,9 +102,17 @@ Se uma skill da tabela não estiver instalada, seguir sem ela e avisar o usuári
 
 ## Retomar um projeto existente
 
-1. Ler `docs/` na ordem e checar o `status` de cada documento.
+1. Ler o `porte` no frontmatter do PRD e, em seguida, os documentos de `docs/` previstos para esse porte, checando o `status` de cada um.
 2. Continuar do **primeiro documento não aprovado**. Se ele está `em-revisao`, reapresentar as decisões críticas ainda sem resposta.
 3. Se todos estão aprovados, abrir o Plano e pegar a **primeira tarefa `T-NN` não marcada** cujas dependências estão concluídas. Uma tarefa por vez; ao concluir, marcar o checkbox e registrar desvios na seção de progresso.
+
+## Projeto que já tem código, mas não tem docs
+
+Não é "do zero" nem "retomar": é documentar o que existe e decidir o que falta.
+
+1. Antes do PRD, **ler o repositório** (README, `package.json`, estrutura de pastas, esquema do banco/migrations) e listar o que já está implementado.
+2. O que já existe entra nos documentos como **fato com evidência** (caminho do arquivo), não como decisão nova. Nota antiga do vault ou memória da IA não é evidência: se contradiz o código, vale o código, e a contradição vira pergunta.
+3. Decisão já implementada que parece errada **entra nas Decisões críticas**. Estar no código não a torna certa, só mais cara de mudar — dizer quanto.
 
 ## Guardrails
 
