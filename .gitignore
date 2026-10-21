@@ -17,3 +17,6 @@ desktop.ini
 *.tmp
 *.bak
 *~
+
+# Pacote exportado para agentes (gerado por scripts/exportar-pacote.py)
+dist/

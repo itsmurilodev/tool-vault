@@ -26,7 +26,7 @@ STATUS_VALIDOS = {"rascunho", "ativo", "arquivado"}
 
 # Documentação e modelos usam wikilinks e frontmatter como exemplo, não como link real.
 ARQUIVOS_META = {"README.md", "CONVENCOES.md"}
-PREFIXOS_IGNORADOS = (".obsidian/", "templates/")
+PREFIXOS_IGNORADOS = (".obsidian/", "templates/", "dist/")
 
 
 def listar_notas():

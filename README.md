@@ -125,6 +125,7 @@ O script usa symlinks: editar uma skill no vault reflete instantaneamente nos ag
 | `./scripts/gerar-indices.py` | Regenerar automaticamente os índices de todos os READMEs |
 | `./scripts/validar-vault.py` | Validar links quebrados, wikilinks ambíguos e integridade |
 | `./scripts/sync-skills.sh --apply` | Sincronizar skills locais para agentes |
+| `./scripts/exportar-pacote.py` | Gerar `dist/pacote-agentes.zip` (skills + notas de tecnologia + instruções) para o agente de outro projeto avaliar o que adotar |
 
 ---
 
