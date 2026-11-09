@@ -25,6 +25,7 @@ FONTES_TECNOLOGIAS = [
     "murilo/ia/conceitos/*.md",
     "murilo/ia/agentes/conectores.md",
     "murilo/ia/geracao-de-ui-por-ia.md",
+    "murilo/radar/**/*.md",
 ]
 
 NOTA_CRITERIO = "engenharia/adocao-de-ferramenta.md"
@@ -43,7 +44,10 @@ estudadas. Nada aqui deve ser adotado só por estar no pacote.
 2. **Leia o critério de adoção** em `tecnologias/{criterio}` — ele define o portão
    que cada item precisa passar (estágio do produto, custo de setup e manutenção,
    redundância com o que já existe).
-3. **Percorra o `CATALOGO.md`.** Para cada item, leia o arquivo só se o resumo
+3. **Comece pelo radar:** `tecnologias/radar/catalogo-do-radar.md` já traz o veredito
+   (adotar, testar, avaliar, evitar), quando usar, quando não usar e o pré-requisito de
+   cada item avaliado. O protocolo de decisão está em `tecnologias/radar/como-usar-o-radar.md`.
+   Depois **percorra o `CATALOGO.md`.** Para cada item, leia o arquivo só se o resumo
    indicar relação com o projeto. Não carregue tudo no contexto.
 4. **Classifique cada item** em uma das três categorias abaixo, sempre com
    evidência do projeto (arquivo, dependência ou trecho que justifica).

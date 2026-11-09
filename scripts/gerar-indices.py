@@ -30,8 +30,20 @@ INDICES = [
     ("murilo/engenharia/README.md", "murilo/engenharia"),
     ("murilo/engenharia/infra/README.md", "murilo/engenharia/infra"),
     ("murilo/engenharia/ferramentas/README.md", "murilo/engenharia/ferramentas"),
+    ("murilo/radar/README.md", "murilo/radar"),
     ("async/README.md", "async"),
     ("async/negocio/README.md", "async/negocio"),
+]
+
+# Radar: cada tecnologia tem a própria pasta, mas o índice agrupa por categoria
+# (murilo/radar/<categoria>/), para não virar um título por tecnologia.
+PASTA_RADAR = "murilo/radar"
+CATALOGO_RADAR = "murilo/radar/catalogo-do-radar.md"
+ANEIS_RADAR = [
+    ("adotar", "✅ Adotar — usar já"),
+    ("testar", "🧪 Testar — experimentar em um projeto antes de padronizar"),
+    ("avaliar", "⏳ Avaliar — só quando o gatilho aparecer"),
+    ("evitar", "⛔ Evitar — não usar agora"),
 ]
 
 DOMINIOS_RAIZ = [
@@ -54,6 +66,17 @@ ROTULOS = {
     "design-system": "Design System & UI",
     "produtos": "Produtos & ADRs",
     "negocio": "Negócio & Marketing",
+    "radar": "Radar de tecnologias",
+    "verificacao-e-qualidade": "Verificação & Qualidade",
+    "fluxo-com-agentes": "Fluxo com agentes",
+    "plataformas-de-agentes": "Plataformas de agentes",
+    "performance-web": "Performance web",
+    "produto-e-atendimento": "Produto & Atendimento",
+    "produtividade": "Produtividade",
+    "marketing-e-conteudo": "Marketing & Conteúdo",
+    "ferramentas-de-agentes": "Ferramentas de agentes",
+    "seguranca": "Segurança",
+    "infraestrutura": "Infraestrutura",
 }
 
 IGNORADOS = ("templates/", ".obsidian/", "scripts/")
@@ -106,10 +129,57 @@ def listar_notas(diretorio, ignoradas=None):
                 ignoradas.add(caminho)
             continue
 
-        subpasta = os.path.relpath(os.path.dirname(caminho), diretorio).replace(os.sep, "/")
-        chave = "" if subpasta == "." else subpasta
-        grupos.setdefault(chave, []).append((caminho, dados))
+        grupos.setdefault(chave_do_grupo(caminho, diretorio), []).append((caminho, dados))
     return grupos
+
+
+def chave_do_grupo(caminho, diretorio):
+    pasta = os.path.dirname(caminho)
+    if pasta.startswith(PASTA_RADAR + "/"):
+        categoria = pasta[len(PASTA_RADAR) + 1:].split("/")[0]
+        pasta = f"{PASTA_RADAR}/{categoria}"
+    subpasta = os.path.relpath(pasta, diretorio).replace(os.sep, "/")
+    return "" if subpasta == "." else subpasta
+
+
+def celula(valor):
+    texto = " ".join(str(valor or "—").split())
+    return texto.replace("|", "\\|")
+
+
+def montar_catalogo_radar():
+    """Tabela de decisão do radar, montada do frontmatter das fichas (campo `radar`)."""
+    fichas = []
+    for caminho in sorted(glob(f"{PASTA_RADAR}/**/*.md", recursive=True)):
+        caminho = caminho.replace(os.sep, "/")
+        dados = ler_frontmatter(caminho)
+        if dados and dados.get("radar"):
+            fichas.append((caminho, dados))
+    if not fichas:
+        return "_Nenhuma ficha no radar ainda._"
+
+    base = os.path.dirname(CATALOGO_RADAR)
+    blocos = []
+    for anel, titulo_anel in ANEIS_RADAR:
+        itens = [(c, d) for c, d in fichas if d.get("radar") == anel]
+        itens.sort(key=lambda item: (item[1].get("categoria", ""), item[1]["titulo"].lower()))
+        blocos.append(f"### {titulo_anel} ({len(itens)})\n")
+        if not itens:
+            blocos.append("_Nenhum item._\n")
+            continue
+        blocos.append("| Item | Categoria | Natureza | Quando usar | Quando não usar | Pré-requisito |")
+        blocos.append("| --- | --- | --- | --- | --- | --- |")
+        for caminho, dados in itens:
+            nome = dados["titulo"].split(" — ")[0]
+            destino = os.path.relpath(caminho, base).replace(os.sep, "/")
+            categoria = rotulo(dados.get("categoria", ""))
+            blocos.append(
+                f"| [{celula(nome)}]({destino}) | {celula(categoria)} | {celula(dados.get('natureza'))} "
+                f"| {celula(dados.get('quando_usar'))} | {celula(dados.get('quando_nao_usar'))} "
+                f"| {celula(dados.get('pre_requisito'))} |"
+            )
+        blocos.append("")
+    return "\n".join(blocos).strip()
 
 
 def linha_da_nota(caminho, dados, base_do_readme):
@@ -185,6 +255,8 @@ def main():
         if os.path.exists(caminho):
             alvos.append((caminho, montar_indice(diretorio, caminho, ignoradas)))
     alvos.append(("README.md", montar_indice_raiz(ignoradas)))
+    if os.path.exists(CATALOGO_RADAR):
+        alvos.append((CATALOGO_RADAR, montar_catalogo_radar()))
 
     desatualizados, erros = [], []
     for caminho_readme, conteudo in alvos:

@@ -24,6 +24,16 @@ TIPOS_VALIDOS = {"conceito", "referencia", "persona", "regra", "decisao"}
 DOMINIOS_VALIDOS = {"murilo", "async"}
 STATUS_VALIDOS = {"rascunho", "ativo", "arquivado"}
 
+# Radar de tecnologias: ficha é toda nota em murilo/radar/ com o campo `radar`.
+PASTA_RADAR = "murilo/radar/"
+ANEIS_RADAR = {"adotar", "testar", "avaliar", "evitar"}
+NATUREZAS_RADAR = {"ferramenta", "skill", "plataforma", "pratica"}
+CAMPOS_FICHA = {"radar", "categoria", "natureza", "quando_usar", "quando_nao_usar", "pre_requisito"}
+
+# Campos de frontmatter que o Claude Code entende em SKILL.md.
+CAMPOS_SKILL = {"name", "description", "disable-model-invocation", "argument-hint",
+                "allowed-tools", "model", "license"}
+
 # Documentação e modelos usam wikilinks e frontmatter como exemplo, não como link real.
 ARQUIVOS_META = {"README.md", "CONVENCOES.md"}
 PREFIXOS_IGNORADOS = (".obsidian/", "templates/", "dist/")
@@ -126,6 +136,8 @@ def validar_frontmatter_das_notas(notas, problemas):
                     f"{caminho}: {campo}='{valor}' fora dos valores aceitos {sorted(validos)}"
                 )
 
+        if caminho.startswith(PASTA_RADAR) and "radar" in dados:
+            validar_ficha_do_radar(caminho, dados, problemas)
         dominio = dados.get("dominio")
         pasta_raiz = caminho.split("/")[0]
         if dominio in DOMINIOS_VALIDOS and dominio != pasta_raiz:
@@ -133,6 +145,25 @@ def validar_frontmatter_das_notas(notas, problemas):
                 f"{caminho}: dominio='{dominio}' no frontmatter, mas o arquivo está em "
                 f"'{pasta_raiz}/' — nota fora do lugar ou frontmatter errado"
             )
+
+
+def validar_ficha_do_radar(caminho, dados, problemas):
+    faltando = CAMPOS_FICHA - set(dados)
+    if faltando:
+        problemas.append(f"{caminho}: ficha do radar sem {sorted(faltando)}")
+        return
+    if dados.get("radar") not in ANEIS_RADAR:
+        problemas.append(f"{caminho}: radar='{dados.get('radar')}' fora de {sorted(ANEIS_RADAR)}")
+    if dados.get("natureza") not in NATUREZAS_RADAR:
+        problemas.append(
+            f"{caminho}: natureza='{dados.get('natureza')}' fora de {sorted(NATUREZAS_RADAR)}"
+        )
+    categoria_da_pasta = caminho[len(PASTA_RADAR):].split("/")[0]
+    if dados.get("categoria") != categoria_da_pasta:
+        problemas.append(
+            f"{caminho}: categoria='{dados.get('categoria')}', mas a ficha está em "
+            f"'{PASTA_RADAR}{categoria_da_pasta}/'"
+        )
 
 
 def validar_skills(problemas):
@@ -152,11 +183,11 @@ def validar_skills(problemas):
             )
         if "description" not in dados:
             problemas.append(f"{caminho}: sem description — a skill nunca vai disparar")
-        extras = set(dados) - {"name", "description"}
+        extras = set(dados) - CAMPOS_SKILL
         if extras:
             problemas.append(
                 f"{caminho}: campos extras no frontmatter {sorted(extras)} — "
-                "SKILL.md aceita só name e description"
+                f"SKILL.md aceita só {sorted(CAMPOS_SKILL)}"
             )
 
     for pasta in sorted(glob("murilo/ia/agentes/skills/*/")):

@@ -10,7 +10,7 @@ description: Usar sempre que o usuário pedir para gerar, melhorar, revisar ou e
 ## 1. Decida o nível antes de montar o prompt
 
 - **Completo** (todas as tags abaixo): tarefa envolve múltiplos arquivos, mudança de arquitetura, ação irreversível, ou o usuário pediu explicitamente o template cheio.
-- **Compacto** (objetivo + contexto + tarefas + formato_saida): consulta pontual, escopo pequeno, baixo risco.
+- **Compacto** (objetivo + contexto + tarefas + cenarios_de_verificacao + formato_saida): consulta pontual, escopo pequeno, baixo risco. No compacto, 1 a 2 cenários bastam. Em bug fix, o primeiro é sempre o repro.
 - **Nenhum template**: pergunta direta que não é um prompt para terceiros.
 
 Nunca aplique o template completo por padrão — isso contradiz o próprio princípio de prompt enxuto. Declare qual nível está usando e por quê, em uma linha, antes do prompt.
@@ -28,6 +28,9 @@ Nunca aplique o template completo por padrão — isso contradiz o próprio prin
 
 <contexto>
 [Stack, projeto, estado atual, estilo desejado.]
+Ler antes de mexer:
+- [caminho/arquivo] — [por que importa]
+- [doc, ADR ou feature map] — [o que restringe ou descreve]
 </contexto>
 
 <tarefas>
@@ -54,7 +57,17 @@ Nunca aplique o template completo por padrão — isso contradiz o próprio prin
 ## Checklist final
 </formato_saida>
 
+<cenarios_de_verificacao>
+A tarefa só está concluída quando TODOS passarem, com evidência anexada.
+1. Dado [estado] Quando [ação] Então [resultado observável].
+   Evidência: [saída de teste | transcrição/screenshot do verify-<app> | resposta da API | trecho do resultado].
+2. Caso de borda: [entrada vazia | fuso | acento | permissão negada | limite] → [resultado].
+3. Regressão: [o que já funcionava] continua funcionando.
+Se algum cenário não puder ser executado, diga qual e por quê. Não declare concluído.
+</cenarios_de_verificacao>
+
 <validacao_final>
+Autochecagem depois dos cenários (não substitui os cenários):
 - O objetivo foi atendido?
 - As restrições foram respeitadas?
 - A solução é simples e segura?
@@ -70,12 +83,16 @@ Nunca aplique o template completo por padrão — isso contradiz o próprio prin
 </objetivo>
 
 <contexto>
-[Stack e restrição essencial, 1-2 linhas.]
+[Stack e restrição essencial, 1-2 linhas. Arquivo principal com o motivo, se souber.]
 </contexto>
 
 <tarefas>
 [Diagnosticar, corrigir com menor alteração possível, validar.]
 </tarefas>
+
+<cenarios_de_verificacao>
+[1-2 cenários: Dado/Quando/Então + evidência. Sem evidência, não está concluído.]
+</cenarios_de_verificacao>
 
 <formato_saida>
 [Diagnóstico + arquivos alterados + checklist.]
@@ -85,6 +102,8 @@ Nunca aplique o template completo por padrão — isso contradiz o próprio prin
 ## 4. Regras de conteúdo
 
 - Delimitar sempre com tags XML (`<objetivo>`, `<contexto>`, etc.) — funciona bem especificamente com Claude; para outros modelos, testar se markdown puro performa melhor antes de assumir que XML é universal.
+- **Cenário de verificação é fato observável, não autochecagem.** "O objetivo foi atendido?" é opinião do agente. "Agendar às 23h30 em `America/Sao_Paulo` aparece no dia certo" é um teste que alguém roda. Se não der para escrever o primeiro cenário, a tarefa ainda não está entendida: aplique o portão da seção 5 ou a skill `levantamento-requisitos` antes de gerar o prompt. Se o projeto tem `verify-<app>`, cite a jornada do feature map no cenário.
+- **Contexto é ponteiro com motivo, não despejo.** Liste caminho e por que importa. Não cole arquivos ou docs inteiros: o agente abre o que precisar, e o contexto inchado piora o raciocínio.
 - Few-shot: incluir 1-2 exemplos de saída esperada apenas quando o formato exato importa (ex.: padronizar commits, docs, auditorias).
 - **Não pedir "pense passo a passo e mostre todo o raciocínio"** quando o agente-alvo tem raciocínio nativo (Claude com extended thinking, modelos da série o-x, Gemini em modo reasoning) — é redundante e infla a resposta.
 - **Pedir raciocínio antes da conclusão** quando o agente-alvo é um modelo padrão sem essa camada — nesse caso ainda aumenta a precisão de forma mensurável.
@@ -107,7 +126,7 @@ O mínimo, quando a entrada for fraca:
 4. O agente deve analisar, gerar, executar, revisar ou validar?
 5. O que ele **não** pode fazer?
 6. Qual formato de resposta você quer?
-7. Como saber que a resposta ficou boa?
+7. Como saber que a resposta ficou boa? (A resposta vira os `<cenarios_de_verificacao>`.)
 
 Se o usuário responder parcialmente, pressione só o que ainda falta — não repita o formulário inteiro.
 

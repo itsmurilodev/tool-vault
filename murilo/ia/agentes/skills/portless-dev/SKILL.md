@@ -108,5 +108,5 @@ Acionar quando houver erro de conexão, porta presa ou falha no proxy reverso:
 
 ## 🔗 Referências
 
-- Nota de infraestrutura: `murilo/engenharia/infra/portless.md`
+- Nota de infraestrutura: `murilo/radar/infraestrutura/portless/portless.md`
 - Critérios de adoção: `murilo/engenharia/adocao-de-ferramenta.md`
