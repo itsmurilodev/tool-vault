@@ -14,7 +14,7 @@ atualizado: 2026-11-09
 
 <!-- INICIO:INDICE (gerado por scripts/gerar-indices.py — não editar à mão) -->
 
-### ✅ Adotar — usar já (17)
+### ✅ Adotar — usar já (18)
 
 | Item | Categoria | Natureza | Quando usar | Quando não usar | Pré-requisito |
 | --- | --- | --- | --- | --- | --- |
@@ -33,10 +33,11 @@ atualizado: 2026-11-09
 | [Cal.diy](produto-e-atendimento/cal-diy/cal-diy.md) | Produto & Atendimento | ferramenta | Como referência de código ao implementar ou depurar horários, fuso, disponibilidade e conflito de agenda no Encaixe; sendo MIT, dá para reaproveitar um trecho com atribuição. | Como backend do Encaixe ou em produção (o próprio README recomenda uso pessoal, não produção). | Nenhum para leitura do código. |
 | [Semgrep Guardian & Semgrep MCP](seguranca/semgrep-guardian/semgrep-guardian.md) | Segurança | ferramenta | Ao escrever ou revisar back-end, API, rota, banco ou infraestrutura: SAST no loop do agente antes do commit (skill semgrep-scan). | Como substituto de revisão de lógica de negócio e autorização, que SAST não enxerga. | Semgrep local (community, custo zero) e skill semgrep-scan. |
 | [Impeccable](verificacao-e-qualidade/impeccable/impeccable.md) | Verificação & Qualidade | ferramenta | Ao gerar, editar ou auditar UI no front-end para eliminar padrões genéricos de IA (via skill impeccable-ui). | Projeto com design system proprietário que conflita com as regras; back-end puro. | Skill impeccable-ui (já no vault). |
-| [Ponytail](verificacao-e-qualidade/ponytail/ponytail.md) | Verificação & Qualidade | skill | Ao escrever código novo. Já está embutido como escada de decisão na skill clean-code. | Como skill separada junto da clean-code (regras duplicadas carregando juntas); exploração de arquitetura em que abstração é intencional. | Nenhum: já ativo via clean-code. |
+| [Ponytail](verificacao-e-qualidade/ponytail/ponytail.md) | Verificação & Qualidade | skill | Em toda tarefa de código: decide quanto código escrever (escopo, dependência, abstração). Skill ponytail instalada (oficial, commit 96608e0), junto com a clean-code, que cuida da nomenclatura. | Exploração de arquitetura em que a abstração é intencional; quando quiser a resposta completa sem o resumo de riscos no fim (diga stop ponytail). | Nenhum: skill já ligada em ~/.claude/skills. |
+| [pstack](verificacao-e-qualidade/pstack/pstack.md) | Verificação & Qualidade | skill | Chamando /nome quando a situação aparecer (ver a cola na ficha): /bro, /ketchup, /sharpen, /how, /why, /tdd, /correct, /blast-radius, /interrogate, /architect, /arena e outras. 50 das 58 já estão no vault, todas manuais. | poteto-mode (age sem perguntar em ação externa e usa Grok), setup-pstack, poteto-help, make-bot-ui, ketchup-video; statechart e verificação formal só quando houver um fluxo crítico. | Nenhum para chamar. As skills de verificação precisam de app que sobe localmente com seed. |
 | [Spec to Code Compliance](verificacao-e-qualidade/spec-to-code-compliance/spec-to-code-compliance.md) | Verificação & Qualidade | skill | Validar entrega de escopo contra SPEC, PRD ou requisito de cliente antes de dar como pronto. | Tarefa sem especificação escrita; ajuste pequeno sem requisito formal. | Especificação escrita e skill spec-compliance (já no vault). |
 
-### 🧪 Testar — experimentar em um projeto antes de padronizar (5)
+### 🧪 Testar — experimentar em um projeto antes de padronizar (4)
 
 | Item | Categoria | Natureza | Quando usar | Quando não usar | Pré-requisito |
 | --- | --- | --- | --- | --- | --- |
@@ -44,7 +45,6 @@ atualizado: 2026-11-09
 | [Correção de bug com agentes](fluxo-com-agentes/correcao-de-bug-com-agentes/correcao-de-bug-com-agentes.md) | Fluxo com agentes | pratica | Bug reportado (usuário ou tracker) que não é óbvio lendo o código: reproduzir, corrigir com teste falhando antes, provar no app, revisar. | Typo, texto ou estilo; com dado de produção cru; com merge automático sem histórico de autonomia. | verify-<app> no projeto e fixture anonimizada. |
 | [Observabilidade](infraestrutura/observabilidade/observabilidade.md) | Infraestrutura | ferramenta | Rastrear erro de produção com Sentry no free tier instrumentado via OpenTelemetry, conforme o ADR-001 (ainda proposta). | Datadog em produto pré-receita; duas plataformas de erro no mesmo projeto; decidir sem resolver PostHog vs Sentry no ADR-001. | ADR-001 aceito, ou revisado com a opção PostHog error tracking. |
 | [Performance web](performance-web/kit-de-performance-web/performance-web-31-dicas.md) | Performance web | skill | Ao escrever código web (modo padrão da skill performance-web) e quando algo estiver lento (modo auditoria, medindo primeiro). | Aplicar as 31 dicas de uma vez; Redis, fila ou balanceador sem sintoma medido. | Skill performance-web (já criada); para auditoria, o app rodando. |
-| [pstack](verificacao-e-qualidade/pstack/pstack.md) | Verificação & Qualidade | skill | Copiar uma skill isolada quando a dor dela existir: create/maintain-verification-skill (já no vault), typescript-best-practices (bug de tipo recorrente), unslop (texto de PR e docs). | Instalar o pacote inteiro ou o poteto-mode (delega código ao Grok, depende de recursos da Cursor); no-comments sem o resto do pstack. | Para as skills de verificação: app que sobe localmente a partir de banco vazio com seed. |
 
 ### ⏳ Avaliar — só quando o gatilho aparecer (20)
 

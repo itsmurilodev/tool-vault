@@ -32,7 +32,7 @@ CAMPOS_FICHA = {"radar", "categoria", "natureza", "quando_usar", "quando_nao_usa
 
 # Campos de frontmatter que o Claude Code entende em SKILL.md.
 CAMPOS_SKILL = {"name", "description", "disable-model-invocation", "argument-hint",
-                "allowed-tools", "model", "license"}
+                "allowed-tools", "model", "license", "paths"}
 
 # Documentação e modelos usam wikilinks e frontmatter como exemplo, não como link real.
 ARQUIVOS_META = {"README.md", "CLAUDE.md", "AGENTS.md"}

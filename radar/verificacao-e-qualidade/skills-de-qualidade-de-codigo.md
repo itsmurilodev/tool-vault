@@ -60,7 +60,7 @@ No episódio 2 ([[captura-de-erros-para-agentes]]), o auto-merge só vale para c
 
 | Momento | O quê | Ferramenta |
 | --- | --- | --- |
-| **Ao escrever** (sempre) | Minimalismo, nomes, sem abstração especulativa, comentário só com motivo | `clean-code` (já ativa). Incorpore à `clean-code` a **escada de decisão do Ponytail** como referência, em vez de instalar outra skill que diz o mesmo. |
+| **Ao escrever** (sempre) | Minimalismo, nomes, sem abstração especulativa, comentário só com motivo | Skill `ponytail` oficial (quanto escrever) + `clean-code` focada em nomenclatura (como se lê). Decisão revista em 2026-11-09: a escada embutida virou cópia congelada; a skill oficial é mantida e tem mais (escopo, teste mínimo, níveis). |
 | **No CI** (todo PR) | Regras mecânicas: tamanho de arquivo, `any`/`as`, código morto, imports | Biome + Knip + `tsc --strict` + um script para "arquivo > 1.000 linhas" |
 | **Na revisão** (PR de feature ou refactor, não bug fix pequeno) | Desenho, camada, abstração, *code judo* | `/simplify` ou a thermo-nuclear **só em modo relatório**: você aceita achado por achado |
 

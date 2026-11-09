@@ -1,6 +1,6 @@
 ---
 titulo: "Categoria — Verificação & Qualidade"
-resumo: "Página-guia da categoria: como provar que o código do agente funciona (verify-<app>) e como mantê-lo enxuto e legível (clean-code + escada do Ponytail, revisão rígida só em relatório, regras mecânicas no CI)."
+resumo: "Página-guia da categoria: como provar que o código do agente funciona (verify-<app>) e como mantê-lo enxuto e legível (ponytail para quanto escrever, clean-code para nomes, revisão rígida só em relatório, regras mecânicas no CI)."
 tipo: conceito
 dominio: radar
 tags: [murilo/radar, radar/verificacao-e-qualidade, categoria]
@@ -25,7 +25,7 @@ São duas perguntas diferentes:
 
 ```mermaid
 flowchart LR
-    A["Agente escreve código"] --> B["clean-code + escada do Ponytail<br/>(regra ao escrever)"]
+    A["Agente escreve código"] --> B["ponytail (quanto escrever) +<br/>clean-code (nomes)"]
     B --> C["CI: Biome, Knip, tsc --strict<br/>(regras mecânicas)"]
     C --> D["verify-app<br/>(sobe o app e prova)"]
     D --> E{"PR de feature<br/>ou refactor grande?"}
@@ -39,8 +39,8 @@ flowchart LR
 
 | Item | Radar | Quando usar | Ficha |
 | --- | --- | --- | --- |
-| Ponytail (escada de decisão) | ✅ adotar | Ao escrever código. Já está dentro da `clean-code`. | [[ponytail]] |
-| pstack: `create/maintain-verification-skill` | 🧪 testar | Projeto com UI em que o agente diz "pronto" sem provar | [[pstack]] · [[pstack-verificacao]] |
+| Ponytail (skill oficial) | ✅ adotar | Toda tarefa de código: quanto escrever. A `clean-code` cuida dos nomes. | [[ponytail]] |
+| pstack (50 skills manuais: verificação, `/tdd`, `/correct`, `/how`, `/interrogate`…) | ✅ adotar | Chamar `/nome` quando a situação aparecer (cola na ficha) | [[pstack]] · [[pstack-verificacao]] |
 | Impeccable (59 regras de UI) | ✅ adotar | Ao gerar, editar ou auditar UI, para tirar a "cara de IA" | [[impeccable]] |
 | Spec to Code Compliance | ✅ adotar | Validar entrega contra SPEC, PRD ou requisito de cliente | [[spec-to-code-compliance]] |
 | Thermo-nuclear review | ⏳ avaliar | PR grande ou módulo perto de 1.000 linhas, só em relatório | [[thermo-nuclear-review]] |

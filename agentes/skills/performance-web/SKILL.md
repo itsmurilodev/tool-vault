@@ -7,7 +7,7 @@ description: Aplica o kit de performance web do usuário (Next.js/React, rotas d
 
 **Idioma:** comunicação com o usuário em português do Brasil, direta. Identificadores seguem o padrão do projeto.
 
-**Princípio:** padrão barato sempre; remédio caro só com sintoma medido. Nunca aplicar uma lista inteira de otimizações de uma vez — cada mudança de performance precisa caber num diff revisável e, quando for remédio, ter número de antes e depois. Esta skill complementa a `clean-code` (a escada de decisão dela continua valendo: nada de dependência nova para ganhar milissegundos) e não a substitui.
+**Princípio:** padrão barato sempre; remédio caro só com sintoma medido. Nunca aplicar uma lista inteira de otimizações de uma vez — cada mudança de performance precisa caber num diff revisável e, quando for remédio, ter número de antes e depois. Esta skill complementa a `ponytail` (a escada de decisão dela continua valendo: nada de dependência nova para ganhar milissegundos) e a `clean-code` (nomes), sem substituir nenhuma das duas.
 
 Existem dois modos. Escolha um antes de agir.
 

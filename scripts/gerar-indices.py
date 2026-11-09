@@ -253,9 +253,15 @@ def ler_descricao_skill(caminho):
     return " ".join(" ".join(descricao).split()).strip('"')
 
 
+def skill_de_terceiro(caminho_skill_md):
+    """Skill copiada de outro repositório: a pasta tem LICENSE com a marca de cópia sem alteração."""
+    licenca = os.path.join(os.path.dirname(caminho_skill_md), "LICENSE")
+    return os.path.isfile(licenca) and open(licenca, encoding="utf-8").read().startswith("Copiado sem alterações")
+
+
 def montar_tabela_skills():
-    """Tabela das skills de agentes/skills/, lida do frontmatter de cada SKILL.md."""
-    linhas = ["| Skill | Quando dispara |", "| --- | --- |"]
+    """Tabelas das skills de agentes/skills/ (próprias e de terceiros), lidas de cada SKILL.md."""
+    proprias, terceiros = [], []
     for caminho in sorted(glob(f"{PASTA_SKILLS}/*/SKILL.md")):
         caminho = caminho.replace(os.sep, "/")
         nome = caminho.split("/")[-2]
@@ -263,8 +269,15 @@ def montar_tabela_skills():
         if len(descricao) > 180:
             descricao = descricao[:179].rstrip() + "…"
         destino = os.path.relpath(caminho, os.path.dirname(README_SKILLS)).replace(os.sep, "/")
-        linhas.append(f"| [{nome}]({destino}) | {celula(descricao)} |")
-    return "\n".join(linhas)
+        linha = f"| [{nome}]({destino}) | {celula(descricao)} |"
+        (terceiros if skill_de_terceiro(caminho) else proprias).append(linha)
+
+    cabecalho = ["| Skill | Quando dispara |", "| --- | --- |"]
+    return "\n".join(
+        [f"### Suas skills ({len(proprias)})", "", *cabecalho, *proprias, "",
+         f"### Copiadas de terceiros ({len(terceiros)}) — sem alteração; a maioria só roda quando você chama `/nome`",
+         "", *cabecalho, *terceiros]
+    )
 
 
 def aplicar(caminho_readme, conteudo, inicio=INICIO, fim=FIM):

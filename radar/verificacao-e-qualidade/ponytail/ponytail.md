@@ -10,9 +10,9 @@ atualizado: 2026-11-09
 radar: adotar
 categoria: verificacao-e-qualidade
 natureza: skill
-quando_usar: "Ao escrever código novo. Já está embutido como escada de decisão na skill clean-code."
-quando_nao_usar: "Como skill separada junto da clean-code (regras duplicadas carregando juntas); exploração de arquitetura em que abstração é intencional."
-pre_requisito: "Nenhum: já ativo via clean-code."
+quando_usar: "Em toda tarefa de código: decide quanto código escrever (escopo, dependência, abstração). Skill ponytail instalada (oficial, commit 96608e0), junto com a clean-code, que cuida da nomenclatura."
+quando_nao_usar: "Exploração de arquitetura em que a abstração é intencional; quando quiser a resposta completa sem o resumo de riscos no fim (diga stop ponytail)."
+pre_requisito: "Nenhum: skill já ligada em ~/.claude/skills."
 ---
 
 # Ponytail — Engenharia Minimalista e Prevenção de Over-engineering para Agentes de IA
@@ -27,7 +27,7 @@ No [[adocao-de-ferramenta]], o Ponytail é classificado como **Adoção Estraté
 
 > 💡 **Analogia:** Pedir um seletor de data ao agente comum resulta na instalação do `flatpickr`, criação de um wrapper React de 300 linhas, folha de estilos e discussão sobre fusos horários. Com o Ponytail, o agente simplesmente emite `<input type="date">`.
 
-> ✅ **Situação no seu stack (2026-11-09):** a escada atual do Ponytail (6 degraus, do `skills/ponytail/SKILL.md` oficial) foi **incorporada à skill `clean-code`** como um item do modo padrão, com as proteções dele (nunca cortar validação, segurança e acessibilidade). **Não instale o Ponytail como skill separada:** as duas disparam em qualquer tarefa de código e carregariam juntas com regras repetidas. O que só o Ponytail completo traz (níveis lite, full e ultra; sub-skills `ponytail-audit` e `ponytail-debt`) vale se você quiser auditoria de dívida técnica sob demanda. A escada de 7 degraus descrita abaixo é de uma versão anterior.
+> ✅ **Situação no seu stack (2026-11-09):** a skill oficial `ponytail` está instalada em `agentes/skills/ponytail/` (cópia sem alteração do commit `96608e0`, com `LICENSE` MIT). **Divisão de papéis:** o Ponytail decide **quanto** código escrever (escada de 6 degraus, escopo antes de escrever, teste mínimo, comentário `shortcut:`); a `clean-code` decide **como o código se lê**, com foco em nomenclatura PT-BR. O Ponytail não trata de performance de execução: isso é da skill `performance-web`. As sub-skills `ponytail-audit` e `ponytail-debt` não foram instaladas. A escada de 7 degraus descrita abaixo é de uma versão anterior.
 
 ---
 
