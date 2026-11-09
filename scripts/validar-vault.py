@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verifica se o vault segue as convenções de CONVENCOES.md.
+"""Verifica se o vault segue as convenções do CLAUDE.md (seção "Convenções").
 
 Uso:
     ./scripts/validar-vault.py
@@ -21,11 +21,11 @@ except ImportError:
 
 CAMPOS_OBRIGATORIOS = {"titulo", "tipo", "dominio", "tags", "status", "atualizado"}
 TIPOS_VALIDOS = {"conceito", "referencia", "persona", "regra", "decisao"}
-DOMINIOS_VALIDOS = {"murilo", "async"}
+DOMINIOS_VALIDOS = {"radar", "empresa", "agentes", "conhecimento"}
 STATUS_VALIDOS = {"rascunho", "ativo", "arquivado"}
 
-# Radar de tecnologias: ficha é toda nota em murilo/radar/ com o campo `radar`.
-PASTA_RADAR = "murilo/radar/"
+# Radar de tecnologias: ficha é toda nota em radar/ com o campo `radar`.
+PASTA_RADAR = "radar/"
 ANEIS_RADAR = {"adotar", "testar", "avaliar", "evitar"}
 NATUREZAS_RADAR = {"ferramenta", "skill", "plataforma", "pratica"}
 CAMPOS_FICHA = {"radar", "categoria", "natureza", "quando_usar", "quando_nao_usar", "pre_requisito"}
@@ -35,8 +35,8 @@ CAMPOS_SKILL = {"name", "description", "disable-model-invocation", "argument-hin
                 "allowed-tools", "model", "license"}
 
 # Documentação e modelos usam wikilinks e frontmatter como exemplo, não como link real.
-ARQUIVOS_META = {"README.md", "CONVENCOES.md"}
-PREFIXOS_IGNORADOS = (".obsidian/", "templates/", "dist/")
+ARQUIVOS_META = {"README.md", "CLAUDE.md", "AGENTS.md"}
+PREFIXOS_IGNORADOS = (".obsidian/", "modelos/")
 
 
 def listar_notas():
@@ -117,7 +117,7 @@ def validar_frontmatter_das_notas(notas, problemas):
             problemas.append(f"{caminho}: {erro}")
             continue
         if dados is None:
-            problemas.append(f"{caminho}: sem frontmatter (veja CONVENCOES.md seção 4)")
+            problemas.append(f"{caminho}: sem frontmatter (veja a seção Convenções do CLAUDE.md)")
             continue
 
         faltando = CAMPOS_OBRIGATORIOS - set(dados)
@@ -167,7 +167,7 @@ def validar_ficha_do_radar(caminho, dados, problemas):
 
 
 def validar_skills(problemas):
-    for caminho in sorted(glob("murilo/ia/agentes/skills/*/SKILL.md")):
+    for caminho in sorted(glob("agentes/skills/*/SKILL.md")):
         partes = caminho.replace(os.sep, "/").split("/")
         pasta = partes[-2]
         dados, erro = ler_frontmatter(open(caminho, encoding="utf-8").read())
@@ -190,7 +190,7 @@ def validar_skills(problemas):
                 f"SKILL.md aceita só {sorted(CAMPOS_SKILL)}"
             )
 
-    for pasta in sorted(glob("murilo/ia/agentes/skills/*/")):
+    for pasta in sorted(glob("agentes/skills/*/")):
         if not os.path.isfile(os.path.join(pasta, "SKILL.md")):
             problemas.append(f"{pasta}: pasta de skill sem SKILL.md")
 

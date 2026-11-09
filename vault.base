@@ -2,7 +2,7 @@ filters:
   and:
     - tipo
     - not:
-        - file.inFolder("templates")
+        - file.inFolder("modelos")
 properties:
   note.titulo:
     displayName: Título

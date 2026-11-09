@@ -24,21 +24,27 @@ FIM = "<!-- FIM:INDICE -->"
 
 # (README a atualizar, diretório cujas notas ele indexa)
 INDICES = [
-    ("murilo/README.md", "murilo"),
-    ("murilo/ia/README.md", "murilo/ia"),
-    ("murilo/ia/agentes/README.md", "murilo/ia/agentes"),
-    ("murilo/engenharia/README.md", "murilo/engenharia"),
-    ("murilo/engenharia/infra/README.md", "murilo/engenharia/infra"),
-    ("murilo/engenharia/ferramentas/README.md", "murilo/engenharia/ferramentas"),
-    ("murilo/radar/README.md", "murilo/radar"),
-    ("async/README.md", "async"),
-    ("async/negocio/README.md", "async/negocio"),
+    ("radar/README.md", "radar"),
+    ("empresa/README.md", "empresa"),
+    ("empresa/negocio/README.md", "empresa/negocio"),
+    ("agentes/README.md", "agentes"),
+    ("conhecimento/README.md", "conhecimento"),
+    ("conhecimento/ia/README.md", "conhecimento/ia"),
+    ("conhecimento/engenharia/README.md", "conhecimento/engenharia"),
+    ("conhecimento/engenharia/infra/README.md", "conhecimento/engenharia/infra"),
+    ("conhecimento/engenharia/ferramentas/README.md", "conhecimento/engenharia/ferramentas"),
 ]
 
 # Radar: cada tecnologia tem a própria pasta, mas o índice agrupa por categoria
-# (murilo/radar/<categoria>/), para não virar um título por tecnologia.
-PASTA_RADAR = "murilo/radar"
-CATALOGO_RADAR = "murilo/radar/catalogo-do-radar.md"
+# (radar/<categoria>/), para não virar um título por tecnologia.
+PASTA_RADAR = "radar"
+CATALOGO_RADAR = "radar/catalogo-do-radar.md"
+
+# Tabela de skills do agentes/README.md, montada do frontmatter de cada SKILL.md.
+PASTA_SKILLS = "agentes/skills"
+README_SKILLS = "agentes/README.md"
+INICIO_SKILLS = "<!-- INICIO:SKILLS (gerado por scripts/gerar-indices.py — não editar à mão) -->"
+FIM_SKILLS = "<!-- FIM:SKILLS -->"
 ANEIS_RADAR = [
     ("adotar", "✅ Adotar — usar já"),
     ("testar", "🧪 Testar — experimentar em um projeto antes de padronizar"),
@@ -47,8 +53,10 @@ ANEIS_RADAR = [
 ]
 
 DOMINIOS_RAIZ = [
-    ("murilo", "👤 Murilo (Pessoal & Engenharia)"),
-    ("async", "🏢 Async Studio (Marca, Produtos & Negócio)"),
+    ("radar", "📡 Radar — ferramentas e tendências analisadas"),
+    ("empresa", "🏢 Empresa — Async Studio (marca, produtos, negócio)"),
+    ("agentes", "🤖 Agentes — skills, regras e personas"),
+    ("conhecimento", "📚 Conhecimento — estudos, engenharia e IA"),
 ]
 
 # Rótulo legível para subpastas
@@ -62,7 +70,10 @@ ROTULOS = {
     "engenharia": "Engenharia",
     "infra": "Infraestrutura",
     "ferramentas": "Ferramentas",
-    "identidade": "Identidade & Marca",
+    "marca": "Marca & Identidade",
+    "personas": "Personas",
+    "regras": "Regras",
+    "conceitos": "Conceitos",
     "design-system": "Design System & UI",
     "produtos": "Produtos & ADRs",
     "negocio": "Negócio & Marketing",
@@ -79,7 +90,7 @@ ROTULOS = {
     "infraestrutura": "Infraestrutura",
 }
 
-IGNORADOS = ("templates/", ".obsidian/", "scripts/")
+IGNORADOS = ("modelos/", ".obsidian/", "scripts/")
 
 
 def rotulo(caminho_relativo):
@@ -225,17 +236,48 @@ def montar_indice_raiz(ignoradas=None):
     return "\n".join(blocos).strip()
 
 
-def aplicar(caminho_readme, conteudo):
+def ler_descricao_skill(caminho):
+    """`description` do SKILL.md, inclusive em bloco dobrado (`>`), com ou sem PyYAML."""
+    partes = open(caminho, encoding="utf-8").read().split("---\n", 2)
+    if len(partes) < 3:
+        return ""
+    descricao, dentro = [], False
+    for linha in partes[1].splitlines():
+        if linha.startswith("description:"):
+            dentro = True
+            descricao.append(linha.split(":", 1)[1].strip().lstrip(">|").strip())
+        elif dentro and linha.startswith((" ", "\t")):
+            descricao.append(linha.strip())
+        elif dentro:
+            break
+    return " ".join(" ".join(descricao).split()).strip('"')
+
+
+def montar_tabela_skills():
+    """Tabela das skills de agentes/skills/, lida do frontmatter de cada SKILL.md."""
+    linhas = ["| Skill | Quando dispara |", "| --- | --- |"]
+    for caminho in sorted(glob(f"{PASTA_SKILLS}/*/SKILL.md")):
+        caminho = caminho.replace(os.sep, "/")
+        nome = caminho.split("/")[-2]
+        descricao = ler_descricao_skill(caminho)
+        if len(descricao) > 180:
+            descricao = descricao[:179].rstrip() + "…"
+        destino = os.path.relpath(caminho, os.path.dirname(README_SKILLS)).replace(os.sep, "/")
+        linhas.append(f"| [{nome}]({destino}) | {celula(descricao)} |")
+    return "\n".join(linhas)
+
+
+def aplicar(caminho_readme, conteudo, inicio=INICIO, fim=FIM):
     """Substitui o miolo entre marcadores. Devolve (mudou, erro)."""
     if not os.path.isfile(caminho_readme):
         return False, f"{caminho_readme}: arquivo não encontrado"
     original = open(caminho_readme, encoding="utf-8").read()
-    if INICIO not in original or FIM not in original:
-        return False, f"{caminho_readme}: sem os marcadores INICIO:INDICE / FIM:INDICE"
+    if inicio not in original or fim not in original:
+        return False, f"{caminho_readme}: sem os marcadores {inicio} / {fim}"
 
     novo = re.sub(
-        re.escape(INICIO) + r".*?" + re.escape(FIM),
-        lambda _match: f"{INICIO}\n\n{conteudo}\n\n{FIM}",
+        re.escape(inicio) + r".*?" + re.escape(fim),
+        lambda _match: f"{inicio}\n\n{conteudo}\n\n{fim}",
         original,
         flags=re.DOTALL,
     )
@@ -257,10 +299,13 @@ def main():
     alvos.append(("README.md", montar_indice_raiz(ignoradas)))
     if os.path.exists(CATALOGO_RADAR):
         alvos.append((CATALOGO_RADAR, montar_catalogo_radar()))
+    alvos = [(caminho, conteudo, INICIO, FIM) for caminho, conteudo in alvos]
+    if os.path.exists(README_SKILLS):
+        alvos.append((README_SKILLS, montar_tabela_skills(), INICIO_SKILLS, FIM_SKILLS))
 
     desatualizados, erros = [], []
-    for caminho_readme, conteudo in alvos:
-        resultado, erro = aplicar(caminho_readme, conteudo)
+    for caminho_readme, conteudo, inicio, fim in alvos:
+        resultado, erro = aplicar(caminho_readme, conteudo, inicio, fim)
         if erro:
             erros.append(erro)
             continue
