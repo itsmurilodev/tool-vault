@@ -1,11 +1,11 @@
 ---
 titulo: "Categoria — Marketing & Conteúdo"
-resumo: "Página-guia das ferramentas de SEO e produção de conteúdo: OpenSEO (dado de SEO pago por uso) e VoiceStudio (voz local) entram com projeto definido; Open Higgsfield é descartado por licença e risco."
+resumo: "Página-guia das ferramentas de SEO e produção de conteúdo: OpenSEO (dado de SEO pago por uso) e VoiceStudio (voz local) entram com projeto definido; Open Higgsfield é descartado por licença e risco. Métricas de redes sociais: Metricool em teste (MCP grátis para as três redes), Windsor.ai como alternativa paga."
 tipo: conceito
 dominio: radar
 tags: [murilo/radar, radar/marketing-e-conteudo, categoria, marketing]
 status: ativo
-atualizado: 2026-11-09
+atualizado: 2026-11-14
 ---
 
 # Marketing & Conteúdo
@@ -41,6 +41,16 @@ flowchart TD
 | OpenSEO | ⏳ avaliar | Projeto de SEO ou AEO com escopo (ex.: Hamidi) | [[openseo]] |
 | VoiceStudio | ⏳ avaliar | Narração ou dublagem com a sua voz ou com modelo de licença comercial | [[voicestudio]] |
 | Open Higgsfield | ⛔ evitar | Nunca. Use o serviço oficial com a sua chave guardada. | [[open-higgsfield]] |
+| Metricool | 🧪 testar | Métricas D+1/D+7 de Instagram, TikTok e YouTube pelo MCP, plano Free | [[metricool]] |
+| Windsor.ai | 🧪 testar | Métricas por Reel do Instagram (pulo em 3 s, tempo médio, envios); concorre com a Metricool | [[windsor-ai]] |
+| instagram-agent-skill | ⏳ avaliar | Referência de método (auditoria e pesquisa de virais), sem instalar | [[instagram-agent-skill]] |
+| Repli | ⛔ evitar | Não serve para criador: é bot de DM para vendas B2B | [[repli]] |
+| Remotion | ✅ adotar | Motor de render do Fluxo 1 do 05-Editor (vídeo em React) | [[remotion]] |
+| HyperFrames | ⏳ avaliar | Avulso com motion graphics; concorre com o Remotion | [[hyperframes]] |
+| claude-virality-skill | ⏳ avaliar | Checklist de gancho 0–3 s para avulso de tech (TESTE no 05-Editor) | [[claude-virality-skill]] |
+| master-skills | ⏳ avaliar | Referência de revisão de EDL; não instalar | [[master-skills]] |
+
+**Redes sociais, regra de concorrência:** Metricool, Windsor.ai e Buffer se sobrepõem. Use um para métricas (Metricool) e um para postar (Buffer, já integrado ao 05-Editor).
 
 ## 🔗 Relacionados
 
